@@ -22,6 +22,7 @@ namespace YashiAutoShutOff
         public int 判断类型 = 0;
         public int 比较方法 = 0;
         public int CPU核心 = 0;
+        public int 选中的CPU核心 = 0;
 
         public MainWindow()
         {
@@ -217,15 +218,12 @@ namespace YashiAutoShutOff
                         关机模式 = int.Parse(XML操作器.获得XML值("s", "shutdownmode"));
                         类型列表.SelectedIndex = int.Parse(XML操作器.获得XML值("s", "type"));
                         比较列表.SelectedIndex = int.Parse(XML操作器.获得XML值("s", "comparison"));
-                        int cpu = int.Parse(XML操作器.获得XML值("s", "cpu"));
-                        if (cpu > CPU核心选择.Items.Count - 1)
-                        {
-                            cpu = 0;
-                        }
-                        CPU核心选择.SelectedIndex = cpu;
+                        选中的CPU核心 = int.Parse(XML操作器.获得XML值("s", "cpu"));
                         条件输入框.Text = XML操作器.获得XML值("s", "condition");
                         条件多少秒开始1.Value = int.Parse(XML操作器.获得XML值("s", "conditionalwaiting"));
+                        条件多少秒开始2.Text = 条件多少秒开始1.Value.ToString();
                         执行后提示关机时长1.Value = int.Parse(XML操作器.获得XML值("s", "shutdownwaiting"));
+                        执行后提示关机时长2.Text = 执行后提示关机时长1.Value.ToString();
                         强制关机.Checked = bool.Parse(XML操作器.获得XML值("s", "forcedshutdown"));
                         截图保存开关.Checked = bool.Parse(XML操作器.获得XML值("s", "screenshotswitch"));
                         截图保存路径.Text = XML操作器.获得XML值("s", "screenshotfolder");

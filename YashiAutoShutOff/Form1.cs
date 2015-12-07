@@ -22,6 +22,7 @@ namespace YashiAutoShutOff
     {
         System.Diagnostics.Process cmd = null;
         bool cmdrun = false;
+        String viewerexe = "YashiMsgViewer.com";
 
         SystemInfo 系统信息管理类 = new SystemInfo();
         
@@ -53,6 +54,7 @@ namespace YashiAutoShutOff
 #else
             启动或停止系统监视器();
 #endif
+            //启动或停止系统监视器();
         }
 
         private void 主计时器_Tick(object sender, EventArgs e)
@@ -67,7 +69,7 @@ namespace YashiAutoShutOff
                 }
                 catch (Exception 运行异常)
                 {
-                    紧急停止("在尝试更新内存信息时遇到了错误，" + 运行异常.ToString());
+                    紧急停止("在尝试更新内存信息时遇到了错误，" + 运行异常.Message.ToString());
                 }
                 try
                 {
@@ -75,7 +77,7 @@ namespace YashiAutoShutOff
                 }
                 catch (Exception 运行异常)
                 {
-                    紧急停止("在尝试更新磁盘信息时遇到了错误，" + 运行异常.ToString());
+                    紧急停止("在尝试更新磁盘信息时遇到了错误，" + 运行异常.Message.ToString());
                 }
                 try
                 {
@@ -83,7 +85,7 @@ namespace YashiAutoShutOff
                 }
                 catch (Exception 运行异常)
                 {
-                    紧急停止("在尝试更新网络信息时遇到了错误，" + 运行异常.ToString());
+                    紧急停止("在尝试更新网络信息时遇到了错误，" + 运行异常.Message.ToString());
                 }
                 String 系统信息文本 = "遇到了一些错误，信息获取失败。";
                 try
@@ -92,7 +94,7 @@ namespace YashiAutoShutOff
                 }
                 catch (Exception 运行异常)
                 {
-                    紧急停止("系统信息文本合成时遇到了错误，" + 运行异常.ToString());
+                    紧急停止("系统信息文本合成时遇到了错误，" + 运行异常.Message.ToString());
                 }
                 //notifyIcon1.Text = 系统信息文本;
                 //if (主窗口.窗口打开)
@@ -101,7 +103,7 @@ namespace YashiAutoShutOff
                 //}
                 if(cmdrun)
                 {
-                    cmd.StandardInput.WriteLine("cls");
+                    cmd.StandardInput.WriteLine("@cls");
                     string[] strs = 系统信息文本.Split('\n');
                     for (int i = 0; i < strs.Length; i++)
                     {
@@ -241,6 +243,11 @@ namespace YashiAutoShutOff
             {
                 主窗口.CPU核心选择.Items.Add("逻辑处理器 " + i.ToString());
             }
+            if (主窗口.选中的CPU核心 < 主窗口.CPU核心选择.Items.Count)
+            {
+                主窗口.CPU核心选择.SelectedIndex = 主窗口.选中的CPU核心;
+            }
+            
         }
 
         private void 显示主窗口SToolStripMenuItem_Click(object sender, EventArgs e)
@@ -302,7 +309,7 @@ namespace YashiAutoShutOff
             if (!cmdrun)
             {
                 cmd = new System.Diagnostics.Process();
-                cmd.StartInfo.FileName = "YashiMsgViewer.exe";
+                cmd.StartInfo.FileName = viewerexe;
                 cmd.StartInfo.Arguments = "-viewer";
                 cmd.StartInfo.UseShellExecute = false;    //是否使用操作系统shell启动
                 cmd.StartInfo.RedirectStandardInput = true;//接受来自调用程序的输入信息
@@ -319,13 +326,13 @@ namespace YashiAutoShutOff
                     cmd.Start();//启动程序
                     //仅启动系统监视器VToolStripMenuItem.Checked = true;
                     cmdrun = true;
-                    cmd.StandardInput.WriteLine("title 雅诗智能关机 - 实时系统信息");
+                    cmd.StandardInput.WriteLine("@title 雅诗智能关机 - 实时系统信息");
                 }
                 catch
                 {
                     cmdrun = false;
                     仅启动系统监视器VToolStripMenuItem.Enabled = false;
-                    MessageBox.Show("找不到文件 YashiMsgViewer.exe ，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是系统信息查看功能将不可用。","缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("找不到文件 "+ viewerexe +" ，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是系统信息查看功能将不可用。","缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
@@ -338,7 +345,6 @@ namespace YashiAutoShutOff
                 catch
                 {
                     cmdrun = false;
-                    关闭系统监视器();
                     启动或停止系统监视器();
                 }
             }
@@ -353,6 +359,38 @@ namespace YashiAutoShutOff
             cmdrun = false;
             cmd.Close();
             cmd = null;
+        }
+
+        private void 修复Windows性能计数器注册表RToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("将停止所有计时器并完全退出，以便运行修复工具，继续？", "停止", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    cmd.Kill();
+                    关闭系统监视器();
+                }
+                catch
+                {
+                    
+                }
+                try
+                {
+                    cmd = new System.Diagnostics.Process();
+                    cmd.StartInfo.FileName = "YashiAutoShutOffLodctr.exe";
+                    cmd.Start();
+                    主窗口.窗口打开 = false;
+                    主计时器.Enabled = false;
+                    notifyIcon1.Visible = false;
+                    主窗口.Close();
+                    Close();
+                    Application.Exit();
+                }
+                catch
+                {
+                    MessageBox.Show("找不到文件 YashiAutoShutOffLodctr.exe ，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是系统信息查看功能将不可用。", "缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
     }
 }

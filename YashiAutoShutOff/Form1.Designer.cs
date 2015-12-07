@@ -45,6 +45,7 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.退出XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.主计时器 = new System.Windows.Forms.Timer(this.components);
+            this.修复Windows性能计数器注册表RToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,16 +72,17 @@
             this.windows任务管理器ToolStripMenuItem,
             this.取消系统关机计划CToolStripMenuItem,
             this.toolStripMenuItem3,
+            this.修复Windows性能计数器注册表RToolStripMenuItem,
             this.退出XToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(210, 220);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(266, 264);
             // 
             // 显示主窗口SToolStripMenuItem
             // 
             this.显示主窗口SToolStripMenuItem.Enabled = false;
             this.显示主窗口SToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.favicon;
             this.显示主窗口SToolStripMenuItem.Name = "显示主窗口SToolStripMenuItem";
-            this.显示主窗口SToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.显示主窗口SToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.显示主窗口SToolStripMenuItem.Text = "打开/关闭 设置窗口(&S)";
             this.显示主窗口SToolStripMenuItem.Click += new System.EventHandler(this.显示主窗口SToolStripMenuItem_Click);
             // 
@@ -88,19 +90,19 @@
             // 
             this.仅启动系统监视器VToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.favicon;
             this.仅启动系统监视器VToolStripMenuItem.Name = "仅启动系统监视器VToolStripMenuItem";
-            this.仅启动系统监视器VToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.仅启动系统监视器VToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.仅启动系统监视器VToolStripMenuItem.Text = "打开/关闭 系统监视器(&V)";
             this.仅启动系统监视器VToolStripMenuItem.Click += new System.EventHandler(this.仅启动系统监视器VToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(206, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(262, 6);
             // 
             // 暂停PToolStripMenuItem
             // 
             this.暂停PToolStripMenuItem.Name = "暂停PToolStripMenuItem";
-            this.暂停PToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.暂停PToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.暂停PToolStripMenuItem.Text = "暂停(&P)";
             this.暂停PToolStripMenuItem.Click += new System.EventHandler(this.暂停PToolStripMenuItem_Click);
             // 
@@ -109,52 +111,52 @@
             this.标准速度ToolStripMenuItem.Checked = true;
             this.标准速度ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.标准速度ToolStripMenuItem.Name = "标准速度ToolStripMenuItem";
-            this.标准速度ToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.标准速度ToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.标准速度ToolStripMenuItem.Text = "标准速度(&1)";
             this.标准速度ToolStripMenuItem.Click += new System.EventHandler(this.标准速度ToolStripMenuItem_Click);
             // 
             // 高速ToolStripMenuItem
             // 
             this.高速ToolStripMenuItem.Name = "高速ToolStripMenuItem";
-            this.高速ToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.高速ToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.高速ToolStripMenuItem.Text = "高速(&2)";
             this.高速ToolStripMenuItem.Click += new System.EventHandler(this.高速ToolStripMenuItem_Click);
             // 
             // 极速ToolStripMenuItem
             // 
             this.极速ToolStripMenuItem.Name = "极速ToolStripMenuItem";
-            this.极速ToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.极速ToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.极速ToolStripMenuItem.Text = "极速(&3)";
             this.极速ToolStripMenuItem.Click += new System.EventHandler(this.极速ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(206, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(262, 6);
             // 
             // windows任务管理器ToolStripMenuItem
             // 
             this.windows任务管理器ToolStripMenuItem.Name = "windows任务管理器ToolStripMenuItem";
-            this.windows任务管理器ToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.windows任务管理器ToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.windows任务管理器ToolStripMenuItem.Text = "Windows任务管理器(&T)";
             this.windows任务管理器ToolStripMenuItem.Click += new System.EventHandler(this.windows任务管理器ToolStripMenuItem_Click);
             // 
             // 取消系统关机计划CToolStripMenuItem
             // 
             this.取消系统关机计划CToolStripMenuItem.Name = "取消系统关机计划CToolStripMenuItem";
-            this.取消系统关机计划CToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.取消系统关机计划CToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.取消系统关机计划CToolStripMenuItem.Text = "取消系统的关机计划(&C)";
             this.取消系统关机计划CToolStripMenuItem.Click += new System.EventHandler(this.取消系统关机计划CToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(206, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(262, 6);
             // 
             // 退出XToolStripMenuItem
             // 
             this.退出XToolStripMenuItem.Name = "退出XToolStripMenuItem";
-            this.退出XToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.退出XToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.退出XToolStripMenuItem.Text = "完全退出(&X)";
             this.退出XToolStripMenuItem.Click += new System.EventHandler(this.退出XToolStripMenuItem_Click);
             // 
@@ -163,6 +165,13 @@
             this.主计时器.Enabled = true;
             this.主计时器.Interval = 1000;
             this.主计时器.Tick += new System.EventHandler(this.主计时器_Tick);
+            // 
+            // 修复Windows性能计数器注册表RToolStripMenuItem
+            // 
+            this.修复Windows性能计数器注册表RToolStripMenuItem.Name = "修复Windows性能计数器注册表RToolStripMenuItem";
+            this.修复Windows性能计数器注册表RToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+            this.修复Windows性能计数器注册表RToolStripMenuItem.Text = "修复Windows性能计数器注册表(&R)";
+            this.修复Windows性能计数器注册表RToolStripMenuItem.Click += new System.EventHandler(this.修复Windows性能计数器注册表RToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -199,6 +208,7 @@
         private System.Windows.Forms.ToolStripMenuItem 取消系统关机计划CToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem 仅启动系统监视器VToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 修复Windows性能计数器注册表RToolStripMenuItem;
     }
 }
 
