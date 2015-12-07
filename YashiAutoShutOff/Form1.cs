@@ -23,7 +23,6 @@ namespace YashiAutoShutOff
         System.Diagnostics.Process cmd = null;
         bool cmdrun = false;
         String viewerexe = "YashiMsgViewer.com";
-
         SystemInfo 系统信息管理类 = new SystemInfo();
         
         bool 启动完毕 = false;
@@ -188,6 +187,10 @@ namespace YashiAutoShutOff
             返回文本.Append("\n网络每秒接收 " + (系统信息管理类.网络I信息数组[0] / 1024).ToString() + " KB，峰值 " + (系统信息管理类.网络I信息数组[1] / 1024).ToString() + "KB ( " + 系统信息管理类.网络I信息数组[2].ToString() + " % )");
             返回文本.Append("\n网络每秒发送 " + (系统信息管理类.网络O信息数组[0] / 1024).ToString() + " KB，峰值 " + (系统信息管理类.网络O信息数组[1] / 1024).ToString() + "KB ( " + 系统信息管理类.网络O信息数组[2].ToString() + " % )");
             返回文本.Append("\n网络每秒收发 " + (系统信息管理类.网络IO信息数组[0] / 1024).ToString() + " KB，峰值 " + (系统信息管理类.网络IO信息数组[1] / 1024).ToString() + "KB ( " + 系统信息管理类.网络IO信息数组[2].ToString() + " % )");
+            if (SettingLoad.任务启动时间.Length > 0)
+            {
+                返回文本.Append("\n任务启动时间 "+ SettingLoad.任务启动时间);
+            }
             return 返回文本.ToString();
         }
 

@@ -80,6 +80,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingLoad.cs" />
     <Compile Include="SystemInfo.cs" />
     <Compile Include="Xmlio.cs" />
     <EmbeddedResource Include="Form1.resx">

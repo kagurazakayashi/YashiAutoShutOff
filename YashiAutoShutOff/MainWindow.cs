@@ -33,6 +33,10 @@ namespace YashiAutoShutOff
         {
             初始化选择();
             读入默认设置();
+            if (SettingLoad.任务启动时间.Length > 0)
+            {
+                总开关1_Click(sender, e);
+            }
         }
 
         private void 更改模式文字()
@@ -54,11 +58,43 @@ namespace YashiAutoShutOff
             {
                 总开关1.Text = "&ON";
                 总开关 = true;
+                类型列表.Enabled = false;
+                比较列表.Enabled = false;
+                CPU核心选择.Enabled = false;
+                条件输入框.Enabled = false;
+                条件多少秒开始1.Enabled = false;
+                执行后提示关机时长1.Enabled = false;
+                强制关机.Enabled = false;
+                截图保存开关.Enabled = false;
+                截图保存路径.Enabled = false;
+                截图文件夹选择按钮.Enabled = false;
+                导入配置按钮.Enabled = false;
+                导出配置按钮.Enabled = false;
+                关闭事件跟踪程序开关.Enabled = false;
+                关闭事件跟踪程序设置.Enabled = false;
+                条件满足进度.Style = ProgressBarStyle.Continuous;
+                启动任务();
             }
             else
             {
                 总开关1.Text = "&OFF";
                 总开关 = false;
+                类型列表.Enabled = true;
+                比较列表.Enabled = true;
+                CPU核心选择.Enabled = true;
+                条件输入框.Enabled = true;
+                条件多少秒开始1.Enabled = true;
+                执行后提示关机时长1.Enabled = true;
+                强制关机.Enabled = true;
+                截图保存开关.Enabled = true;
+                截图保存路径.Enabled = true;
+                截图文件夹选择按钮.Enabled = true;
+                导入配置按钮.Enabled = true;
+                导出配置按钮.Enabled = true;
+                关闭事件跟踪程序开关.Enabled = true;
+                关闭事件跟踪程序设置.Enabled = true;
+                条件满足进度.Value = 0;
+                条件满足进度.Style = ProgressBarStyle.Marquee;
             }
             开关动画控制器.Enabled = true;
         }
@@ -294,6 +330,23 @@ namespace YashiAutoShutOff
             sw.WriteLine("<shutdowneventtrackerset>"+ 关闭事件跟踪程序设置.SelectedIndex.ToString() + "</shutdowneventtrackerset>");
             sw.WriteLine("</root>");
             sw.Close();
+        }
+
+        private void 启动任务()
+        {
+            SettingLoad.任务启动时间 = DateTime.Now.ToString();
+            SettingLoad.关机模式 = 关机模式;
+            SettingLoad.类型 = 类型列表.SelectedIndex;
+            SettingLoad.比较 = 比较列表.SelectedIndex;
+            SettingLoad.CPU核心 = CPU核心选择.SelectedIndex;
+            SettingLoad.条件 = 条件输入框.Text;
+            SettingLoad.条件多少秒开始 = 条件多少秒开始1.Value;
+            SettingLoad.执行后提示关机时长 = 执行后提示关机时长1.Value;
+            SettingLoad.强制关机 = 强制关机.Checked;
+            SettingLoad.截图保存 = 截图保存开关.Checked;
+            SettingLoad.截图保存路径 = 截图保存路径.Text;
+            SettingLoad.关闭事件跟踪程序开关 = 关闭事件跟踪程序开关.Checked;
+            SettingLoad.关闭事件跟踪程序设置 = 关闭事件跟踪程序设置.SelectedIndex;
         }
     }
 }

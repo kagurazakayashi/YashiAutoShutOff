@@ -494,11 +494,12 @@
             // 
             // 条件满足进度
             // 
+            this.条件满足进度.Enabled = false;
             this.条件满足进度.Location = new System.Drawing.Point(20, 467);
             this.条件满足进度.Name = "条件满足进度";
             this.条件满足进度.Size = new System.Drawing.Size(808, 27);
             this.条件满足进度.Step = 1;
-            this.条件满足进度.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.条件满足进度.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.条件满足进度.TabIndex = 17;
             // 
             // label8
