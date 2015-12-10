@@ -33,6 +33,8 @@ namespace YashiAutoShutOff
         bool 启动完毕 = false;
         form1Delegate 启动任务代理;
         form1CDelegate 主窗体关闭代理;
+        Calc 数值计算器;
+        bool 执行中 = false;
 
         //performanceCounter
 
@@ -46,6 +48,7 @@ namespace YashiAutoShutOff
         private void Form1_Load(object sender, EventArgs e)
         {
             启动窗体.Show();
+            数值计算器 = new Calc(系统信息管理类);
             Console.WriteLine("Form1 init: " + initID);
             主窗口.Show();
             主窗口.窗口打开 = true;
@@ -143,7 +146,7 @@ namespace YashiAutoShutOff
                     }
                 }
 #if DEBUG
-                //Console.WriteLine(系统信息文本);
+                Console.WriteLine(系统信息文本);
 #endif
                 if (!启动完毕)
                 {
@@ -158,6 +161,8 @@ namespace YashiAutoShutOff
         {
             暂停PToolStripMenuItem.Checked = true;
             主窗口.暂停提示.Enabled = true;
+            执行中 = false;
+            SettingLoad.reset();
             DialogResult 错误对话框回复 = MessageBox.Show(错误信息 + "\n计时器和刷新器已经自动暂停。\n建议点击忽略并前往设置页面请检查设置是否正确。", "啊哦，雅诗变得奇怪了", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
             if (错误对话框回复 == DialogResult.Retry)
             {
@@ -175,13 +180,22 @@ namespace YashiAutoShutOff
             StringBuilder 返回文本 = new StringBuilder();
 
             返回文本.Append(DateTime.Now.ToString()+ "\n主处理器 " + 系统信息管理类.处理器内核数数组[0]+ "\n" + 系统信息管理类.处理器内核数数组[1] + " 个物理处理器核心， " + 系统信息管理类.处理器内核数数组[2] + " 个逻辑处理器");
-            for (int 处理器内核遍历计数器 = 0; 处理器内核遍历计数器 <= int.Parse(系统信息管理类.处理器内核数数组[2]); 处理器内核遍历计数器++)
+            SettingLoad.CPU核心数量 = int.Parse(系统信息管理类.处理器内核数数组[2]);
+            if (SettingLoad.CPU核心数量 > 1000)
+            {
+                MessageBox.Show("抱歉，我真没有预料到你会有这么多逻辑处理器。请联系我以为你的处理器提供支持。\n然而你的处理器目前已经超过了本软件的承受范围，即将退出。","处理器计数器已达最大值",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            float[] 处理器分核使用量 = new float[1002];
+            for (int 处理器内核遍历计数器 = 0; 处理器内核遍历计数器 <= SettingLoad.CPU核心数量; 处理器内核遍历计数器++)
             {
                 PerformanceCounter 当前处理器性能计数器 = 系统信息管理类.处理器性能计数器数组[处理器内核遍历计数器];
                 float 当前处理器使用百分比 = 当前处理器性能计数器.NextValue();
-                if (处理器内核遍历计数器 == int.Parse(系统信息管理类.处理器内核数数组[2]))
+                if (处理器内核遍历计数器 == SettingLoad.CPU核心数量)
                 {
                     返回文本.Append("\n处理器总利用率 " + 当前处理器使用百分比.ToString() + "%");
+                    SettingLoad.处理器总使用量 = 当前处理器使用百分比;
+                    SettingLoad.已用内存百分比 = 系统信息管理类.已用内存百分比;
                     if (主窗口.窗口打开)
                     {
                         主窗口.处理器利用率条.Value = (int)(当前处理器使用百分比 * 10000);
@@ -197,9 +211,19 @@ namespace YashiAutoShutOff
                 else
                 {
                     返回文本.Append("\n逻辑处理器 [" + 处理器内核遍历计数器.ToString() + "] 已使用 " + 当前处理器使用百分比.ToString() + "%");
+                    处理器分核使用量[处理器内核遍历计数器] = 当前处理器使用百分比;
                 }
             }
-            
+            SettingLoad.处理器分核使用量 = 处理器分核使用量;
+            SettingLoad.内存信息数组 = 系统信息管理类.内存信息数组;
+            SettingLoad.硬盘I信息数组 = 系统信息管理类.硬盘I信息数组;
+            SettingLoad.硬盘O信息数组 = 系统信息管理类.硬盘O信息数组;
+            SettingLoad.硬盘IO信息数组 = 系统信息管理类.硬盘IO信息数组;
+            SettingLoad.网络I信息数组 = 系统信息管理类.网络I信息数组;
+            SettingLoad.网络O信息数组 = 系统信息管理类.网络O信息数组;
+            SettingLoad.网络IO信息数组 = 系统信息管理类.网络IO信息数组;
+
+
             返回文本.Append("\n内存使用率 " + 系统信息管理类.内存信息数组[2]/1024 + "MB / " + 系统信息管理类.内存信息数组[0] / 1024 + "MB ( " + 系统信息管理类.已用内存百分比 + "% ) ");
             //for (int 硬盘遍历计数器 = 0; 硬盘遍历计数器 < 硬盘性能计数器数组.Count; 硬盘遍历计数器++)
             //{
@@ -220,9 +244,67 @@ namespace YashiAutoShutOff
             返回文本.Append("\n网络每秒接收 " + (系统信息管理类.网络I信息数组[0] / 1024).ToString() + " KB，峰值 " + (系统信息管理类.网络I信息数组[1] / 1024).ToString() + "KB ( " + 系统信息管理类.网络I信息数组[2].ToString() + " % )");
             返回文本.Append("\n网络每秒发送 " + (系统信息管理类.网络O信息数组[0] / 1024).ToString() + " KB，峰值 " + (系统信息管理类.网络O信息数组[1] / 1024).ToString() + "KB ( " + 系统信息管理类.网络O信息数组[2].ToString() + " % )");
             返回文本.Append("\n网络每秒收发 " + (系统信息管理类.网络IO信息数组[0] / 1024).ToString() + " KB，峰值 " + (系统信息管理类.网络IO信息数组[1] / 1024).ToString() + "KB ( " + 系统信息管理类.网络IO信息数组[2].ToString() + " % )");
-            if (SettingLoad.任务启动时间.Length > 0)
+            if (执行中)
             {
                 返回文本.Append("\n任务启动时间 "+ SettingLoad.任务启动时间);
+                返回文本.Append("\n依据：" + SettingLoad.类型列表文本数组[SettingLoad.类型]);
+                返回文本.Append("\n判断：" + SettingLoad.比较方法文本数组[SettingLoad.比较]);
+                返回文本.Append("\n条件：" + SettingLoad.条件);
+                string 满足信息 = "";
+                if (SettingLoad.条件多少秒开始 > 0)
+                {
+                    SettingLoad.当前已满足百分之 = SettingLoad.当前已满足秒 / SettingLoad.条件多少秒开始 * 100;
+                    满足信息 = SettingLoad.当前已满足秒 + " / " + SettingLoad.条件多少秒开始 + " ( " + SettingLoad.当前已满足百分之 + "% )";
+                    返回文本.Append("\n满足：" + 满足信息);
+                } else
+                {
+                    满足信息 = SettingLoad.当前已满足秒 + " / 0 ( 0% )";
+                    返回文本.Append("\n满足：" + 满足信息);
+                }
+                返回文本.Append("\n执行：" + SettingLoad.关机模式文本数组[SettingLoad.关机模式]);
+                
+                int 计算结果 = 数值计算器.计数器加减判断();
+                
+                if (计算结果 == 1) //+1
+                {
+                    SettingLoad.当前已满足秒++;
+                    if (SettingLoad.当前已满足秒 >= SettingLoad.条件多少秒开始)
+                    {
+                        执行中 = false;
+                        SettingLoad.reset();
+                        if (主窗口.窗口打开)
+                        {
+                            主窗口.开关动作(true);
+                        }
+                        //触发关机
+                    }
+                }
+                else if (计算结果 == 0)
+                {
+                    SettingLoad.当前已满足秒 = 0;
+                }
+                else
+                {
+                    string 条件计算发生错误 = "条件计算发生错误，请检查条件输入是否正确";
+                    紧急停止(条件计算发生错误);
+                    return 条件计算发生错误;
+                }
+                if (主窗口.窗口打开)
+                {
+                    if (主窗口.条件满足进度.Maximum != SettingLoad.条件多少秒开始)
+                    {
+                        主窗口.条件满足进度.Maximum = SettingLoad.条件多少秒开始;
+                    }
+                    if (SettingLoad.当前已满足秒 > 主窗口.条件满足进度.Maximum)
+                    {
+                        主窗口.条件满足进度.Value = 主窗口.条件满足进度.Maximum;
+                    }
+                    else
+                    {
+                        主窗口.条件满足进度.Value = SettingLoad.当前已满足秒;
+                    }
+                    主窗口.label10.Text = 满足信息;
+                }
             }
             return 返回文本.ToString();
         }
@@ -301,30 +383,6 @@ namespace YashiAutoShutOff
         {
             暂停PToolStripMenuItem.Checked = !暂停PToolStripMenuItem.Checked;
             主窗口.暂停提示.Enabled = 暂停PToolStripMenuItem.Checked;
-        }
-
-        private void 标准速度ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            标准速度ToolStripMenuItem.Checked = true;
-            高速ToolStripMenuItem.Checked = false;
-            极速ToolStripMenuItem.Checked = false;
-            主计时器.Interval = 1000;
-        }
-
-        private void 高速ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            标准速度ToolStripMenuItem.Checked = false;
-            高速ToolStripMenuItem.Checked = true;
-            极速ToolStripMenuItem.Checked = false;
-            主计时器.Interval = 500;
-        }
-
-        private void 极速ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            标准速度ToolStripMenuItem.Checked = false;
-            高速ToolStripMenuItem.Checked = false;
-            极速ToolStripMenuItem.Checked = true;
-            主计时器.Interval = 100;
         }
 
         private void windows任务管理器ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -437,7 +495,76 @@ namespace YashiAutoShutOff
 
         public void 启动任务(bool 开关)
         {
+            if (开关)
+            {
+                if (SettingLoad.类型 == 0)
+                {
+                    try
+                    {
+                        int 秒数差 = (int)数值计算器.计算秒数差();
+                        SettingLoad.条件多少秒开始 = 秒数差;
+                    }
+                    catch
+                    {
+                        紧急停止("条件时间计算发生错误，请检查条件输入是否正确");
+                    }
+                }
+                执行中 = true;
+            }
+            else
+            {
+                执行中 = false;
+                SettingLoad.reset();
+            }
+        }
 
+        private void 自动关机ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShutdownNow 关机 = new ShutdownNow();
+            关机.立即执行类型 = 1;
+            关机.开始关机();
+        }
+
+        private void 自动重启ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShutdownNow 关机 = new ShutdownNow();
+            关机.立即执行类型 = 2;
+            关机.开始关机();
+        }
+
+        private void 自动休眠ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShutdownNow 关机 = new ShutdownNow();
+            关机.立即执行类型 = 3;
+            关机.开始关机();
+        }
+
+        private void 自动注销ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShutdownNow 关机 = new ShutdownNow();
+            关机.立即执行类型 = 4;
+            关机.开始关机();
+        }
+
+        private void 自动关机并准备快速启动ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShutdownNow 关机 = new ShutdownNow();
+            关机.立即执行类型 = 5;
+            关机.开始关机();
+        }
+
+        private void 自动重启并打开之前的程序ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShutdownNow 关机 = new ShutdownNow();
+            关机.立即执行类型 = 6;
+            关机.开始关机();
+        }
+
+        private void 自动重启并打开高级启动菜单ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShutdownNow 关机 = new ShutdownNow();
+            关机.立即执行类型 = 7;
+            关机.开始关机();
         }
     }
 }

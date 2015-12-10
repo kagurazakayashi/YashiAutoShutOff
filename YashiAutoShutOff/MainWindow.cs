@@ -76,7 +76,7 @@ namespace YashiAutoShutOff
             开关动作(false);
         }
 
-        private void 开关动作(bool 仅动画)
+        public void 开关动作(bool 仅动画)
         {
             开关动画计数器 = 0;
             总开关1.Enabled = false;
@@ -399,6 +399,52 @@ namespace YashiAutoShutOff
                 //窗口打开 = false;
                 主窗体关闭代理(false);
             }
+        }
+
+        private void 类型列表_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            比较列表.Enabled = true;
+            if (类型列表.SelectedIndex == 0)
+            {
+                DateTime 当前的日期 = DateTime.Now;
+                条件输入框.Text = 当前的日期.Year + "-" + 当前的日期.Month + "-" + 当前的日期.Day + "-" + 当前的日期.Hour + "-" + 当前的日期.Minute + "-" + 当前的日期.Second;
+                条件单位.Text = "秒";
+                比较列表.Enabled = false;
+                比较列表.SelectedIndex = 3;
+            }
+            else if (类型列表.SelectedIndex == 1 || 类型列表.SelectedIndex == 2 || 类型列表.SelectedIndex == 3)
+            {
+                条件输入框.Text = "50";
+                条件单位.Text = "%";
+            }
+            else if (类型列表.SelectedIndex == 4 || 类型列表.SelectedIndex == 5)
+            {
+                条件输入框.Text = "1024";
+                条件单位.Text = "MB";
+            }
+            else if (类型列表.SelectedIndex == 6 || 类型列表.SelectedIndex == 7 || 类型列表.SelectedIndex == 8)
+            {
+                条件输入框.Text = "100";
+                条件单位.Text = "次/秒";
+            }
+            else if (类型列表.SelectedIndex == 9 || 类型列表.SelectedIndex == 10 || 类型列表.SelectedIndex == 11)
+            {
+                条件输入框.Text = "512";
+                条件单位.Text = "KB/秒";
+            }
+            else if (类型列表.SelectedIndex == 12 || 类型列表.SelectedIndex == 13)
+            {
+                条件输入框.Text = "explorer.exe";
+                条件单位.Text = "进程名";
+                比较列表.Enabled = false;
+                比较列表.SelectedIndex = 0;
+            }
+        }
+
+        private void 自动重启并打开高级启动菜单ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            关机模式 = 7;
+            更改模式文字();
         }
     }
 }

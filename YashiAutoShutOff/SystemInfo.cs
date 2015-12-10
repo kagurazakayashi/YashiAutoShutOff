@@ -25,6 +25,7 @@ namespace YashiAutoShutOff
         public float[] 网络I信息数组 = new float[3]; //当前，峰值，比例
         public float[] 网络O信息数组 = new float[3]; //当前，峰值，比例
         public float[] 网络IO信息数组 = new float[3]; //当前，峰值，比例
+
         public float 已用内存百分比 = 0;
 
         public void 获得内存信息()
