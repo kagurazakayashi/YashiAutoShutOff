@@ -18,14 +18,21 @@ using System.IO;
 
 namespace YashiAutoShutOff
 {
+    public delegate void form1Delegate(bool 开关);
+    public delegate void form1CDelegate(bool 退出); //关闭窗口或退出
+
     public partial class Form1 : Form
     {
+        public int initID = new Random().Next(0, int.MaxValue);
         System.Diagnostics.Process cmd = null;
         bool cmdrun = false;
         String viewerexe = "YashiMsgViewer.com";
         SystemInfo 系统信息管理类 = new SystemInfo();
-        
+        startscreen 启动窗体 = new startscreen();
+        bool 启动窗体开启 = true;
         bool 启动完毕 = false;
+        form1Delegate 启动任务代理;
+        form1CDelegate 主窗体关闭代理;
 
         //performanceCounter
 
@@ -38,10 +45,18 @@ namespace YashiAutoShutOff
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            启动窗体.Show();
+            Console.WriteLine("Form1 init: " + initID);
             主窗口.Show();
             主窗口.窗口打开 = true;
             this.Visible = false;
             显示主窗口SToolStripMenuItem.Enabled = true;
+
+            启动任务代理 = new form1Delegate(启动任务);
+            主窗口.启动任务代理 = 启动任务代理;
+            主窗体关闭代理 = new form1CDelegate(主窗体关闭);
+            主窗口.主窗体关闭代理 = 主窗体关闭代理;
+
             系统信息管理类.初始化处理器计数器();
             //初始化硬盘IO计数器();
             系统信息管理类.初始化硬盘IO总计数器();
@@ -56,8 +71,26 @@ namespace YashiAutoShutOff
             //启动或停止系统监视器();
         }
 
+        private void 主窗体关闭(bool 退出)
+        {
+            if (退出)
+            {
+                执行退出();
+            } else
+            {
+                显示或隐藏主窗口();
+            }
+        }
+
         private void 主计时器_Tick(object sender, EventArgs e)
         {
+            if (启动窗体开启 && 启动完毕)
+            {
+                主窗口.Opacity = 1;
+                启动窗体.Close();
+                启动窗体开启 = false;
+                启动窗体 = null;
+            }
             主窗口.时间显示.Text = DateTime.Now.ToLongTimeString().ToString();
             if (暂停PToolStripMenuItem.Checked == false)
             {
@@ -110,7 +143,7 @@ namespace YashiAutoShutOff
                     }
                 }
 #if DEBUG
-                Console.WriteLine(系统信息文本);
+                //Console.WriteLine(系统信息文本);
 #endif
                 if (!启动完毕)
                 {
@@ -133,7 +166,7 @@ namespace YashiAutoShutOff
             }
             else if(错误对话框回复 == DialogResult.Abort)
             {
-                退出();
+                执行退出();
             }
         }
 
@@ -196,9 +229,9 @@ namespace YashiAutoShutOff
 
         private void 退出XToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            退出();
+            执行退出();
         }
-        private void 退出()
+        private void 执行退出()
         {
             if (MessageBox.Show("将停止所有计时器并完全退出，继续？", "停止", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -229,13 +262,19 @@ namespace YashiAutoShutOff
         {
             if (主窗口.窗口打开)
             {
-                主窗口.Hide();
+                主窗口.启动任务代理 = null;
+                主窗口.主窗体关闭代理 = null;
+                主窗口.Close();
+                notifyIcon1.ShowBalloonTip(3, "雅诗智能自动关机仍在运行。", "计时器仍然会在后台继续运行，可以在图标上点右键打开主菜单。", ToolTipIcon.Info);
             }
             else
             {
                 主窗口 = new MainWindow();
+                主窗口.启动任务代理 = 启动任务代理;
+                主窗口.主窗体关闭代理 = 主窗体关闭代理;
                 主窗口.Show();
                 重新为设置窗口赋值();
+                主窗口.Opacity = 1;
             }
             主窗口.窗口打开 = !主窗口.窗口打开;
         }
@@ -394,6 +433,11 @@ namespace YashiAutoShutOff
                     MessageBox.Show("找不到文件 YashiAutoShutOffLodctr.exe ，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是系统信息查看功能将不可用。", "缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+        }
+
+        public void 启动任务(bool 开关)
+        {
+
         }
     }
 }

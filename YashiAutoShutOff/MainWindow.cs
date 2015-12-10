@@ -13,16 +13,17 @@ namespace YashiAutoShutOff
 {
     public partial class MainWindow : Form
     {
+        public int initID = new Random().Next(0, int.MaxValue);
         public bool 窗口打开 = false;
         private int 开关动画计数器 = 0;
         public bool 总开关 = false;
-
-        public string[] 关机模式文本数组 = new string[] { "自动提醒", "自动关机", "自动重启", "自动休眠", "自动注销", "自动关机并准备快速启动", "自动重启并打开之前的程序" };
         public int 关机模式 = 1;
         public int 判断类型 = 0;
         public int 比较方法 = 0;
         public int CPU核心 = 0;
         public int 选中的CPU核心 = 0;
+        public form1Delegate 启动任务代理;
+        public form1CDelegate 主窗体关闭代理;
 
         public MainWindow()
         {
@@ -31,25 +32,51 @@ namespace YashiAutoShutOff
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
+            Console.WriteLine("MainWindow init: " + initID);
+            for (short i = 0; i < SettingLoad.类型列表文本数组.Length; i++)
+            {
+                类型列表.Items.Add(SettingLoad.类型列表文本数组[i]);
+            }
+            for (short i = 0; i < SettingLoad.比较方法文本数组.Length; i++)
+            {
+                比较列表.Items.Add(SettingLoad.比较方法文本数组[i]);
+            }
+            for (short i = 0; i < SettingLoad.关机原因文本数组.Length; i++)
+            {
+                关闭事件跟踪程序设置.Items.Add(SettingLoad.关机原因文本数组[i]);
+            }
             初始化选择();
             读入默认设置();
+            if (SettingLoad.以管理员方式运行)
+            {
+                Text += " (管理员)";
+            }
             if (SettingLoad.任务启动时间.Length > 0)
             {
-                总开关1_Click(sender, e);
+                开关动作(true);
             }
         }
 
         private void 更改模式文字()
         {
-            label1.Text = " " + 关机模式文本数组[关机模式] + " ▼";
+            label1.Text = " " + SettingLoad.关机模式文本数组[关机模式] + " ▼";
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            窗口打开 = false;
+            if (窗口打开 && 主窗体关闭代理 != null)
+            {
+                主窗体关闭代理(true);
+                e.Cancel = true;
+            }
         }
 
         private void 总开关1_Click(object sender, EventArgs e)
+        {
+            开关动作(false);
+        }
+
+        private void 开关动作(bool 仅动画)
         {
             开关动画计数器 = 0;
             总开关1.Enabled = false;
@@ -73,7 +100,10 @@ namespace YashiAutoShutOff
                 关闭事件跟踪程序开关.Enabled = false;
                 关闭事件跟踪程序设置.Enabled = false;
                 条件满足进度.Style = ProgressBarStyle.Continuous;
-                启动任务();
+                if (!仅动画)
+                {
+                    准备启动任务();
+                }
             }
             else
             {
@@ -95,6 +125,10 @@ namespace YashiAutoShutOff
                 关闭事件跟踪程序设置.Enabled = true;
                 条件满足进度.Value = 0;
                 条件满足进度.Style = ProgressBarStyle.Marquee;
+                if (!仅动画)
+                {
+                    准备启动任务();
+                }
             }
             开关动画控制器.Enabled = true;
         }
@@ -332,7 +366,7 @@ namespace YashiAutoShutOff
             sw.Close();
         }
 
-        private void 启动任务()
+        private void 准备启动任务()
         {
             SettingLoad.任务启动时间 = DateTime.Now.ToString();
             SettingLoad.关机模式 = 关机模式;
@@ -347,6 +381,24 @@ namespace YashiAutoShutOff
             SettingLoad.截图保存路径 = 截图保存路径.Text;
             SettingLoad.关闭事件跟踪程序开关 = 关闭事件跟踪程序开关.Checked;
             SettingLoad.关闭事件跟踪程序设置 = 关闭事件跟踪程序设置.SelectedIndex;
+            启动任务代理(true);
+        }
+
+        private void 准备中止任务()
+        {
+            if (启动任务代理 != null)
+            {
+                启动任务代理(false);
+            }
+        }
+
+        private void MainWindow_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized && 主窗体关闭代理 != null)
+            {
+                //窗口打开 = false;
+                主窗体关闭代理(false);
+            }
         }
     }
 }

@@ -11,9 +11,13 @@ namespace YashiAutoShutOff
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
+        public static int initID = new Random().Next(0, int.MaxValue);
         [STAThread]
+        
         static void Main(string[] args)
         {
+            Console.WriteLine("Main init: " + initID);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
@@ -23,16 +27,7 @@ namespace YashiAutoShutOff
             {
                 if (createNew)
                 {
-                    System.Security.Principal.WindowsIdentity identity = System.Security.Principal.WindowsIdentity.GetCurrent();
-                    System.Security.Principal.WindowsPrincipal principal = new System.Security.Principal.WindowsPrincipal(identity);
-                    if (principal.IsInRole(System.Security.Principal.WindowsBuiltInRole.Administrator))
-                    {
-                        Application.Run(new Form1());
-                    }
-                    else
-                    {
-                        startapp();
-                    }
+                    startapp();
                 }
                 else
                 {
@@ -50,29 +45,39 @@ namespace YashiAutoShutOff
         }
         static void startapp()
         {
-            if (MessageBox.Show("建议您使用管理员方式运行本程序，但这不是必须的。\n拥有管理员权限可以提升关机的成功率。\n要请求管理员权限吗？", "非管理员权限通知", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            System.Security.Principal.WindowsIdentity identity = System.Security.Principal.WindowsIdentity.GetCurrent();
+            System.Security.Principal.WindowsPrincipal principal = new System.Security.Principal.WindowsPrincipal(identity);
+            if (principal.IsInRole(System.Security.Principal.WindowsBuiltInRole.Administrator))
             {
-                //创建启动对象
-                System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-                startInfo.UseShellExecute = true;
-                startInfo.WorkingDirectory = Environment.CurrentDirectory;
-                startInfo.FileName = Application.ExecutablePath;
-                //设置启动动作,确保以管理员身份运行
-                startInfo.Verb = "runas";
-                try
-                {
-                    System.Diagnostics.Process.Start(startInfo);
-                }
-                catch
-                {
-                    return;
-                }
-                //退出
-                Application.Exit();
+                SettingLoad.以管理员方式运行 = true;
+                Application.Run(new Form1());
             }
             else
             {
-                Application.Run(new Form1());
+                if (MessageBox.Show("建议您使用管理员方式运行本程序，但这不是必须的。\n拥有管理员权限可以提升关机的成功率。\n要请求管理员权限吗？", "非管理员权限通知", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    //创建启动对象
+                    System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                    startInfo.UseShellExecute = true;
+                    startInfo.WorkingDirectory = Environment.CurrentDirectory;
+                    startInfo.FileName = Application.ExecutablePath;
+                    //设置启动动作,确保以管理员身份运行
+                    startInfo.Verb = "runas";
+                    try
+                    {
+                        System.Diagnostics.Process.Start(startInfo);
+                    }
+                    catch
+                    {
+                        return;
+                    }
+                    //退出
+                    Application.Exit();
+                }
+                else
+                {
+                    Application.Run(new Form1());
+                }
             }
         }
     }
