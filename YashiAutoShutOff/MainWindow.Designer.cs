@@ -55,6 +55,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.自动关机并准备快速启动ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动重启并打开之前的程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.自动重启并打开高级启动菜单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.总开关2 = new System.Windows.Forms.ProgressBar();
             this.总开关1 = new System.Windows.Forms.Button();
@@ -88,7 +89,6 @@
             this.打开文件对话框 = new System.Windows.Forms.OpenFileDialog();
             this.导出配置按钮 = new System.Windows.Forms.Button();
             this.条件单位 = new System.Windows.Forms.Label();
-            this.自动重启并打开高级启动菜单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.关机方式选择菜单.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.条件多少秒开始1)).BeginInit();
@@ -229,13 +229,13 @@
             this.自动重启并打开之前的程序ToolStripMenuItem,
             this.自动重启并打开高级启动菜单ToolStripMenuItem});
             this.关机方式选择菜单.Name = "关机方式选择菜单";
-            this.关机方式选择菜单.Size = new System.Drawing.Size(243, 208);
+            this.关机方式选择菜单.Size = new System.Drawing.Size(243, 186);
             // 
             // 提醒我ToolStripMenuItem
             // 
             this.提醒我ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources._80;
             this.提醒我ToolStripMenuItem.Name = "提醒我ToolStripMenuItem";
-            this.提醒我ToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.提醒我ToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.提醒我ToolStripMenuItem.Text = "&0.自动提醒";
             this.提醒我ToolStripMenuItem.Click += new System.EventHandler(this.提醒我ToolStripMenuItem_Click);
             // 
@@ -243,7 +243,7 @@
             // 
             this.自动关机ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources._223;
             this.自动关机ToolStripMenuItem.Name = "自动关机ToolStripMenuItem";
-            this.自动关机ToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.自动关机ToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.自动关机ToolStripMenuItem.Text = "&1.自动关机";
             this.自动关机ToolStripMenuItem.Click += new System.EventHandler(this.自动关机ToolStripMenuItem_Click);
             // 
@@ -251,7 +251,7 @@
             // 
             this.自动重启ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources._243;
             this.自动重启ToolStripMenuItem.Name = "自动重启ToolStripMenuItem";
-            this.自动重启ToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.自动重启ToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.自动重启ToolStripMenuItem.Text = "&2.自动重启";
             this.自动重启ToolStripMenuItem.Click += new System.EventHandler(this.自动重启ToolStripMenuItem_Click);
             // 
@@ -259,7 +259,7 @@
             // 
             this.自动休眠ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources._97;
             this.自动休眠ToolStripMenuItem.Name = "自动休眠ToolStripMenuItem";
-            this.自动休眠ToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.自动休眠ToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.自动休眠ToolStripMenuItem.Text = "&3.自动休眠";
             this.自动休眠ToolStripMenuItem.Click += new System.EventHandler(this.自动休眠ToolStripMenuItem_Click);
             // 
@@ -267,14 +267,14 @@
             // 
             this.自动注销ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources._78;
             this.自动注销ToolStripMenuItem.Name = "自动注销ToolStripMenuItem";
-            this.自动注销ToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.自动注销ToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.自动注销ToolStripMenuItem.Text = "&4.自动注销";
             this.自动注销ToolStripMenuItem.Click += new System.EventHandler(this.自动注销ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(242, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(239, 6);
             // 
             // 自动关机并准备快速启动ToolStripMenuItem
             // 
@@ -291,6 +291,14 @@
             this.自动重启并打开之前的程序ToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.自动重启并打开之前的程序ToolStripMenuItem.Text = "&6.自动重启并打开之前的程序";
             this.自动重启并打开之前的程序ToolStripMenuItem.Click += new System.EventHandler(this.自动重启并打开之前的程序ToolStripMenuItem_Click);
+            // 
+            // 自动重启并打开高级启动菜单ToolStripMenuItem
+            // 
+            this.自动重启并打开高级启动菜单ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources._110;
+            this.自动重启并打开高级启动菜单ToolStripMenuItem.Name = "自动重启并打开高级启动菜单ToolStripMenuItem";
+            this.自动重启并打开高级启动菜单ToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.自动重启并打开高级启动菜单ToolStripMenuItem.Text = "&7.自动重启并打开高级启动菜单";
+            this.自动重启并打开高级启动菜单ToolStripMenuItem.Click += new System.EventHandler(this.自动重启并打开高级启动菜单ToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -361,7 +369,7 @@
             this.条件输入框.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.条件输入框.Size = new System.Drawing.Size(246, 23);
             this.条件输入框.TabIndex = 5;
-            this.条件输入框.Text = "0000-00-00-00-00-00";
+            this.条件输入框.Text = "80";
             // 
             // label2
             // 
@@ -522,7 +530,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(303, 20);
             this.label10.TabIndex = 20;
-            this.label10.Text = "0";
+            this.label10.Text = "停止中";
             this.label10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // 截图保存路径
@@ -623,15 +631,6 @@
             this.条件单位.Name = "条件单位";
             this.条件单位.Size = new System.Drawing.Size(63, 20);
             this.条件单位.TabIndex = 31;
-            this.条件单位.Text = "秒";
-            // 
-            // 自动重启并打开高级启动菜单ToolStripMenuItem
-            // 
-            this.自动重启并打开高级启动菜单ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources._110;
-            this.自动重启并打开高级启动菜单ToolStripMenuItem.Name = "自动重启并打开高级启动菜单ToolStripMenuItem";
-            this.自动重启并打开高级启动菜单ToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.自动重启并打开高级启动菜单ToolStripMenuItem.Text = "&7.自动重启并打开高级启动菜单";
-            this.自动重启并打开高级启动菜单ToolStripMenuItem.Click += new System.EventHandler(this.自动重启并打开高级启动菜单ToolStripMenuItem_Click);
             // 
             // MainWindow
             // 

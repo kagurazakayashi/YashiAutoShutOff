@@ -160,8 +160,12 @@ namespace YashiAutoShutOff
         private void 紧急停止(String 错误信息)
         {
             暂停PToolStripMenuItem.Checked = true;
-            主窗口.暂停提示.Enabled = true;
             执行中 = false;
+            if (主窗口.窗口打开)
+            {
+                主窗口.暂停提示.Enabled = true;
+                主窗口.开关动作(false);
+            }
             SettingLoad.reset();
             DialogResult 错误对话框回复 = MessageBox.Show(错误信息 + "\n计时器和刷新器已经自动暂停。\n建议点击忽略并前往设置页面请检查设置是否正确。", "啊哦，雅诗变得奇怪了", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
             if (错误对话框回复 == DialogResult.Retry)
@@ -277,6 +281,8 @@ namespace YashiAutoShutOff
                             主窗口.开关动作(true);
                         }
                         //触发关机
+                        Shutdown 关机对话框 = new Shutdown();
+                        关机对话框.Show();
                     }
                 }
                 else if (计算结果 == 0)
@@ -315,24 +321,36 @@ namespace YashiAutoShutOff
         }
         private void 执行退出()
         {
-            if (MessageBox.Show("将停止所有计时器并完全退出，继续？", "停止", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (SettingLoad.最终关机命令)
             {
-                try
-                {
-                    cmd.Kill();
-                    关闭系统监视器();
-                }
-                catch
-                {
-
-                }
-                主窗口.窗口打开 = false;
-                主计时器.Enabled = false;
-                notifyIcon1.Visible = false;
-                主窗口.Close();
-                Close();
-                Application.Exit();
+                完全退出();
             }
+            else
+            {
+                if (MessageBox.Show("将停止所有计时器并完全退出，继续？", "停止", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    完全退出();
+                }
+            }
+        }
+
+        private void 完全退出()
+        {
+            try
+            {
+                cmd.Kill();
+                关闭系统监视器();
+            }
+            catch
+            {
+
+            }
+            主窗口.窗口打开 = false;
+            主计时器.Enabled = false;
+            notifyIcon1.Visible = false;
+            主窗口.Close();
+            Close();
+            Application.Exit();
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -565,6 +583,12 @@ namespace YashiAutoShutOff
             ShutdownNow 关机 = new ShutdownNow();
             关机.立即执行类型 = 7;
             关机.开始关机();
+        }
+
+        private void 查看关机事件日志LToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            logshow 日志查看 = new logshow();
+            日志查看.Show();
         }
     }
 }

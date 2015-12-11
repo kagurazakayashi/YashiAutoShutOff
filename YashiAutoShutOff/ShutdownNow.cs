@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.IO;
 
 namespace YashiAutoShutOff
 {
@@ -14,12 +15,20 @@ namespace YashiAutoShutOff
         public void 开始关机()
         {
             //{ "0自动提醒", "1自动关机", "2自动重启", "3自动休眠", "4自动注销", "5自动关机并准备快速启动", "6自动重启并打开之前的程序" };
-            if (SettingLoad.类型 == 0)
+            int type = SettingLoad.类型;
+            if (立即执行类型 > 0)
+            {
+                type = 立即执行类型;
+            }
+            if (type == 0)
             {
                 MessageBox.Show("条件成立！","通知",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             else
             {
+                startscreen st = new startscreen();
+                st.info.Text = "正在关机";
+                st.Show();
                 Process cmd = new System.Diagnostics.Process();
                 cmd.StartInfo.FileName = "shutdown";
                 cmd.StartInfo.Arguments = 关机方式参数();
@@ -28,17 +37,34 @@ namespace YashiAutoShutOff
                 cmd.StartInfo.RedirectStandardOutput = true;//由调用程序获取输出信息
                 cmd.StartInfo.RedirectStandardError = true;//重定向标准错误输出
                 cmd.StartInfo.CreateNoWindow = true;//不显示程序窗口
+                SettingLoad.最终关机命令 = true;
                 try
                 {
                     cmd.Start();//启动程序
                     string output = cmd.StandardOutput.ReadToEnd();
                     cmd.WaitForExit();
                     cmd.Close();
-
-                    //MessageBox.Show(output, "正在关机", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    try
+                    {
+                        //st.info.Text = output;
+                        String 默认日志文件 = Directory.GetCurrentDirectory() + "\\shutdown.log";
+                        using (StreamWriter sw = File.AppendText(默认日志文件))
+                        {
+                            sw.WriteLine(DateTime.Now);
+                            sw.WriteLine(output);
+                            sw.Close();
+                        }
+                    }
+                    catch
+                    {
+                        
+                    }
+                    //Application.Exit();
+                    //MessageBox.Show(output, "关机", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception err)
                 {
+                    SettingLoad.最终关机命令 = false;
                     MessageBox.Show(err.Message.ToString(), "关机发生错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -51,7 +77,6 @@ namespace YashiAutoShutOff
             if (立即执行类型 > 0)
             {
                 type = 立即执行类型;
-                立即执行类型 = 0;
             }
             switch (type)
             {

@@ -193,6 +193,16 @@ namespace YashiAutoShutOff.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap _98 {
+            get {
+                object obj = ResourceManager.GetObject("98", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap favicon {
             get {
                 object obj = ResourceManager.GetObject("favicon", resourceCulture);

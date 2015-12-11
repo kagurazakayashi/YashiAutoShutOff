@@ -49,6 +49,7 @@
             this.取消按钮.TabIndex = 0;
             this.取消按钮.Text = "取消(&C)";
             this.取消按钮.UseVisualStyleBackColor = true;
+            this.取消按钮.Click += new System.EventHandler(this.取消按钮_Click);
             // 
             // pictureBox1
             // 
@@ -70,6 +71,7 @@
             this.立即执行按钮.TabIndex = 2;
             this.立即执行按钮.Text = "立即执行(&N)";
             this.立即执行按钮.UseVisualStyleBackColor = true;
+            this.立即执行按钮.Click += new System.EventHandler(this.立即执行按钮_Click);
             // 
             // label1
             // 
@@ -88,6 +90,12 @@
             this.progressBar1.Size = new System.Drawing.Size(456, 40);
             this.progressBar1.TabIndex = 4;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Shutdown
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -105,6 +113,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "雅诗智能关机 - 即将关机";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.Shutdown_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

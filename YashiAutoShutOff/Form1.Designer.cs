@@ -32,17 +32,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.显示主窗口SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.仅启动系统监视器VToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.暂停PToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.windows任务管理器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.取消系统关机计划CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-            this.修复Windows性能计数器注册表RToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.退出XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.关闭此菜单QToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.主计时器 = new System.Windows.Forms.Timer(this.components);
+            this.显示主窗口SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.仅启动系统监视器VToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.windows任务管理器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.修复Windows性能计数器注册表RToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关闭或注销ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动关机ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动重启ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,8 +52,10 @@
             this.自动关机并准备快速启动ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动重启并打开之前的程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动重启并打开高级启动菜单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
-            this.关闭此菜单QToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.取消系统关机计划CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.退出XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.查看关机事件日志LToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,27 +82,12 @@
             this.关闭或注销ToolStripMenuItem,
             this.取消系统关机计划CToolStripMenuItem,
             this.toolStripMenuItem4,
+            this.查看关机事件日志LToolStripMenuItem,
+            this.toolStripMenuItem5,
             this.退出XToolStripMenuItem,
             this.关闭此菜单QToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(266, 248);
-            // 
-            // 显示主窗口SToolStripMenuItem
-            // 
-            this.显示主窗口SToolStripMenuItem.Enabled = false;
-            this.显示主窗口SToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.favicon;
-            this.显示主窗口SToolStripMenuItem.Name = "显示主窗口SToolStripMenuItem";
-            this.显示主窗口SToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
-            this.显示主窗口SToolStripMenuItem.Text = "打开/关闭 设置窗口(&S)";
-            this.显示主窗口SToolStripMenuItem.Click += new System.EventHandler(this.显示主窗口SToolStripMenuItem_Click);
-            // 
-            // 仅启动系统监视器VToolStripMenuItem
-            // 
-            this.仅启动系统监视器VToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources._250;
-            this.仅启动系统监视器VToolStripMenuItem.Name = "仅启动系统监视器VToolStripMenuItem";
-            this.仅启动系统监视器VToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
-            this.仅启动系统监视器VToolStripMenuItem.Text = "打开/关闭 系统监视器(&V)";
-            this.仅启动系统监视器VToolStripMenuItem.Click += new System.EventHandler(this.仅启动系统监视器VToolStripMenuItem_Click);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(266, 254);
             // 
             // toolStripMenuItem1
             // 
@@ -119,6 +106,46 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(262, 6);
             // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(262, 6);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(262, 6);
+            // 
+            // 关闭此菜单QToolStripMenuItem
+            // 
+            this.关闭此菜单QToolStripMenuItem.Name = "关闭此菜单QToolStripMenuItem";
+            this.关闭此菜单QToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+            this.关闭此菜单QToolStripMenuItem.Text = "关闭此菜单(&Q)";
+            // 
+            // 主计时器
+            // 
+            this.主计时器.Enabled = true;
+            this.主计时器.Interval = 1000;
+            this.主计时器.Tick += new System.EventHandler(this.主计时器_Tick);
+            // 
+            // 显示主窗口SToolStripMenuItem
+            // 
+            this.显示主窗口SToolStripMenuItem.Enabled = false;
+            this.显示主窗口SToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.显示主窗口SToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.favicon;
+            this.显示主窗口SToolStripMenuItem.Name = "显示主窗口SToolStripMenuItem";
+            this.显示主窗口SToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+            this.显示主窗口SToolStripMenuItem.Text = "打开/关闭 设置窗口(&S)";
+            this.显示主窗口SToolStripMenuItem.Click += new System.EventHandler(this.显示主窗口SToolStripMenuItem_Click);
+            // 
+            // 仅启动系统监视器VToolStripMenuItem
+            // 
+            this.仅启动系统监视器VToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources._250;
+            this.仅启动系统监视器VToolStripMenuItem.Name = "仅启动系统监视器VToolStripMenuItem";
+            this.仅启动系统监视器VToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+            this.仅启动系统监视器VToolStripMenuItem.Text = "打开/关闭 系统监视器(&V)";
+            this.仅启动系统监视器VToolStripMenuItem.Click += new System.EventHandler(this.仅启动系统监视器VToolStripMenuItem_Click);
+            // 
             // windows任务管理器ToolStripMenuItem
             // 
             this.windows任务管理器ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources._301;
@@ -127,19 +154,6 @@
             this.windows任务管理器ToolStripMenuItem.Text = "Windows任务管理器(&T)";
             this.windows任务管理器ToolStripMenuItem.Click += new System.EventHandler(this.windows任务管理器ToolStripMenuItem_Click);
             // 
-            // 取消系统关机计划CToolStripMenuItem
-            // 
-            this.取消系统关机计划CToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources._207;
-            this.取消系统关机计划CToolStripMenuItem.Name = "取消系统关机计划CToolStripMenuItem";
-            this.取消系统关机计划CToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
-            this.取消系统关机计划CToolStripMenuItem.Text = "取消系统的关机计划(&C)";
-            this.取消系统关机计划CToolStripMenuItem.Click += new System.EventHandler(this.取消系统关机计划CToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(262, 6);
-            // 
             // 修复Windows性能计数器注册表RToolStripMenuItem
             // 
             this.修复Windows性能计数器注册表RToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources._110;
@@ -147,20 +161,6 @@
             this.修复Windows性能计数器注册表RToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.修复Windows性能计数器注册表RToolStripMenuItem.Text = "修复Windows性能计数器注册表(&R)";
             this.修复Windows性能计数器注册表RToolStripMenuItem.Click += new System.EventHandler(this.修复Windows性能计数器注册表RToolStripMenuItem_Click);
-            // 
-            // 退出XToolStripMenuItem
-            // 
-            this.退出XToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources._264;
-            this.退出XToolStripMenuItem.Name = "退出XToolStripMenuItem";
-            this.退出XToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
-            this.退出XToolStripMenuItem.Text = "完全退出(&X)";
-            this.退出XToolStripMenuItem.Click += new System.EventHandler(this.退出XToolStripMenuItem_Click);
-            // 
-            // 主计时器
-            // 
-            this.主计时器.Enabled = true;
-            this.主计时器.Interval = 1000;
-            this.主计时器.Tick += new System.EventHandler(this.主计时器_Tick);
             // 
             // 关闭或注销ToolStripMenuItem
             // 
@@ -239,16 +239,34 @@
             this.自动重启并打开高级启动菜单ToolStripMenuItem.Text = "自动重启并打开高级启动菜单(&A)";
             this.自动重启并打开高级启动菜单ToolStripMenuItem.Click += new System.EventHandler(this.自动重启并打开高级启动菜单ToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem4
+            // 取消系统关机计划CToolStripMenuItem
             // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(262, 6);
+            this.取消系统关机计划CToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources._207;
+            this.取消系统关机计划CToolStripMenuItem.Name = "取消系统关机计划CToolStripMenuItem";
+            this.取消系统关机计划CToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+            this.取消系统关机计划CToolStripMenuItem.Text = "取消系统的关机计划(&C)";
+            this.取消系统关机计划CToolStripMenuItem.Click += new System.EventHandler(this.取消系统关机计划CToolStripMenuItem_Click);
             // 
-            // 关闭此菜单QToolStripMenuItem
+            // 退出XToolStripMenuItem
             // 
-            this.关闭此菜单QToolStripMenuItem.Name = "关闭此菜单QToolStripMenuItem";
-            this.关闭此菜单QToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
-            this.关闭此菜单QToolStripMenuItem.Text = "关闭此菜单(&Q)";
+            this.退出XToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources._264;
+            this.退出XToolStripMenuItem.Name = "退出XToolStripMenuItem";
+            this.退出XToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+            this.退出XToolStripMenuItem.Text = "完全退出(&X)";
+            this.退出XToolStripMenuItem.Click += new System.EventHandler(this.退出XToolStripMenuItem_Click);
+            // 
+            // 查看关机事件日志LToolStripMenuItem
+            // 
+            this.查看关机事件日志LToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources._98;
+            this.查看关机事件日志LToolStripMenuItem.Name = "查看关机事件日志LToolStripMenuItem";
+            this.查看关机事件日志LToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+            this.查看关机事件日志LToolStripMenuItem.Text = "查看关机事件日志(&L)";
+            this.查看关机事件日志LToolStripMenuItem.Click += new System.EventHandler(this.查看关机事件日志LToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(262, 6);
             // 
             // Form1
             // 
@@ -294,6 +312,8 @@
         private System.Windows.Forms.ToolStripMenuItem 自动重启并打开高级启动菜单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem 关闭此菜单QToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 查看关机事件日志LToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
     }
 }
 

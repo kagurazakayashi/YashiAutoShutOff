@@ -102,6 +102,8 @@ namespace YashiAutoShutOff
                 条件满足进度.Style = ProgressBarStyle.Continuous;
                 if (!仅动画)
                 {
+                    String 默认配置文件 = Directory.GetCurrentDirectory() + "\\default.xml";
+                    保存设置(默认配置文件);
                     准备启动任务();
                 }
             }
@@ -125,9 +127,12 @@ namespace YashiAutoShutOff
                 关闭事件跟踪程序设置.Enabled = true;
                 条件满足进度.Value = 0;
                 条件满足进度.Style = ProgressBarStyle.Marquee;
+                label10.Text = "停止中";
                 if (!仅动画)
                 {
-                    准备启动任务();
+                    启动任务代理(false);
+                    SettingLoad.reset();
+                    //准备启动任务();
                 }
             }
             开关动画控制器.Enabled = true;
@@ -144,11 +149,21 @@ namespace YashiAutoShutOff
             开关动画计数器++;
             if (总开关1.Text == "&OFF")
             {
-                总开关1.Location = new Point(总开关1.Location.X - 动画速度, 总开关1.Location.Y);
+                int 新X坐标 = 总开关1.Location.X - 动画速度;
+                if (新X坐标 < 703)
+                {
+                    新X坐标 = 703;
+                }
+                总开关1.Location = new Point(新X坐标, 总开关1.Location.Y);
             }
             else
             {
-                总开关1.Location = new Point(总开关1.Location.X + 动画速度, 总开关1.Location.Y);
+                int 新X坐标 = 总开关1.Location.X + 动画速度;
+                if (新X坐标 > 778)
+                {
+                    新X坐标 = 778;
+                }
+                总开关1.Location = new Point(新X坐标, 总开关1.Location.Y);
             }
             if (开关动画计数器 >= 75 / 动画速度)
             {
@@ -260,10 +275,10 @@ namespace YashiAutoShutOff
 
         private void 初始化选择()
         {
-            类型列表.SelectedIndex = 0;
-            比较列表.SelectedIndex = 0;
+            类型列表.SelectedIndex = 1;
+            比较列表.SelectedIndex = 3;
             CPU核心选择.SelectedIndex = 0;
-            关闭事件跟踪程序设置.SelectedIndex = 20;
+            关闭事件跟踪程序设置.SelectedIndex = 19;
         }
 
         public void 读入默认设置()

@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.info = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,26 +62,38 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 37);
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(14, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(61, 17);
             this.label2.TabIndex = 2;
-            this.label2.Text = "正在启动";
+            this.label2.Text = "v1.1 beta";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 292);
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(12, 311);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(197, 36);
+            this.label3.Size = new System.Drawing.Size(228, 17);
             this.label3.TabIndex = 3;
-            this.label3.Text = "正在连接到性能计数器\r\n\r\n© KagurazakaYashi@uuu.moe  GPLv2";
+            this.label3.Text = "© KagurazakaYashi@uuu.moe  GPLv2";
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 5000;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // info
+            // 
+            this.info.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.info.Location = new System.Drawing.Point(14, 76);
+            this.info.Name = "info";
+            this.info.Size = new System.Drawing.Size(313, 224);
+            this.info.TabIndex = 4;
+            this.info.Text = "正在连接到性能计数器";
+            this.info.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // startscreen
             // 
@@ -88,6 +101,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Pink;
             this.ClientSize = new System.Drawing.Size(632, 337);
+            this.Controls.Add(this.info);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -112,5 +126,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Label info;
     }
 }
