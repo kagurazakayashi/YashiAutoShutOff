@@ -15,7 +15,7 @@ namespace YashiAutoShutOff
         public void 开始关机()
         {
             //{ "0自动提醒", "1自动关机", "2自动重启", "3自动休眠", "4自动注销", "5自动关机并准备快速启动", "6自动重启并打开之前的程序" };
-            int type = SettingLoad.类型;
+            int type = SettingLoad.关机模式;
             if (立即执行类型 > 0)
             {
                 type = 立即执行类型;
@@ -38,12 +38,18 @@ namespace YashiAutoShutOff
                 cmd.StartInfo.RedirectStandardError = true;//重定向标准错误输出
                 cmd.StartInfo.CreateNoWindow = true;//不显示程序窗口
                 SettingLoad.最终关机命令 = true;
+                string output = "";
                 try
                 {
-                    cmd.Start();//启动程序
-                    string output = cmd.StandardOutput.ReadToEnd();
+#if DEBUG
+                    SettingLoad.最终关机命令 = false;
+                    MessageBox.Show(cmd.StartInfo.FileName + " " + cmd.StartInfo.Arguments, "DEBUG: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+#else
+                    cmd.Start();
+                    output = cmd.StandardOutput.ReadToEnd();
                     cmd.WaitForExit();
                     cmd.Close();
+#endif
                     try
                     {
                         //st.info.Text = output;
@@ -73,7 +79,7 @@ namespace YashiAutoShutOff
         private string 关机方式参数()
         {
             string 关机参数 = "";
-            int type = SettingLoad.类型;
+            int type = SettingLoad.关机模式;
             if (立即执行类型 > 0)
             {
                 type = 立即执行类型;
@@ -89,12 +95,14 @@ namespace YashiAutoShutOff
                 case 4:
                     关机参数 = "/l"; break; //4自动注销
                 case 5:
-                    关机参数 = "/hybrid"; break; //5自动关机并准备快速启动
+                    关机参数 = "/hybrid /t 0"; break; //5自动关机并准备快速启动
                 case 6:
                     关机参数 = "/g /t 0"; break; //6自动重启并打开之前的程序
                 case 7:
                     关机参数 = "/r /o /t 0"; break;
                 default:
+                    SettingLoad.最终关机命令 = false;
+                    MessageBox.Show("无效指令", "关机发生错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
             if (SettingLoad.强制关机)

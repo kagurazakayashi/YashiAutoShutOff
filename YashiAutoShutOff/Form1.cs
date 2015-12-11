@@ -90,7 +90,15 @@ namespace YashiAutoShutOff
             if (启动窗体开启 && 启动完毕)
             {
                 主窗口.Opacity = 1;
-                启动窗体.Close();
+                try
+                {
+                    启动窗体.timer1.Enabled = false;
+                    启动窗体.Close();
+                }
+                catch
+                {
+
+                }
                 启动窗体开启 = false;
                 启动窗体 = null;
             }
@@ -257,14 +265,14 @@ namespace YashiAutoShutOff
                 string 满足信息 = "";
                 if (SettingLoad.条件多少秒开始 > 0)
                 {
-                    SettingLoad.当前已满足百分之 = SettingLoad.当前已满足秒 / SettingLoad.条件多少秒开始 * 100;
+                    SettingLoad.当前已满足百分之 = (int)((float)SettingLoad.当前已满足秒 / (float)SettingLoad.条件多少秒开始 * 100.0f);
                     满足信息 = SettingLoad.当前已满足秒 + " / " + SettingLoad.条件多少秒开始 + " ( " + SettingLoad.当前已满足百分之 + "% )";
-                    返回文本.Append("\n满足：" + 满足信息);
-                } else
+                }
+                else
                 {
                     满足信息 = SettingLoad.当前已满足秒 + " / 0 ( 0% )";
-                    返回文本.Append("\n满足：" + 满足信息);
                 }
+                返回文本.Append("\n满足：" + 满足信息);
                 返回文本.Append("\n执行：" + SettingLoad.关机模式文本数组[SettingLoad.关机模式]);
                 
                 int 计算结果 = 数值计算器.计数器加减判断();
@@ -272,7 +280,7 @@ namespace YashiAutoShutOff
                 if (计算结果 == 1) //+1
                 {
                     SettingLoad.当前已满足秒++;
-                    if (SettingLoad.当前已满足秒 >= SettingLoad.条件多少秒开始)
+                    if (SettingLoad.当前已满足秒 > SettingLoad.条件多少秒开始)
                     {
                         执行中 = false;
                         SettingLoad.reset();

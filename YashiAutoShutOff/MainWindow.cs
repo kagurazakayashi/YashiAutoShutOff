@@ -51,6 +51,9 @@ namespace YashiAutoShutOff
             {
                 Text += " (管理员)";
             }
+#if DEBUG
+            Text += " (调试模式)";
+#endif
             if (SettingLoad.任务启动时间.Length > 0)
             {
                 开关动作(true);
@@ -385,6 +388,13 @@ namespace YashiAutoShutOff
         {
             SettingLoad.任务启动时间 = DateTime.Now.ToString();
             SettingLoad.关机模式 = 关机模式;
+            for (int i = 0; i < SettingLoad.关机模式文本数组.Length; i++)
+            {
+                if (label1.Text.Substring(1, label1.Text.Length - 4) == SettingLoad.关机模式文本数组[i])
+                {
+                    SettingLoad.关机模式 = i;
+                }
+            }
             SettingLoad.类型 = 类型列表.SelectedIndex;
             SettingLoad.比较 = 比较列表.SelectedIndex;
             SettingLoad.CPU核心 = CPU核心选择.SelectedIndex;

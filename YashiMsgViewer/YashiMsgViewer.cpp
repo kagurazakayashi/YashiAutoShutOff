@@ -46,9 +46,17 @@ int main(int argc, char* argv[])
 				{
 					time = false;
 				}
-				else if (cmd.length() > 6 && cmd.substr(0, 7).compare("@title ") == 0)
+				else if (cmd.length() > 6 && (cmd.substr(0, 7).compare("@title ") == 0 || cmd.substr(0, 7).compare("@color ") == 0))
 				{
-					system(cmd.c_str());
+					string::size_type idx = cmd.find(";");
+					if (idx != string::npos)
+					{
+						printf("Yashi application message viewer error: Extra code.\n");
+					}
+					else
+					{
+						system(cmd.c_str());
+					}
 				}
 				else
 				{
@@ -65,10 +73,12 @@ int main(int argc, char* argv[])
 					}
 				}
 			}
+			system("color");
 			system("cls");
 		}
 		catch (double e) {
 			printf("Yashi application message viewer error: %g", e);
+			system("color");
 			return (int)e;
 		}
 	}
@@ -85,6 +95,7 @@ int main(int argc, char* argv[])
 		printf("@time [ on | off ]：显示时间（默认off）。\n");
 		printf("@cls / clear：清除输出。\n");
 		printf("@title：设置标题栏显示文字。\n");
+		printf("@color：设置文字和背景颜色，参看cmd的color命令。\n");
 		printf("其他：录入信息。\n\n");
 		system("pause");
 	}
