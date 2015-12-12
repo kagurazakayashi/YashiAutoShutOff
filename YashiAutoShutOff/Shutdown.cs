@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace YashiAutoShutOff
 {
@@ -33,6 +34,33 @@ namespace YashiAutoShutOff
             label1.Text = "注意，系统将在" + 剩余秒 + "秒后" + SettingLoad.关机模式文本数组[SettingLoad.关机模式] + "。";
             if (剩余秒 <= 0)
             {
+                Opacity = 0;
+                if (SettingLoad.截图保存 && SettingLoad.截图保存路径.Length > 0)
+                {
+                    string 截图文件 = SettingLoad.截图保存路径 + DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + DateTime.Now.Millisecond + ".jpeg";
+                    try
+                    {
+                        if (!Directory.Exists(SettingLoad.截图保存路径))
+                        {
+                            Directory.CreateDirectory(SettingLoad.截图保存路径);
+                        }
+                        Screen scr = Screen.PrimaryScreen;
+                        Rectangle rc = scr.Bounds;
+                        int iWidth = rc.Width;
+                        int iHeight = rc.Height;
+                        Bitmap myImage = new Bitmap(iWidth, iHeight);
+                        Graphics gl = Graphics.FromImage(myImage);
+                        gl.CopyFromScreen(new Point(0, 0), new Point(0, 0), new Size(iWidth, iHeight));
+                        myImage.Save(截图文件);
+                    }
+                    catch(Exception err)
+                    {
+#if DEBUG
+                        MessageBox.Show(截图文件 + err.Message, "DEBUG: 截图失败",MessageBoxButtons.OK,MessageBoxIcon.Error);
+#endif
+                    }
+                }
+                
                 timer1.Enabled = false;
                 SettingLoad.执行后提示关机时长 = 0;
                 ShutdownNow now = new ShutdownNow();

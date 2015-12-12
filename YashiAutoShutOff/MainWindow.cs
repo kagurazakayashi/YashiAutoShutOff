@@ -99,7 +99,6 @@ namespace YashiAutoShutOff
                 截图保存路径.Enabled = false;
                 截图文件夹选择按钮.Enabled = false;
                 导入配置按钮.Enabled = false;
-                导出配置按钮.Enabled = false;
                 关闭事件跟踪程序开关.Enabled = false;
                 关闭事件跟踪程序设置.Enabled = false;
                 条件满足进度.Style = ProgressBarStyle.Continuous;
@@ -125,7 +124,6 @@ namespace YashiAutoShutOff
                 截图保存路径.Enabled = true;
                 截图文件夹选择按钮.Enabled = true;
                 导入配置按钮.Enabled = true;
-                导出配置按钮.Enabled = true;
                 关闭事件跟踪程序开关.Enabled = true;
                 关闭事件跟踪程序设置.Enabled = true;
                 条件满足进度.Value = 0;
@@ -304,6 +302,7 @@ namespace YashiAutoShutOff
                     if (int.Parse(XML操作器.获得XML值("s", "ver")) == 1)
                     {
                         关机模式 = int.Parse(XML操作器.获得XML值("s", "shutdownmode"));
+                        SettingLoad.关机模式 = 关机模式;
                         类型列表.SelectedIndex = int.Parse(XML操作器.获得XML值("s", "type"));
                         比较列表.SelectedIndex = int.Parse(XML操作器.获得XML值("s", "comparison"));
                         选中的CPU核心 = int.Parse(XML操作器.获得XML值("s", "cpu"));
@@ -470,6 +469,28 @@ namespace YashiAutoShutOff
         {
             关机模式 = 7;
             更改模式文字();
+        }
+
+        private void 打开截图文件夹_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Directory.Exists(SettingLoad.截图保存路径))
+                {
+                    System.Diagnostics.Process.Start("explorer.exe", 截图保存路径.Text);
+                }
+                else
+                {
+                    if (MessageBox.Show("文件夹不存在，要新建文件夹吗？", "打开失败", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                        Directory.CreateDirectory(截图保存路径.Text);
+                        System.Diagnostics.Process.Start("explorer.exe", 截图保存路径.Text);
+                    };
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "打开失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

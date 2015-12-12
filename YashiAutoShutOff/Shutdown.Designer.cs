@@ -43,7 +43,7 @@
             // 
             this.取消按钮.Cursor = System.Windows.Forms.Cursors.Hand;
             this.取消按钮.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.取消按钮.Location = new System.Drawing.Point(399, 103);
+            this.取消按钮.Location = new System.Drawing.Point(351, 385);
             this.取消按钮.Name = "取消按钮";
             this.取消按钮.Size = new System.Drawing.Size(207, 38);
             this.取消按钮.TabIndex = 0;
@@ -53,11 +53,11 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::YashiAutoShutOff.Properties.Resources._74;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Image = global::YashiAutoShutOff.Properties.Resources._59H58PICuTY;
+            this.pictureBox1.Location = new System.Drawing.Point(-2, -185);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.Size = new System.Drawing.Size(650, 650);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -65,7 +65,7 @@
             // 
             this.立即执行按钮.Cursor = System.Windows.Forms.Cursors.Hand;
             this.立即执行按钮.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.立即执行按钮.Location = new System.Drawing.Point(186, 103);
+            this.立即执行按钮.Location = new System.Drawing.Point(83, 385);
             this.立即执行按钮.Name = "立即执行按钮";
             this.立即执行按钮.Size = new System.Drawing.Size(207, 38);
             this.立即执行按钮.TabIndex = 2;
@@ -75,19 +75,20 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.label1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(146, 12);
+            this.label1.Location = new System.Drawing.Point(12, 289);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(234, 20);
+            this.label1.Size = new System.Drawing.Size(621, 45);
             this.label1.TabIndex = 3;
             this.label1.Text = "注意，系统将在<time>后<type>。";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(150, 46);
+            this.progressBar1.Location = new System.Drawing.Point(12, 312);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(456, 40);
+            this.progressBar1.Size = new System.Drawing.Size(621, 22);
             this.progressBar1.TabIndex = 4;
             // 
             // timer1
@@ -100,12 +101,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 153);
+            this.ClientSize = new System.Drawing.Size(647, 435);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.立即执行按钮);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.取消按钮);
+            this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

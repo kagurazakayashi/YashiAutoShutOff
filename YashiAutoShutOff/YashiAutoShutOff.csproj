@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calc.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -108,6 +114,9 @@
     </Compile>
     <Compile Include="SystemInfo.cs" />
     <Compile Include="Xmlio.cs" />
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,46 +169,55 @@
     <None Include="Resources\mingYSN.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\264.png" />
+    <None Include="Resources\imageres_5323.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\110.png" />
+    <None Include="Resources\imageres_81.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\239.png" />
+    <None Include="Resources\imageres_1008.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\243.png" />
+    <None Include="Resources\imageres_147.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\301.png" />
+    <None Include="Resources\imageres_149.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\250.png" />
+    <None Include="Resources\imageres_5351.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\207.png" />
+    <None Include="Resources\imageres_5371.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\285.png" />
+    <None Include="Resources\imageres_171.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\80.png" />
+    <None Include="Resources\imageres_5372.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\97.png" />
+    <None Include="Resources\imageres_34.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\223.png" />
+    <None Include="Resources\imageres_5374.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\78.png" />
+    <None Include="Resources\imageres_5364.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\74.png" />
+    <None Include="Resources\imageres_1027.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\98.png" />
+    <None Include="Resources\imageres_102.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageres_1303.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageres_89.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\59H58PICuTY.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

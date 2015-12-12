@@ -598,5 +598,69 @@ namespace YashiAutoShutOff
             logshow 日志查看 = new logshow();
             日志查看.Show();
         }
+
+        private void pu0_Click(object sender, EventArgs e)
+        {
+            clearpu();
+            pu0.Checked = true;
+            Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.RealTime;
+        }
+
+        private void pu1_Click(object sender, EventArgs e)
+        {
+            clearpu();
+            pu1.Checked = true;
+            Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
+        }
+
+        private void pu2_Click(object sender, EventArgs e)
+        {
+            clearpu();
+            pu2.Checked = true;
+            Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.AboveNormal;
+        }
+
+        private void pu3_Click(object sender, EventArgs e)
+        {
+            clearpu();
+            pu3.Checked = true;
+            Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.Normal;
+        }
+
+        private void pu4_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("更低的优先级可能会导致计时器延迟，使时间不准确。确认继续？", "注意", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                clearpu();
+                pu5.Checked = true;
+                Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.BelowNormal;
+            }
+        }
+
+        private void pu5_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("更低的优先级可能会导致计时器延迟，使时间不准确。确认继续？", "注意", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                clearpu();
+                pu5.Checked = true;
+                Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.Idle;
+            }
+        }
+
+        private void clearpu()
+        {
+            pu0.Checked = false;
+            pu1.Checked = false;
+            pu2.Checked = false;
+            pu3.Checked = false;
+            pu4.Checked = false;
+            pu5.Checked = false;
+        }
+
+        private void 关于AToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox about = new AboutBox();
+            about.Show();
+        }
     }
 }
