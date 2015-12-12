@@ -270,7 +270,7 @@ namespace YashiAutoShutOff
                 }
                 else
                 {
-                    满足信息 = SettingLoad.当前已满足秒 + " / 0 ( 0% )";
+                    满足信息 = SettingLoad.当前已满足秒 + " / 0 ( 0%% )";
                 }
                 返回文本.Append("\n满足：" + 满足信息);
                 返回文本.Append("\n执行：" + SettingLoad.关机模式文本数组[SettingLoad.关机模式]);
