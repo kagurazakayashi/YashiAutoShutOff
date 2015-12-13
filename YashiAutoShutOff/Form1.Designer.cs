@@ -35,6 +35,7 @@
             this.窗口管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.显示主窗口SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.仅启动系统监视器VToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打开数码测色计MToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.性能ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.暂停PToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,6 +93,7 @@
             this.窗口管理ToolStripMenuItem,
             this.显示主窗口SToolStripMenuItem,
             this.仅启动系统监视器VToolStripMenuItem,
+            this.打开数码测色计MToolStripMenuItem,
             this.toolStripMenuItem1,
             this.性能ToolStripMenuItem,
             this.暂停PToolStripMenuItem,
@@ -116,7 +118,7 @@
             this.退出XToolStripMenuItem,
             this.关闭此菜单QToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(299, 560);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(299, 584);
             // 
             // 窗口管理ToolStripMenuItem
             // 
@@ -129,7 +131,7 @@
             // 显示主窗口SToolStripMenuItem
             // 
             this.显示主窗口SToolStripMenuItem.Enabled = false;
-            this.显示主窗口SToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.显示主窗口SToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.显示主窗口SToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.favicon;
             this.显示主窗口SToolStripMenuItem.Name = "显示主窗口SToolStripMenuItem";
             this.显示主窗口SToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
@@ -138,12 +140,21 @@
             // 
             // 仅启动系统监视器VToolStripMenuItem
             // 
-            this.仅启动系统监视器VToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.仅启动系统监视器VToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.仅启动系统监视器VToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_5323;
             this.仅启动系统监视器VToolStripMenuItem.Name = "仅启动系统监视器VToolStripMenuItem";
             this.仅启动系统监视器VToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
             this.仅启动系统监视器VToolStripMenuItem.Text = "打开/关闭 系统监视器(&V)";
             this.仅启动系统监视器VToolStripMenuItem.Click += new System.EventHandler(this.仅启动系统监视器VToolStripMenuItem_Click);
+            // 
+            // 打开数码测色计MToolStripMenuItem
+            // 
+            this.打开数码测色计MToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.打开数码测色计MToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_168;
+            this.打开数码测色计MToolStripMenuItem.Name = "打开数码测色计MToolStripMenuItem";
+            this.打开数码测色计MToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
+            this.打开数码测色计MToolStripMenuItem.Text = "打开 数码测色计(&M)";
+            this.打开数码测色计MToolStripMenuItem.Click += new System.EventHandler(this.打开数码测色计MToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -160,7 +171,7 @@
             // 
             // 暂停PToolStripMenuItem
             // 
-            this.暂停PToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.暂停PToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.暂停PToolStripMenuItem.Name = "暂停PToolStripMenuItem";
             this.暂停PToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
             this.暂停PToolStripMenuItem.Text = "暂停/推迟执行时间(&P)";
@@ -176,7 +187,7 @@
             this.pu4,
             this.pu5,
             this.空闲IToolStripMenuItem});
-            this.优先级NToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.优先级NToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.优先级NToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_34;
             this.优先级NToolStripMenuItem.Name = "优先级NToolStripMenuItem";
             this.优先级NToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
@@ -249,7 +260,7 @@
             // 
             // windows任务管理器ToolStripMenuItem
             // 
-            this.windows任务管理器ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.windows任务管理器ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.windows任务管理器ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_5374;
             this.windows任务管理器ToolStripMenuItem.Name = "windows任务管理器ToolStripMenuItem";
             this.windows任务管理器ToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
@@ -258,7 +269,7 @@
             // 
             // 修复Windows性能计数器注册表RToolStripMenuItem
             // 
-            this.修复Windows性能计数器注册表RToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.修复Windows性能计数器注册表RToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.修复Windows性能计数器注册表RToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_5364;
             this.修复Windows性能计数器注册表RToolStripMenuItem.Name = "修复Windows性能计数器注册表RToolStripMenuItem";
             this.修复Windows性能计数器注册表RToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
@@ -267,7 +278,7 @@
             // 
             // 抹掉用户设置EToolStripMenuItem
             // 
-            this.抹掉用户设置EToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.抹掉用户设置EToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.抹掉用户设置EToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_98;
             this.抹掉用户设置EToolStripMenuItem.Name = "抹掉用户设置EToolStripMenuItem";
             this.抹掉用户设置EToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
@@ -276,7 +287,7 @@
             // 
             // 强制退出ToolStripMenuItem
             // 
-            this.强制退出ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.强制退出ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.强制退出ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_105;
             this.强制退出ToolStripMenuItem.Name = "强制退出ToolStripMenuItem";
             this.强制退出ToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
@@ -307,7 +318,7 @@
             this.自动关机并准备快速启动ToolStripMenuItem,
             this.自动重启并打开之前的程序ToolStripMenuItem,
             this.自动重启并打开高级启动菜单ToolStripMenuItem});
-            this.关闭或注销ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.关闭或注销ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.关闭或注销ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_1008;
             this.关闭或注销ToolStripMenuItem.Name = "关闭或注销ToolStripMenuItem";
             this.关闭或注销ToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
@@ -376,7 +387,7 @@
             // 
             // 取消系统关机计划CToolStripMenuItem
             // 
-            this.取消系统关机计划CToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.取消系统关机计划CToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.取消系统关机计划CToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_1027;
             this.取消系统关机计划CToolStripMenuItem.Name = "取消系统关机计划CToolStripMenuItem";
             this.取消系统关机计划CToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
@@ -398,7 +409,7 @@
             // 
             // 打开用户设置文件夹DToolStripMenuItem
             // 
-            this.打开用户设置文件夹DToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.打开用户设置文件夹DToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.打开用户设置文件夹DToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_178;
             this.打开用户设置文件夹DToolStripMenuItem.Name = "打开用户设置文件夹DToolStripMenuItem";
             this.打开用户设置文件夹DToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
@@ -407,7 +418,7 @@
             // 
             // 查看关机事件日志LToolStripMenuItem
             // 
-            this.查看关机事件日志LToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.查看关机事件日志LToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.查看关机事件日志LToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_1303;
             this.查看关机事件日志LToolStripMenuItem.Name = "查看关机事件日志LToolStripMenuItem";
             this.查看关机事件日志LToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
@@ -429,7 +440,7 @@
             // 
             // 关于AToolStripMenuItem
             // 
-            this.关于AToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.关于AToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.关于AToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_81;
             this.关于AToolStripMenuItem.Name = "关于AToolStripMenuItem";
             this.关于AToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
@@ -438,7 +449,7 @@
             // 
             // 退出XToolStripMenuItem
             // 
-            this.退出XToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.退出XToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.退出XToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_89;
             this.退出XToolStripMenuItem.Name = "退出XToolStripMenuItem";
             this.退出XToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
@@ -447,7 +458,7 @@
             // 
             // 关闭此菜单QToolStripMenuItem
             // 
-            this.关闭此菜单QToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.关闭此菜单QToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.关闭此菜单QToolStripMenuItem.Name = "关闭此菜单QToolStripMenuItem";
             this.关闭此菜单QToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
             this.关闭此菜单QToolStripMenuItem.Text = "关闭此菜单(&Q)";
@@ -520,6 +531,7 @@
         private System.Windows.Forms.ToolStripMenuItem 立即操作ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于和退出ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 打开数码测色计MToolStripMenuItem;
     }
 }
 

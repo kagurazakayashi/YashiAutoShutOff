@@ -42,7 +42,7 @@
             // 取消按钮
             // 
             this.取消按钮.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.取消按钮.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.取消按钮.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.取消按钮.Location = new System.Drawing.Point(351, 385);
             this.取消按钮.Name = "取消按钮";
             this.取消按钮.Size = new System.Drawing.Size(207, 38);
@@ -64,7 +64,7 @@
             // 立即执行按钮
             // 
             this.立即执行按钮.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.立即执行按钮.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.立即执行按钮.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.立即执行按钮.Location = new System.Drawing.Point(83, 385);
             this.立即执行按钮.Name = "立即执行按钮";
             this.立即执行按钮.Size = new System.Drawing.Size(207, 38);
@@ -76,7 +76,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 289);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(621, 45);

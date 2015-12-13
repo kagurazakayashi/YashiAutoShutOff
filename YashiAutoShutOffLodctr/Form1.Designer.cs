@@ -38,7 +38,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 21.75F);
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(0, -1);
             this.label1.Name = "label1";
@@ -51,7 +51,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F);
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(-2, 362);
             this.button1.Name = "button1";
@@ -65,7 +65,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F);
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(325, 362);
             this.button2.Name = "button2";
@@ -78,7 +78,7 @@
             // listBox1
             // 
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F);
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
             this.listBox1.Location = new System.Drawing.Point(12, 114);

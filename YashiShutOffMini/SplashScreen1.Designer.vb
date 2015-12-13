@@ -33,32 +33,35 @@ Partial Class SplashScreen1
         'label3
         '
         Me.label3.AutoSize = True
-        Me.label3.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.label3.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!)
         Me.label3.Location = New System.Drawing.Point(9, 311)
         Me.label3.Name = "label3"
         Me.label3.Size = New System.Drawing.Size(228, 17)
         Me.label3.TabIndex = 9
         Me.label3.Text = "© KagurazakaYashi@uuu.moe  GPLv2"
+        Me.label3.UseWaitCursor = True
         '
         'label2
         '
         Me.label2.AutoSize = True
-        Me.label2.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.label2.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!)
         Me.label2.Location = New System.Drawing.Point(11, 37)
         Me.label2.Name = "label2"
         Me.label2.Size = New System.Drawing.Size(53, 17)
         Me.label2.TabIndex = 8
         Me.label2.Text = "Express"
+        Me.label2.UseWaitCursor = True
         '
         'label1
         '
         Me.label1.AutoSize = True
-        Me.label1.Font = New System.Drawing.Font("微软雅黑", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.label1.Font = New System.Drawing.Font("Microsoft YaHei UI", 15.75!)
         Me.label1.Location = New System.Drawing.Point(9, 9)
         Me.label1.Name = "label1"
         Me.label1.Size = New System.Drawing.Size(138, 28)
         Me.label1.TabIndex = 7
         Me.label1.Text = "雅诗定时关机"
+        Me.label1.UseWaitCursor = True
         '
         'timer1
         '
@@ -67,13 +70,14 @@ Partial Class SplashScreen1
         '
         'info
         '
-        Me.info.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.info.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!)
         Me.info.Location = New System.Drawing.Point(11, 76)
         Me.info.Name = "info"
         Me.info.Size = New System.Drawing.Size(313, 224)
         Me.info.TabIndex = 10
         Me.info.Text = "正在启动计时器"
         Me.info.TextAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.info.UseWaitCursor = True
         '
         'SplashScreen1
         '
@@ -92,6 +96,7 @@ Partial Class SplashScreen1
         Me.Name = "SplashScreen1"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.UseWaitCursor = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

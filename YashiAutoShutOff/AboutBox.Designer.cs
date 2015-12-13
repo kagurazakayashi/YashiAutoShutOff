@@ -41,7 +41,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F);
             this.label1.Location = new System.Drawing.Point(16, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(222, 28);
@@ -75,7 +75,7 @@
             // 
             // info
             // 
-            this.info.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.info.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.info.Location = new System.Drawing.Point(18, 62);
             this.info.Name = "info";
             this.info.Size = new System.Drawing.Size(313, 245);
@@ -87,7 +87,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F);
             this.linkLabel1.Location = new System.Drawing.Point(17, 307);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(275, 20);

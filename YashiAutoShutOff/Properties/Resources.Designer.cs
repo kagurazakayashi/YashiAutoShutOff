@@ -153,6 +153,16 @@ namespace YashiAutoShutOff.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap imageres_168 {
+            get {
+                object obj = ResourceManager.GetObject("imageres_168", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap imageres_171 {
             get {
                 object obj = ResourceManager.GetObject("imageres_171", resourceCulture);
@@ -236,6 +246,16 @@ namespace YashiAutoShutOff.Properties {
         internal static System.Drawing.Bitmap imageres_5374 {
             get {
                 object obj = ResourceManager.GetObject("imageres_5374", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap imageres_59 {
+            get {
+                object obj = ResourceManager.GetObject("imageres_59", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -517,6 +517,7 @@ namespace YashiAutoShutOff
                     cmd = new System.Diagnostics.Process();
                     cmd.StartInfo.FileName = "YashiAutoShutOffLodctr.exe";
                     cmd.Start();
+                    SettingLoad.最终关机命令 = true;
                     主窗口.窗口打开 = false;
                     主计时器.Enabled = false;
                     notifyIcon1.Visible = false;
@@ -526,7 +527,7 @@ namespace YashiAutoShutOff
                 }
                 catch
                 {
-                    MessageBox.Show("找不到文件 YashiAutoShutOffLodctr.exe ，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是系统信息查看功能将不可用。", "缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("找不到文件 YashiAutoShutOffLodctr.exe 或发生了错误，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是系统信息查看功能将不可用。", "缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -707,11 +708,16 @@ namespace YashiAutoShutOff
                         }
                         dir.Delete(true);
                     }
+
+                    主窗口.窗口打开 = false;
+                    主窗口.Close();
+                    Close();
                 }
                 catch (Exception err)
                 {
                     MessageBox.Show(err.Message, "复位失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                主计时器.Enabled = false;
                 Application.Exit();
             }
         }
@@ -719,6 +725,20 @@ namespace YashiAutoShutOff
         private void 强制退出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.ExitThread();
+        }
+
+        private void 打开数码测色计MToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                cmd = new System.Diagnostics.Process();
+                cmd.StartInfo.FileName = "YashiColorMeasurement.exe";
+                cmd.Start();
+            }
+            catch
+            {
+                MessageBox.Show("找不到文件 YashiColorMeasurement.exe 或发生了错误，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是屏幕测色功能将不可用。", "缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

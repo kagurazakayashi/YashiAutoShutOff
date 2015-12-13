@@ -86,6 +86,7 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.numm1)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.numy1)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(324, 67)
@@ -107,7 +108,7 @@ Partial Class Form1
         Me.nums1.Location = New System.Drawing.Point(271, 39)
         Me.nums1.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.nums1.Name = "nums1"
-        Me.nums1.Size = New System.Drawing.Size(47, 21)
+        Me.nums1.Size = New System.Drawing.Size(47, 23)
         Me.nums1.TabIndex = 10
         '
         'Label5
@@ -124,7 +125,7 @@ Partial Class Form1
         Me.numi1.Location = New System.Drawing.Point(218, 39)
         Me.numi1.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.numi1.Name = "numi1"
-        Me.numi1.Size = New System.Drawing.Size(47, 21)
+        Me.numi1.Size = New System.Drawing.Size(47, 23)
         Me.numi1.TabIndex = 8
         '
         'Label4
@@ -141,7 +142,7 @@ Partial Class Form1
         Me.numh1.Location = New System.Drawing.Point(165, 39)
         Me.numh1.Maximum = New Decimal(New Integer() {23, 0, 0, 0})
         Me.numh1.Name = "numh1"
-        Me.numh1.Size = New System.Drawing.Size(47, 21)
+        Me.numh1.Size = New System.Drawing.Size(47, 23)
         Me.numh1.TabIndex = 6
         '
         'Label3
@@ -158,7 +159,7 @@ Partial Class Form1
         Me.numd1.Location = New System.Drawing.Point(112, 39)
         Me.numd1.Maximum = New Decimal(New Integer() {31, 0, 0, 0})
         Me.numd1.Name = "numd1"
-        Me.numd1.Size = New System.Drawing.Size(47, 21)
+        Me.numd1.Size = New System.Drawing.Size(47, 23)
         Me.numd1.TabIndex = 4
         '
         'Label2
@@ -175,7 +176,7 @@ Partial Class Form1
         Me.numm1.Location = New System.Drawing.Point(59, 39)
         Me.numm1.Maximum = New Decimal(New Integer() {12, 0, 0, 0})
         Me.numm1.Name = "numm1"
-        Me.numm1.Size = New System.Drawing.Size(47, 21)
+        Me.numm1.Size = New System.Drawing.Size(47, 23)
         Me.numm1.TabIndex = 2
         '
         'Label1
@@ -192,7 +193,7 @@ Partial Class Form1
         Me.numy1.Location = New System.Drawing.Point(6, 39)
         Me.numy1.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
         Me.numy1.Name = "numy1"
-        Me.numy1.Size = New System.Drawing.Size(47, 21)
+        Me.numy1.Size = New System.Drawing.Size(47, 23)
         Me.numy1.TabIndex = 0
         '
         'Timer1
@@ -214,6 +215,7 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.numm2)
         Me.GroupBox2.Controls.Add(Me.Label12)
         Me.GroupBox2.Controls.Add(Me.numy2)
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 85)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(324, 67)
@@ -234,7 +236,7 @@ Partial Class Form1
         Me.nums2.Location = New System.Drawing.Point(271, 39)
         Me.nums2.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.nums2.Name = "nums2"
-        Me.nums2.Size = New System.Drawing.Size(47, 21)
+        Me.nums2.Size = New System.Drawing.Size(47, 23)
         Me.nums2.TabIndex = 10
         '
         'Label8
@@ -250,7 +252,7 @@ Partial Class Form1
         Me.numi2.Location = New System.Drawing.Point(218, 39)
         Me.numi2.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.numi2.Name = "numi2"
-        Me.numi2.Size = New System.Drawing.Size(47, 21)
+        Me.numi2.Size = New System.Drawing.Size(47, 23)
         Me.numi2.TabIndex = 8
         '
         'Label9
@@ -266,7 +268,7 @@ Partial Class Form1
         Me.numh2.Location = New System.Drawing.Point(165, 39)
         Me.numh2.Maximum = New Decimal(New Integer() {23, 0, 0, 0})
         Me.numh2.Name = "numh2"
-        Me.numh2.Size = New System.Drawing.Size(47, 21)
+        Me.numh2.Size = New System.Drawing.Size(47, 23)
         Me.numh2.TabIndex = 6
         '
         'Label10
@@ -282,7 +284,7 @@ Partial Class Form1
         Me.numd2.Location = New System.Drawing.Point(112, 39)
         Me.numd2.Maximum = New Decimal(New Integer() {31, 0, 0, 0})
         Me.numd2.Name = "numd2"
-        Me.numd2.Size = New System.Drawing.Size(47, 21)
+        Me.numd2.Size = New System.Drawing.Size(47, 23)
         Me.numd2.TabIndex = 4
         '
         'Label11
@@ -298,7 +300,7 @@ Partial Class Form1
         Me.numm2.Location = New System.Drawing.Point(59, 39)
         Me.numm2.Maximum = New Decimal(New Integer() {12, 0, 0, 0})
         Me.numm2.Name = "numm2"
-        Me.numm2.Size = New System.Drawing.Size(47, 21)
+        Me.numm2.Size = New System.Drawing.Size(47, 23)
         Me.numm2.TabIndex = 2
         '
         'Label12
@@ -314,16 +316,18 @@ Partial Class Form1
         Me.numy2.Location = New System.Drawing.Point(6, 39)
         Me.numy2.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
         Me.numy2.Name = "numy2"
-        Me.numy2.Size = New System.Drawing.Size(47, 21)
+        Me.numy2.Size = New System.Drawing.Size(47, 23)
         Me.numy2.TabIndex = 0
         '
         'RadioButton1
         '
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.Checked = True
+        Me.RadioButton1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.RadioButton1.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!)
         Me.RadioButton1.Location = New System.Drawing.Point(12, 164)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(47, 16)
+        Me.RadioButton1.Size = New System.Drawing.Size(50, 21)
         Me.RadioButton1.TabIndex = 13
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "禁用"
@@ -332,9 +336,11 @@ Partial Class Form1
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.RadioButton2.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!)
         Me.RadioButton2.Location = New System.Drawing.Point(81, 164)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(47, 16)
+        Me.RadioButton2.Size = New System.Drawing.Size(50, 21)
         Me.RadioButton2.TabIndex = 14
         Me.RadioButton2.Text = "提醒"
         Me.RadioButton2.UseVisualStyleBackColor = True
@@ -342,9 +348,11 @@ Partial Class Form1
         'RadioButton3
         '
         Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.RadioButton3.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!)
         Me.RadioButton3.Location = New System.Drawing.Point(150, 164)
         Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(47, 16)
+        Me.RadioButton3.Size = New System.Drawing.Size(50, 21)
         Me.RadioButton3.TabIndex = 15
         Me.RadioButton3.Text = "关机"
         Me.RadioButton3.UseVisualStyleBackColor = True
@@ -352,9 +360,11 @@ Partial Class Form1
         'RadioButton4
         '
         Me.RadioButton4.AutoSize = True
+        Me.RadioButton4.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.RadioButton4.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!)
         Me.RadioButton4.Location = New System.Drawing.Point(219, 164)
         Me.RadioButton4.Name = "RadioButton4"
-        Me.RadioButton4.Size = New System.Drawing.Size(47, 16)
+        Me.RadioButton4.Size = New System.Drawing.Size(50, 21)
         Me.RadioButton4.TabIndex = 16
         Me.RadioButton4.Text = "重启"
         Me.RadioButton4.UseVisualStyleBackColor = True
@@ -362,9 +372,11 @@ Partial Class Form1
         'RadioButton5
         '
         Me.RadioButton5.AutoSize = True
+        Me.RadioButton5.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.RadioButton5.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!)
         Me.RadioButton5.Location = New System.Drawing.Point(288, 164)
         Me.RadioButton5.Name = "RadioButton5"
-        Me.RadioButton5.Size = New System.Drawing.Size(47, 16)
+        Me.RadioButton5.Size = New System.Drawing.Size(50, 21)
         Me.RadioButton5.TabIndex = 17
         Me.RadioButton5.Text = "休眠"
         Me.RadioButton5.UseVisualStyleBackColor = True

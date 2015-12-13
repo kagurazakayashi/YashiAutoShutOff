@@ -37,17 +37,20 @@
             // 
             // listBox1
             // 
+            this.listBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
+            this.listBox1.ItemHeight = 17;
             this.listBox1.Location = new System.Drawing.Point(-2, -1);
             this.listBox1.Name = "listBox1";
             this.listBox1.ScrollAlwaysVisible = true;
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listBox1.Size = new System.Drawing.Size(727, 448);
+            this.listBox1.Size = new System.Drawing.Size(727, 446);
             this.listBox1.TabIndex = 0;
             // 
             // button1
             // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.Location = new System.Drawing.Point(604, 453);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 23);
@@ -58,7 +61,9 @@
             // 
             // button2
             // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Enabled = false;
+            this.button2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.Location = new System.Drawing.Point(491, 453);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(107, 23);
