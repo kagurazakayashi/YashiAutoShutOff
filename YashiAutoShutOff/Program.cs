@@ -26,6 +26,7 @@ namespace YashiAutoShutOff
 
             using (System.Threading.Mutex mutex = new System.Threading.Mutex(true, Application.ProductName, out createNew))
             {
+                
                 if (createNew)
                 {
                     startapp();

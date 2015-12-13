@@ -8,6 +8,7 @@ namespace YashiAutoShutOff
     static class SettingLoad
     {
         public static int initID = new Random().Next(0, int.MaxValue);
+        public static string 资料文件夹 = "";
         public static bool 以管理员方式运行 = false;
 
         public static string 任务启动时间 = "";

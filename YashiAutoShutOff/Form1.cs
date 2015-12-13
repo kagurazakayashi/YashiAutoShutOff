@@ -48,6 +48,7 @@ namespace YashiAutoShutOff
         private void Form1_Load(object sender, EventArgs e)
         {
             启动窗体.Show();
+            创建用户文件夹();
             数值计算器 = new Calc(系统信息管理类);
             Console.WriteLine("Form1 init: " + initID);
             主窗口.Show();
@@ -72,6 +73,17 @@ namespace YashiAutoShutOff
             启动或停止系统监视器();
 #endif
             //启动或停止系统监视器();
+        }
+
+        private string 创建用户文件夹()
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\YashiAutoShutdown\\";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            SettingLoad.资料文件夹 = path;
+            return path;
         }
 
         private void 主窗体关闭(bool 退出)
@@ -661,6 +673,52 @@ namespace YashiAutoShutOff
         {
             AboutBox about = new AboutBox();
             about.Show();
+        }
+
+        private void 打开用户设置文件夹DToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("explorer.exe", SettingLoad.资料文件夹);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "打开失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void 抹掉用户设置EToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            主计时器.Enabled = false;
+            if (MessageBox.Show("会删除所有设置和日志文件并退出。确认继续？", "注意", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                notifyIcon1.Visible = false;
+                SettingLoad.最终关机命令 = true;
+                try
+                {
+                    string path = 创建用户文件夹();
+                    DirectoryInfo dir = new DirectoryInfo(path);
+                    if (dir.Exists)
+                    {
+                        DirectoryInfo[] childs = dir.GetDirectories();
+                        foreach (DirectoryInfo child in childs)
+                        {
+                            child.Delete(true);
+                        }
+                        dir.Delete(true);
+                    }
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message, "复位失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                Application.Exit();
+            }
+        }
+
+        private void 强制退出ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.ExitThread();
         }
     }
 }

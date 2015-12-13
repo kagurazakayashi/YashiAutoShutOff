@@ -53,7 +53,7 @@ namespace YashiAutoShutOff
                     try
                     {
                         //st.info.Text = output;
-                        String 默认日志文件 = Directory.GetCurrentDirectory() + "\\shutdown.log";
+                        String 默认日志文件 = SettingLoad.资料文件夹 + "shutdown.log";
                         using (StreamWriter sw = File.AppendText(默认日志文件))
                         {
                             sw.WriteLine(DateTime.Now);

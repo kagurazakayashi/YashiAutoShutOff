@@ -104,7 +104,7 @@ namespace YashiAutoShutOff
                 条件满足进度.Style = ProgressBarStyle.Continuous;
                 if (!仅动画)
                 {
-                    String 默认配置文件 = Directory.GetCurrentDirectory() + "\\default.xml";
+                    String 默认配置文件 = SettingLoad.资料文件夹 + "default.xml";
                     保存设置(默认配置文件);
                     准备启动任务();
                 }
@@ -254,7 +254,7 @@ namespace YashiAutoShutOff
         {
             打开文件对话框.Title = "要从哪里导入设置呢？";
             打开文件对话框.Filter = "XML设置文件(*.xml)|*.xml|所有文件(*.*)|*.*";
-            打开文件对话框.InitialDirectory = Directory.GetCurrentDirectory();
+            打开文件对话框.InitialDirectory = SettingLoad.资料文件夹;
             if (打开文件对话框.ShowDialog() == DialogResult.OK)
             {
                 String 设置文件路径 = 打开文件对话框.FileName.ToString();
@@ -266,7 +266,7 @@ namespace YashiAutoShutOff
         {
             保存文件对话框.Title = "要将设置保存到哪里呢？";
             保存文件对话框.Filter = "XML设置文件(*.xml)|*.xml|自定义文件(*.*)|*.*";
-            保存文件对话框.InitialDirectory = Directory.GetCurrentDirectory();
+            保存文件对话框.InitialDirectory = SettingLoad.资料文件夹;
             if (保存文件对话框.ShowDialog() == DialogResult.OK)
             {
                 String 设置文件路径 = 保存文件对话框.FileName.ToString();
@@ -284,7 +284,7 @@ namespace YashiAutoShutOff
 
         public void 读入默认设置()
         {
-            String 默认配置文件 = Directory.GetCurrentDirectory() + "\\default.xml";
+            String 默认配置文件 = SettingLoad.资料文件夹 + "default.xml";
             if (!File.Exists(默认配置文件))
             {
                 新建设置文件(默认配置文件);
