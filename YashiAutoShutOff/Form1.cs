@@ -47,7 +47,17 @@ namespace YashiAutoShutOff
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.AboveNormal;
             启动窗体.Show();
+            if (SettingLoad.arg("reset"))
+            {
+                抹掉设置();
+            }
+            if (SettingLoad.arg("ver"))
+            {
+                AboutBox about = new AboutBox();
+                about.Show();
+            }
             创建用户文件夹();
             数值计算器 = new Calc(系统信息管理类);
             Console.WriteLine("Form1 init: " + initID);
@@ -66,13 +76,27 @@ namespace YashiAutoShutOff
             系统信息管理类.初始化硬盘IO总计数器();
             系统信息管理类.初始化网络计数器();
             重新为设置窗口赋值();
+            bool startcmd = false;
 #if DEBUG
             仅启动系统监视器VToolStripMenuItem.Text = "处于调试模式";
             仅启动系统监视器VToolStripMenuItem.Enabled = false;
 #else
-            启动或停止系统监视器();
+            startcmd = true;
 #endif
-            //启动或停止系统监视器();
+            if (SettingLoad.arg("viewon"))
+            {
+                仅启动系统监视器VToolStripMenuItem.Enabled = true;
+                启动或停止系统监视器();
+            }
+            else if (SettingLoad.arg("viewoff"))
+            {
+                仅启动系统监视器VToolStripMenuItem.Enabled = false;
+            }
+            else if (startcmd)
+            {
+                仅启动系统监视器VToolStripMenuItem.Enabled = true;
+                启动或停止系统监视器();
+            }
         }
 
         private string 创建用户文件夹()
@@ -90,10 +114,21 @@ namespace YashiAutoShutOff
         {
             if (退出)
             {
-                执行退出();
-            } else
+                if (SettingLoad.arg("autohide"))
+                {
+                    显示或隐藏主窗口();
+                }
+                else
+                {
+                    执行退出();
+                }
+            }
+            else
             {
-                显示或隐藏主窗口();
+                if (!SettingLoad.arg("minimizewindow"))
+                {
+                    显示或隐藏主窗口();
+                }
             }
         }
 
@@ -101,7 +136,15 @@ namespace YashiAutoShutOff
         {
             if (启动窗体开启 && 启动完毕)
             {
-                主窗口.Opacity = 1;
+                if (SettingLoad.arg("opacity"))
+                {
+                    主窗口.Opacity = 0.8;
+                } else
+                {
+                    主窗口.Opacity = 1;
+                }
+                    
+                notifyIcon1.Visible = true;
                 try
                 {
                     启动窗体.timer1.Enabled = false;
@@ -113,6 +156,14 @@ namespace YashiAutoShutOff
                 }
                 启动窗体开启 = false;
                 启动窗体 = null;
+                if (SettingLoad.arg("stop"))
+                {
+                    主计时器.Enabled = false;
+                }
+                else if (SettingLoad.arg("pause"))
+                {
+                    暂停PToolStripMenuItem.Checked = true;
+                }
             }
             主窗口.时间显示.Text = DateTime.Now.ToLongTimeString().ToString();
             if (暂停PToolStripMenuItem.Checked == false)
@@ -179,6 +230,10 @@ namespace YashiAutoShutOff
 
         private void 紧急停止(String 错误信息)
         {
+            if (SettingLoad.arg("crash"))
+            {
+                Application.ExitThread();
+            }
             暂停PToolStripMenuItem.Checked = true;
             执行中 = false;
             if (主窗口.窗口打开)
@@ -341,7 +396,7 @@ namespace YashiAutoShutOff
         }
         private void 执行退出()
         {
-            if (SettingLoad.最终关机命令)
+            if (SettingLoad.最终关机命令 || SettingLoad.arg("quickexit"))
             {
                 完全退出();
             }
@@ -394,7 +449,14 @@ namespace YashiAutoShutOff
                 主窗口.主窗体关闭代理 = 主窗体关闭代理;
                 主窗口.Show();
                 重新为设置窗口赋值();
-                主窗口.Opacity = 1;
+                if (SettingLoad.arg("opacity"))
+                {
+                    主窗口.Opacity = 0.8;
+                }
+                else
+                {
+                    主窗口.Opacity = 1;
+                }
             }
             主窗口.窗口打开 = !主窗口.窗口打开;
         }
@@ -702,30 +764,34 @@ namespace YashiAutoShutOff
 
         private void 抹掉用户设置EToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            主计时器.Enabled = false;
             if (MessageBox.Show("会删除所有设置和日志文件并退出。确认继续？", "注意", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                try
+                抹掉设置();
+            }
+            主计时器.Enabled = false;
+            Application.Exit();
+        }
+
+        private void 抹掉设置()
+        {
+            try
+            {
+                string path = 创建用户文件夹();
+                DirectoryInfo dir = new DirectoryInfo(path);
+                if (dir.Exists)
                 {
-                    string path = 创建用户文件夹();
-                    DirectoryInfo dir = new DirectoryInfo(path);
-                    if (dir.Exists)
+                    DirectoryInfo[] childs = dir.GetDirectories();
+                    foreach (DirectoryInfo child in childs)
                     {
-                        DirectoryInfo[] childs = dir.GetDirectories();
-                        foreach (DirectoryInfo child in childs)
-                        {
-                            child.Delete(true);
-                        }
-                        dir.Delete(true);
+                        child.Delete(true);
                     }
-                    运行命令后退出();
+                    dir.Delete(true);
                 }
-                catch (Exception err)
-                {
-                    MessageBox.Show(err.Message, "复位失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                主计时器.Enabled = false;
-                Application.Exit();
+                运行命令后退出();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "复位失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

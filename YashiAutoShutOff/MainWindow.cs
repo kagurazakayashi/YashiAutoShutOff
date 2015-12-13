@@ -147,12 +147,17 @@ namespace YashiAutoShutOff
 
         private void 开关动画控制器_Tick(object sender, EventArgs e)
         {
+            bool 执行动画 = true;
+            if (SettingLoad.arg("animationoff"))
+            {
+                执行动画 = false;
+            }
             int 动画速度 = 2;
             开关动画计数器++;
             if (总开关1.Text == "&OFF")
             {
                 int 新X坐标 = 总开关1.Location.X - 动画速度;
-                if (新X坐标 < 703)
+                if (新X坐标 < 703 || !执行动画)
                 {
                     新X坐标 = 703;
                 }
@@ -161,13 +166,13 @@ namespace YashiAutoShutOff
             else
             {
                 int 新X坐标 = 总开关1.Location.X + 动画速度;
-                if (新X坐标 > 778)
+                if (新X坐标 > 778 || !执行动画)
                 {
                     新X坐标 = 778;
                 }
                 总开关1.Location = new Point(新X坐标, 总开关1.Location.Y);
             }
-            if (开关动画计数器 >= 75 / 动画速度)
+            if ((开关动画计数器 >= 75 / 动画速度) || !执行动画)
             {
                 开关动画控制器.Enabled = false;
                 总开关1.Enabled = true;

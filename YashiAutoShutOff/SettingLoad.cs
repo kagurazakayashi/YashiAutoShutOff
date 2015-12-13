@@ -9,6 +9,7 @@ namespace YashiAutoShutOff
     {
         public static int initID = new Random().Next(0, int.MaxValue);
         public static string 资料文件夹 = "";
+        public static string[] 运行参数;
         public static bool 以管理员方式运行 = false;
 
         public static string 任务启动时间 = "";
@@ -84,6 +85,19 @@ namespace YashiAutoShutOff
             网络O信息数组 = new float[3];
             网络IO信息数组 = new float[3];
         }
-
+        public static bool arg(string a)
+        {
+            if (运行参数.Length > 0)
+            {
+                for (int i = 0; i < 运行参数.Length; i++)
+                {
+                    if (运行参数[i].Equals("-" + a) || 运行参数[i].Equals("--" + a) || 运行参数[i].Equals("/" + a))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 }

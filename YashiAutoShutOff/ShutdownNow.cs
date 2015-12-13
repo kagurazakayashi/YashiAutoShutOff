@@ -50,23 +50,28 @@ namespace YashiAutoShutOff
                     cmd.WaitForExit();
                     cmd.Close();
 #endif
-                    try
+                    if (!SettingLoad.arg("nolog"))
                     {
-                        //st.info.Text = output;
-                        String 默认日志文件 = SettingLoad.资料文件夹 + "shutdown.log";
-                        using (StreamWriter sw = File.AppendText(默认日志文件))
+                        try
                         {
-                            sw.WriteLine(DateTime.Now);
-                            sw.WriteLine(output);
-                            sw.Close();
+                            String 默认日志文件 = SettingLoad.资料文件夹 + "shutdown.log";
+                            using (StreamWriter sw = File.AppendText(默认日志文件))
+                            {
+                                sw.WriteLine(DateTime.Now);
+                                sw.WriteLine(output);
+                                sw.Close();
+                            }
+                        }
+                        catch
+                        {
+
                         }
                     }
-                    catch
+                    if (SettingLoad.arg("shutdowninfo"))
                     {
-                        
+                        MessageBox.Show(output, "关机", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     //Application.Exit();
-                    //MessageBox.Show(output, "关机", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception err)
                 {
