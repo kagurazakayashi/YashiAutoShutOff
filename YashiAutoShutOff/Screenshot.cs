@@ -26,6 +26,12 @@ namespace YashiAutoShutOff
             return color;
         }
 
+        static public int[] GetPixelColorRGBA(int x, int y)
+        {
+            Color nc = GetPixelColor(x, y);
+            return new int[4] { nc.R, nc.G, nc.B, nc.A };
+        }
+
         static public int[] mousePixelColorXYRGBA()
         {
             int[] mousepx = new int[2] { Control.MousePosition.X, Control.MousePosition.Y };

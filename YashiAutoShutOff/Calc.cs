@@ -57,24 +57,44 @@ namespace YashiAutoShutOff
                     实际数值 = 100 - 实际数值;
                 }
             }
-            else if (SettingLoad.类型 == 12 || SettingLoad.类型 == 13) //监控程序结束/启动
+            else if (SettingLoad.类型 == 12) //监控程序结束/启动
             {
                 Process[] proc = Process.GetProcessesByName(SettingLoad.条件);
                 if (proc.Length == 0)
                 {
-                    if (SettingLoad.类型 == 13)
+                    if (SettingLoad.比较 == 2 || SettingLoad.比较 == 5)
+                    {
+                        return 0;
+                    }
+                    return 1;
+                }
+                else
+                {
+                    if (SettingLoad.比较 == 2 || SettingLoad.比较 == 5)
                     {
                         return 1;
                     }
                     return 0;
                 }
-                else
+            }
+            else if (SettingLoad.类型 == 13) //监控坐标颜色
+            {
+                bool 颜色匹配 = 计算坐标颜色();
+                if (颜色匹配)
                 {
-                    if (SettingLoad.类型 == 13)
+                    if (SettingLoad.比较 == 2 || SettingLoad.比较 == 5)
                     {
                         return 0;
                     }
                     return 1;
+                }
+                else
+                {
+                    if (SettingLoad.比较 == 2 || SettingLoad.比较 == 5)
+                    {
+                        return 1;
+                    }
+                    return 0;
                 }
             }
             else
@@ -116,11 +136,11 @@ namespace YashiAutoShutOff
 
         public double 计算秒数差()
         {
-            string[] 日期字符字符串 = SettingLoad.条件.Split('-');
+            string[] 参数数组 = SettingLoad.条件.Split('-');
             int[] 输入的日期数字 = new int[6];
             for (int i = 0; i < 6; i++)
             {
-                输入的日期数字[i] = int.Parse(日期字符字符串[i]);
+                输入的日期数字[i] = int.Parse(参数数组[i]);
             }
             DateTime 输入的日期 = new DateTime(输入的日期数字[0], 输入的日期数字[1], 输入的日期数字[2], 输入的日期数字[3], 输入的日期数字[4], 输入的日期数字[5]);
             DateTime 当前的日期 = DateTime.Now;
@@ -131,6 +151,15 @@ namespace YashiAutoShutOff
             TimeSpan 秒数差对象 = 输入的日期 - 当前的日期;
             return 秒数差对象.TotalSeconds;
         }
-
+        public bool 计算坐标颜色()
+        {
+            string[] 参数数组 = SettingLoad.条件.Split('-');
+            int[] nowRGBA = Screenshot.GetPixelColorRGBA(int.Parse(参数数组[0]), int.Parse(参数数组[1]));
+            if (int.Parse(参数数组[2]) == nowRGBA[0] && int.Parse(参数数组[3]) == nowRGBA[1] && int.Parse(参数数组[4]) == nowRGBA[2])
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

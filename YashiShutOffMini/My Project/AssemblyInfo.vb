@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 '查看程序集特性的值
 
-<Assembly: AssemblyTitle("YashiShutOffMini")>
+<Assembly: AssemblyTitle("雅诗快捷定时关机")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("YashiShutOffMini")>
-<Assembly: AssemblyCopyright("Copyright ©  2015")>
+<Assembly: AssemblyCompany("神楽坂雅詩")>
+<Assembly: AssemblyProduct("雅诗智能关机")>
+<Assembly: AssemblyCopyright("http://uuu.moe?p=4293")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>

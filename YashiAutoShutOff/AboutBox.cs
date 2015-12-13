@@ -108,7 +108,12 @@ namespace YashiAutoShutOff
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://uuu.moe");
+            System.Diagnostics.Process.Start("http://uuu.moe?p=4293");
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://plus.google.com/105938465531761409080");
         }
     }
 }

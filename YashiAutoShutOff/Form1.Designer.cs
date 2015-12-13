@@ -33,12 +33,23 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.窗口管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.显示主窗口SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.仅启动系统监视器VToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.打开数码测色计MToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.性能ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.暂停PToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.立即操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.关于和退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.关闭此菜单QToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.主计时器 = new System.Windows.Forms.Timer(this.components);
+            this.显示主窗口SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.仅启动系统监视器VToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打开数码测色计MToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.优先级NToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pu0 = new System.Windows.Forms.ToolStripMenuItem();
             this.pu1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,14 +58,10 @@
             this.pu4 = new System.Windows.Forms.ToolStripMenuItem();
             this.pu5 = new System.Windows.Forms.ToolStripMenuItem();
             this.空闲IToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windows任务管理器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修复Windows性能计数器注册表RToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.抹掉用户设置EToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.强制退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-            this.立即操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关闭或注销ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动关机ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动重启ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,16 +72,10 @@
             this.自动重启并打开之前的程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动重启并打开高级启动菜单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.取消系统关机计划CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
-            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打开用户设置文件夹DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看关机事件日志LToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
-            this.关于和退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关闭此菜单QToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.主计时器 = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,6 +98,7 @@
             this.toolStripMenuItem1,
             this.性能ToolStripMenuItem,
             this.暂停PToolStripMenuItem,
+            this.toolStripMenuItem6,
             this.优先级NToolStripMenuItem,
             this.toolStripMenuItem2,
             this.维护ToolStripMenuItem,
@@ -118,7 +120,7 @@
             this.退出XToolStripMenuItem,
             this.关闭此菜单QToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(299, 584);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(299, 586);
             // 
             // 窗口管理ToolStripMenuItem
             // 
@@ -127,6 +129,92 @@
             this.窗口管理ToolStripMenuItem.Name = "窗口管理ToolStripMenuItem";
             this.窗口管理ToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
             this.窗口管理ToolStripMenuItem.Text = "窗口管理";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(295, 6);
+            // 
+            // 性能ToolStripMenuItem
+            // 
+            this.性能ToolStripMenuItem.Enabled = false;
+            this.性能ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.性能ToolStripMenuItem.Name = "性能ToolStripMenuItem";
+            this.性能ToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
+            this.性能ToolStripMenuItem.Text = "性能";
+            // 
+            // 暂停PToolStripMenuItem
+            // 
+            this.暂停PToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.暂停PToolStripMenuItem.Name = "暂停PToolStripMenuItem";
+            this.暂停PToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
+            this.暂停PToolStripMenuItem.Text = "暂停/推迟执行时间(&P)";
+            this.暂停PToolStripMenuItem.Click += new System.EventHandler(this.暂停PToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(295, 6);
+            // 
+            // 维护ToolStripMenuItem
+            // 
+            this.维护ToolStripMenuItem.Enabled = false;
+            this.维护ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.维护ToolStripMenuItem.Name = "维护ToolStripMenuItem";
+            this.维护ToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
+            this.维护ToolStripMenuItem.Text = "维护";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(295, 6);
+            // 
+            // 立即操作ToolStripMenuItem
+            // 
+            this.立即操作ToolStripMenuItem.Enabled = false;
+            this.立即操作ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.立即操作ToolStripMenuItem.Name = "立即操作ToolStripMenuItem";
+            this.立即操作ToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
+            this.立即操作ToolStripMenuItem.Text = "立即操作";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(295, 6);
+            // 
+            // 设置ToolStripMenuItem
+            // 
+            this.设置ToolStripMenuItem.Enabled = false;
+            this.设置ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
+            this.设置ToolStripMenuItem.Text = "设置管理";
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(295, 6);
+            // 
+            // 关于和退出ToolStripMenuItem
+            // 
+            this.关于和退出ToolStripMenuItem.Enabled = false;
+            this.关于和退出ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.关于和退出ToolStripMenuItem.Name = "关于和退出ToolStripMenuItem";
+            this.关于和退出ToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
+            this.关于和退出ToolStripMenuItem.Text = "关于和退出";
+            // 
+            // 关闭此菜单QToolStripMenuItem
+            // 
+            this.关闭此菜单QToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.关闭此菜单QToolStripMenuItem.Name = "关闭此菜单QToolStripMenuItem";
+            this.关闭此菜单QToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
+            this.关闭此菜单QToolStripMenuItem.Text = "关闭此菜单(&Q)";
+            // 
+            // 主计时器
+            // 
+            this.主计时器.Enabled = true;
+            this.主计时器.Interval = 1000;
+            this.主计时器.Tick += new System.EventHandler(this.主计时器_Tick);
             // 
             // 显示主窗口SToolStripMenuItem
             // 
@@ -156,26 +244,14 @@
             this.打开数码测色计MToolStripMenuItem.Text = "打开 数码测色计(&M)";
             this.打开数码测色计MToolStripMenuItem.Click += new System.EventHandler(this.打开数码测色计MToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem1
+            // toolStripMenuItem6
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(295, 6);
-            // 
-            // 性能ToolStripMenuItem
-            // 
-            this.性能ToolStripMenuItem.Enabled = false;
-            this.性能ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.性能ToolStripMenuItem.Name = "性能ToolStripMenuItem";
-            this.性能ToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
-            this.性能ToolStripMenuItem.Text = "性能";
-            // 
-            // 暂停PToolStripMenuItem
-            // 
-            this.暂停PToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.暂停PToolStripMenuItem.Name = "暂停PToolStripMenuItem";
-            this.暂停PToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
-            this.暂停PToolStripMenuItem.Text = "暂停/推迟执行时间(&P)";
-            this.暂停PToolStripMenuItem.Click += new System.EventHandler(this.暂停PToolStripMenuItem_Click);
+            this.toolStripMenuItem6.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripMenuItem6.Image = global::YashiAutoShutOff.Properties.Resources.imageres_SHIDI_SHIELD_INTERNAL;
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(298, 24);
+            this.toolStripMenuItem6.Text = "取得管理员权限(&H)";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
             // 
             // 优先级NToolStripMenuItem
             // 
@@ -245,19 +321,6 @@
             this.空闲IToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
             this.空闲IToolStripMenuItem.Text = "空闲(&I)";
             // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(295, 6);
-            // 
-            // 维护ToolStripMenuItem
-            // 
-            this.维护ToolStripMenuItem.Enabled = false;
-            this.维护ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.维护ToolStripMenuItem.Name = "维护ToolStripMenuItem";
-            this.维护ToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
-            this.维护ToolStripMenuItem.Text = "维护";
-            // 
             // windows任务管理器ToolStripMenuItem
             // 
             this.windows任务管理器ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -293,19 +356,6 @@
             this.强制退出ToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
             this.强制退出ToolStripMenuItem.Text = "强制完全退出/结束进程";
             this.强制退出ToolStripMenuItem.Click += new System.EventHandler(this.强制退出ToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(295, 6);
-            // 
-            // 立即操作ToolStripMenuItem
-            // 
-            this.立即操作ToolStripMenuItem.Enabled = false;
-            this.立即操作ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.立即操作ToolStripMenuItem.Name = "立即操作ToolStripMenuItem";
-            this.立即操作ToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
-            this.立即操作ToolStripMenuItem.Text = "立即操作";
             // 
             // 关闭或注销ToolStripMenuItem
             // 
@@ -394,19 +444,6 @@
             this.取消系统关机计划CToolStripMenuItem.Text = "取消系统的关机计划(&C)";
             this.取消系统关机计划CToolStripMenuItem.Click += new System.EventHandler(this.取消系统关机计划CToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(295, 6);
-            // 
-            // 设置ToolStripMenuItem
-            // 
-            this.设置ToolStripMenuItem.Enabled = false;
-            this.设置ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
-            this.设置ToolStripMenuItem.Text = "设置管理";
-            // 
             // 打开用户设置文件夹DToolStripMenuItem
             // 
             this.打开用户设置文件夹DToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -425,19 +462,6 @@
             this.查看关机事件日志LToolStripMenuItem.Text = "查看关机事件日志(&L)";
             this.查看关机事件日志LToolStripMenuItem.Click += new System.EventHandler(this.查看关机事件日志LToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(295, 6);
-            // 
-            // 关于和退出ToolStripMenuItem
-            // 
-            this.关于和退出ToolStripMenuItem.Enabled = false;
-            this.关于和退出ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.关于和退出ToolStripMenuItem.Name = "关于和退出ToolStripMenuItem";
-            this.关于和退出ToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
-            this.关于和退出ToolStripMenuItem.Text = "关于和退出";
-            // 
             // 关于AToolStripMenuItem
             // 
             this.关于AToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -455,19 +479,6 @@
             this.退出XToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
             this.退出XToolStripMenuItem.Text = "完全退出(&X)";
             this.退出XToolStripMenuItem.Click += new System.EventHandler(this.退出XToolStripMenuItem_Click);
-            // 
-            // 关闭此菜单QToolStripMenuItem
-            // 
-            this.关闭此菜单QToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.关闭此菜单QToolStripMenuItem.Name = "关闭此菜单QToolStripMenuItem";
-            this.关闭此菜单QToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
-            this.关闭此菜单QToolStripMenuItem.Text = "关闭此菜单(&Q)";
-            // 
-            // 主计时器
-            // 
-            this.主计时器.Enabled = true;
-            this.主计时器.Interval = 1000;
-            this.主计时器.Tick += new System.EventHandler(this.主计时器_Tick);
             // 
             // Form1
             // 
@@ -532,6 +543,7 @@
         private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于和退出ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 打开数码测色计MToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
     }
 }
 

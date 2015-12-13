@@ -311,7 +311,7 @@ namespace YashiAutoShutOff
                 }
                 else
                 {
-                    string 条件计算发生错误 = "条件计算发生错误，请检查条件输入是否正确";
+                    string 条件计算发生错误 = "条件计算发生错误，不支持的条件。请检查条件输入是否正确";
                     紧急停止(条件计算发生错误);
                     return 条件计算发生错误;
                 }
@@ -514,22 +514,34 @@ namespace YashiAutoShutOff
                 }
                 try
                 {
-                    cmd = new System.Diagnostics.Process();
-                    cmd.StartInfo.FileName = "YashiAutoShutOffLodctr.exe";
-                    cmd.Start();
-                    SettingLoad.最终关机命令 = true;
-                    主窗口.窗口打开 = false;
-                    主计时器.Enabled = false;
-                    notifyIcon1.Visible = false;
-                    主窗口.Close();
-                    Close();
-                    Application.Exit();
+                    Process cmd2 = new System.Diagnostics.Process();
+                    cmd2.StartInfo.FileName = "YashiAutoShutOffLodctr.exe";
+                    cmd2.Start();
+                    运行命令后退出();
                 }
                 catch
                 {
                     MessageBox.Show("找不到文件 YashiAutoShutOffLodctr.exe 或发生了错误，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是系统信息查看功能将不可用。", "缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+        }
+
+        private void 运行命令后退出()
+        {
+            try
+            {
+                SettingLoad.最终关机命令 = true;
+                主窗口.窗口打开 = false;
+                主计时器.Enabled = false;
+                notifyIcon1.Visible = false;
+                主窗口.Close();
+                Close();
+            }
+            catch
+            {
+
+            }
+            Application.Exit();
         }
 
         public void 启动任务(bool 开关)
@@ -693,8 +705,6 @@ namespace YashiAutoShutOff
             主计时器.Enabled = false;
             if (MessageBox.Show("会删除所有设置和日志文件并退出。确认继续？", "注意", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                notifyIcon1.Visible = false;
-                SettingLoad.最终关机命令 = true;
                 try
                 {
                     string path = 创建用户文件夹();
@@ -708,10 +718,7 @@ namespace YashiAutoShutOff
                         }
                         dir.Delete(true);
                     }
-
-                    主窗口.窗口打开 = false;
-                    主窗口.Close();
-                    Close();
+                    运行命令后退出();
                 }
                 catch (Exception err)
                 {
@@ -731,13 +738,34 @@ namespace YashiAutoShutOff
         {
             try
             {
-                cmd = new System.Diagnostics.Process();
-                cmd.StartInfo.FileName = "YashiColorMeasurement.exe";
-                cmd.Start();
+                Process cmd2 = new System.Diagnostics.Process();
+                cmd2.StartInfo.FileName = "YashiColorMeasurement.exe";
+                cmd2.Start();
             }
             catch
             {
                 MessageBox.Show("找不到文件 YashiColorMeasurement.exe 或发生了错误，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是屏幕测色功能将不可用。", "缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            //创建启动对象
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            startInfo.UseShellExecute = true;
+            startInfo.WorkingDirectory = Environment.CurrentDirectory;
+            startInfo.FileName = Application.ExecutablePath;
+            //设置启动动作,确保以管理员身份运行
+            startInfo.Verb = "runas";
+            try
+            {
+                System.Diagnostics.Process.Start(startInfo);
+                //退出
+                运行命令后退出();
+            }
+            catch
+            {
+                return;
             }
         }
     }

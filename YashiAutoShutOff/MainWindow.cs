@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 
 namespace YashiAutoShutOff
 {
@@ -427,14 +428,14 @@ namespace YashiAutoShutOff
 
         private void 类型列表_SelectedIndexChanged(object sender, EventArgs e)
         {
+            linkLabel1.Visible = false;
             比较列表.Enabled = true;
+            类型介绍框.Text = SettingLoad.类型列表介绍数组[类型列表.SelectedIndex];
             if (类型列表.SelectedIndex == 0)
             {
                 DateTime 当前的日期 = DateTime.Now;
                 条件输入框.Text = 当前的日期.Year + "-" + 当前的日期.Month + "-" + 当前的日期.Day + "-" + 当前的日期.Hour + "-" + 当前的日期.Minute + "-" + 当前的日期.Second;
                 条件单位.Text = "秒";
-                比较列表.Enabled = false;
-                比较列表.SelectedIndex = 3;
             }
             else if (类型列表.SelectedIndex == 1 || 类型列表.SelectedIndex == 2 || 类型列表.SelectedIndex == 3)
             {
@@ -456,12 +457,17 @@ namespace YashiAutoShutOff
                 条件输入框.Text = "512";
                 条件单位.Text = "KB/秒";
             }
-            else if (类型列表.SelectedIndex == 12 || 类型列表.SelectedIndex == 13)
+            else if (类型列表.SelectedIndex == 12)
             {
                 条件输入框.Text = "explorer.exe";
                 条件单位.Text = "进程名";
-                比较列表.Enabled = false;
-                比较列表.SelectedIndex = 0;
+            }
+            else if (类型列表.SelectedIndex == 13)
+            {
+                条件输入框.Text = "1000-1000-255-255-255";
+                条件单位.Text = "XYRGB";
+                linkLabel1.Text = 条件单位.Text;
+                linkLabel1.Visible = true;
             }
         }
 
@@ -475,7 +481,7 @@ namespace YashiAutoShutOff
         {
             try
             {
-                if (Directory.Exists(SettingLoad.截图保存路径))
+                if (Directory.Exists(截图保存路径.Text))
                 {
                     System.Diagnostics.Process.Start("explorer.exe", 截图保存路径.Text);
                 }
@@ -490,6 +496,23 @@ namespace YashiAutoShutOff
             catch (Exception err)
             {
                 MessageBox.Show(err.Message, "打开失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (类型列表.SelectedIndex == 13)
+            {
+                try
+                {
+                    Process cmd2 = new System.Diagnostics.Process();
+                    cmd2.StartInfo.FileName = "YashiColorMeasurement.exe";
+                    cmd2.Start();
+                }
+                catch
+                {
+                    MessageBox.Show("找不到文件 YashiColorMeasurement.exe 或发生了错误，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是屏幕测色功能将不可用。", "缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
     }

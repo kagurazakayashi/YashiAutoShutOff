@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("YashiAutoShutOffLodctr")]
+[assembly: AssemblyTitle("雅诗智能关机Win性能计数器修复工具")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("YashiAutoShutOffLodctr")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCompany("神楽坂雅詩")]
+[assembly: AssemblyProduct("雅诗智能关机")]
+[assembly: AssemblyCopyright("http://uuu.moe?p=4293")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

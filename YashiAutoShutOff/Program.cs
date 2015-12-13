@@ -56,31 +56,32 @@ namespace YashiAutoShutOff
             }
             else
             {
-                if (MessageBox.Show("建议您使用管理员方式运行本程序，但这不是必须的。\n拥有管理员权限可以提升关机的成功率。\n要请求管理员权限吗？", "非管理员权限通知", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    //创建启动对象
-                    System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-                    startInfo.UseShellExecute = true;
-                    startInfo.WorkingDirectory = Environment.CurrentDirectory;
-                    startInfo.FileName = Application.ExecutablePath;
-                    //设置启动动作,确保以管理员身份运行
-                    startInfo.Verb = "runas";
-                    try
-                    {
-                        System.Diagnostics.Process.Start(startInfo);
-                    }
-                    catch
-                    {
-                        return;
-                    }
-                    //退出
-                    Application.Exit();
-                }
-                else
-                {
-                    Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.AboveNormal;
-                    Application.Run(new Form1());
-                }
+                Application.Run(new Form1());
+                //if (MessageBox.Show("建议您使用管理员方式运行本程序，但这不是必须的。\n拥有管理员权限可以提升关机的成功率。\n要请求管理员权限吗？", "非管理员权限通知", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                //{
+                //    //创建启动对象
+                //    System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                //    startInfo.UseShellExecute = true;
+                //    startInfo.WorkingDirectory = Environment.CurrentDirectory;
+                //    startInfo.FileName = Application.ExecutablePath;
+                //    //设置启动动作,确保以管理员身份运行
+                //    startInfo.Verb = "runas";
+                //    try
+                //    {
+                //        System.Diagnostics.Process.Start(startInfo);
+                //    }
+                //    catch
+                //    {
+                //        return;
+                //    }
+                //    //退出
+                //    Application.Exit();
+                //}
+                //else
+                //{
+                //    Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.AboveNormal;
+                //    Application.Run(new Form1());
+                //}
             }
         }
     }
