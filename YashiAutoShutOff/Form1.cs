@@ -48,7 +48,10 @@ namespace YashiAutoShutOff
         private void Form1_Load(object sender, EventArgs e)
         {
             Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.AboveNormal;
-            启动窗体.Show();
+            if (!SettingLoad.arg("nologo"))
+            {
+                启动窗体.Show();
+            }
             if (SettingLoad.arg("reset"))
             {
                 抹掉设置();
@@ -77,12 +80,15 @@ namespace YashiAutoShutOff
             系统信息管理类.初始化网络计数器();
             重新为设置窗口赋值();
             bool startcmd = false;
-#if DEBUG
-            仅启动系统监视器VToolStripMenuItem.Text = "处于调试模式";
-            仅启动系统监视器VToolStripMenuItem.Enabled = false;
-#else
-            startcmd = true;
-#endif
+            if (SettingLoad.debug)
+            {
+                仅启动系统监视器VToolStripMenuItem.Text = "处于调试模式";
+                仅启动系统监视器VToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                startcmd = true;
+            }
             if (SettingLoad.arg("viewon"))
             {
                 仅启动系统监视器VToolStripMenuItem.Enabled = true;
@@ -136,14 +142,19 @@ namespace YashiAutoShutOff
         {
             if (启动窗体开启 && 启动完毕)
             {
-                if (SettingLoad.arg("opacity"))
+                if (SettingLoad.arg("nowindow"))
+                {
+                    显示或隐藏主窗口();
+                }
+                else if (SettingLoad.arg("opacity"))
                 {
                     主窗口.Opacity = 0.8;
-                } else
+                }
+                else
                 {
                     主窗口.Opacity = 1;
                 }
-                    
+                
                 notifyIcon1.Visible = true;
                 try
                 {
@@ -156,7 +167,12 @@ namespace YashiAutoShutOff
                 }
                 启动窗体开启 = false;
                 启动窗体 = null;
-                if (SettingLoad.arg("stop"))
+                if (SettingLoad.arg("exit"))
+                {
+                    SettingLoad.最终关机命令 = true;
+                    Application.Exit();
+                }
+                else if (SettingLoad.arg("stop"))
                 {
                     主计时器.Enabled = false;
                 }
@@ -216,9 +232,10 @@ namespace YashiAutoShutOff
                         cmd.StandardInput.WriteLine(strs[i]);
                     }
                 }
-#if DEBUG
-                Console.WriteLine(系统信息文本);
-#endif
+                if (SettingLoad.debug)
+                {
+                    Console.WriteLine(系统信息文本);
+                }
                 if (!启动完毕)
                 {
                     //主窗口.tabControl1.SelectedIndex = 1;
@@ -833,6 +850,48 @@ namespace YashiAutoShutOff
             {
                 return;
             }
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            ShutdownNow 关机 = new ShutdownNow();
+            关机.立即执行类型 = 8;
+            关机.开始关机();
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            ShutdownNow 关机 = new ShutdownNow();
+            关机.立即执行类型 = 9;
+            关机.开始关机();
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            ShutdownNow 关机 = new ShutdownNow();
+            关机.立即执行类型 = 10;
+            关机.开始关机();
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            ShutdownNow 关机 = new ShutdownNow();
+            关机.立即执行类型 = 11;
+            关机.开始关机();
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            ShutdownNow 关机 = new ShutdownNow();
+            关机.立即执行类型 = 12;
+            关机.开始关机();
+        }
+
+        private void 直接关闭电源XToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShutdownNow 关机 = new ShutdownNow();
+            关机.立即执行类型 = 13;
+            关机.开始关机();
         }
     }
 }

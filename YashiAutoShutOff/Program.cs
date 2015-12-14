@@ -19,16 +19,43 @@ namespace YashiAutoShutOff
         {
             Console.WriteLine("Main init: " + initID);
             SettingLoad.运行参数 = args;
+            SettingLoad.debug = false;
+#if DEBUG
+            SettingLoad.debug = true;
+#endif
+            if (SettingLoad.arg("debug"))
+            {
+                SettingLoad.debug = true;
+            }
+            else if (SettingLoad.arg("release"))
+            {
+                SettingLoad.debug = false;
+            }
             if (SettingLoad.arg("shutdownnow"))
             {
-                Process proc = new Process();
-                proc.StartInfo.FileName = "shutdown.exe";
-                proc.StartInfo.Arguments = "-s -t 0";
-                proc.Start();
+                ShutdownNow 关机 = new ShutdownNow();
+                SettingLoad.强制关机 = true;
+                关机.立即执行类型 = 8;
+                关机.开始关机();
                 Application.Exit();
-                return;
             }
-                
+            else if (SettingLoad.arg("restartnow"))
+            {
+                ShutdownNow 关机 = new ShutdownNow();
+                SettingLoad.强制关机 = true;
+                关机.立即执行类型 = 9;
+                关机.开始关机();
+                Application.Exit();
+            }
+            else if (SettingLoad.arg("poweroffnow"))
+            {
+                ShutdownNow 关机 = new ShutdownNow();
+                SettingLoad.强制关机 = true;
+                关机.立即执行类型 = 13;
+                关机.开始关机();
+                Application.Exit();
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
@@ -78,7 +105,7 @@ namespace YashiAutoShutOff
             else
             {
                 //if (MessageBox.Show("建议您使用管理员方式运行本程序，但这不是必须的。\n拥有管理员权限可以提升关机的成功率。\n要请求管理员权限吗？", "非管理员权限通知", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                if (SettingLoad.arg("administrator"))
+                if (SettingLoad.arg("administrator") || SettingLoad.arg("admin"))
                 {
                     //创建启动对象
                     System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();

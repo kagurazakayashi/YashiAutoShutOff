@@ -52,9 +52,10 @@ namespace YashiAutoShutOff
             {
                 Text += " (管理员)";
             }
-#if DEBUG
-            Text += " (调试模式)";
-#endif
+            if (SettingLoad.debug)
+            {
+                Text += " (调试模式)";
+            }
             if (SettingLoad.任务启动时间.Length > 0)
             {
                 开关动作(true);
@@ -63,6 +64,7 @@ namespace YashiAutoShutOff
 
         private void 更改模式文字()
         {
+            是否为模式A();
             label1.Text = " " + SettingLoad.关机模式文本数组[关机模式] + " ▼";
         }
 
@@ -89,6 +91,7 @@ namespace YashiAutoShutOff
             {
                 总开关1.Text = "&ON";
                 总开关 = true;
+                label1.Enabled = false;
                 类型列表.Enabled = false;
                 比较列表.Enabled = false;
                 CPU核心选择.Enabled = false;
@@ -114,6 +117,7 @@ namespace YashiAutoShutOff
             {
                 总开关1.Text = "&OFF";
                 总开关 = false;
+                label1.Enabled = true;
                 类型列表.Enabled = true;
                 比较列表.Enabled = true;
                 CPU核心选择.Enabled = true;
@@ -298,6 +302,18 @@ namespace YashiAutoShutOff
             读入设置(默认配置文件);
         }
 
+        private bool 是否为模式A()
+        {
+            if (关机模式 >= 8)
+            {
+                关闭事件跟踪程序开关.Checked = false;
+                关闭事件跟踪程序开关.Enabled = false;
+                return true;
+            }
+            关闭事件跟踪程序开关.Enabled = true;
+            return false;
+        }
+
         private void 读入设置(String 配置文件)
         {
             if (File.Exists(配置文件))
@@ -309,6 +325,7 @@ namespace YashiAutoShutOff
                     {
                         关机模式 = int.Parse(XML操作器.获得XML值("s", "shutdownmode"));
                         SettingLoad.关机模式 = 关机模式;
+                        更改模式文字();
                         类型列表.SelectedIndex = int.Parse(XML操作器.获得XML值("s", "type"));
                         比较列表.SelectedIndex = int.Parse(XML操作器.获得XML值("s", "comparison"));
                         选中的CPU核心 = int.Parse(XML操作器.获得XML值("s", "cpu"));
@@ -519,6 +536,41 @@ namespace YashiAutoShutOff
                     MessageBox.Show("找不到文件 YashiColorMeasurement.exe 或发生了错误，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是屏幕测色功能将不可用。", "缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+        }
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            关机模式 = 8;
+            更改模式文字();
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            关机模式 = 9;
+            更改模式文字();
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            关机模式 = 10;
+            更改模式文字();
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            关机模式 = 11;
+            更改模式文字();
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            关机模式 = 12;
+            更改模式文字();
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            关机模式 = 13;
+            更改模式文字();
         }
     }
 }

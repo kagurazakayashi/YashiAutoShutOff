@@ -57,14 +57,22 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.立即操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关闭或注销ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
             this.自动关机ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动重启ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动休眠ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动注销ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.自动关机并准备快速启动ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动重启并打开之前的程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动重启并打开高级启动菜单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.直接关闭电源XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.取消系统关机计划CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -119,7 +127,7 @@
             this.退出XToolStripMenuItem,
             this.关闭此菜单QToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(299, 586);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(299, 608);
             // 
             // 窗口管理ToolStripMenuItem
             // 
@@ -320,19 +328,35 @@
             // 关闭或注销ToolStripMenuItem
             // 
             this.关闭或注销ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem13,
             this.自动关机ToolStripMenuItem,
             this.自动重启ToolStripMenuItem,
             this.自动休眠ToolStripMenuItem,
             this.自动注销ToolStripMenuItem,
-            this.toolStripSeparator1,
             this.自动关机并准备快速启动ToolStripMenuItem,
             this.自动重启并打开之前的程序ToolStripMenuItem,
-            this.自动重启并打开高级启动菜单ToolStripMenuItem});
+            this.自动重启并打开高级启动菜单ToolStripMenuItem,
+            this.toolStripMenuItem11,
+            this.toolStripMenuItem14,
+            this.toolStripMenuItem7,
+            this.toolStripMenuItem8,
+            this.toolStripMenuItem12,
+            this.toolStripMenuItem9,
+            this.toolStripMenuItem10,
+            this.直接关闭电源XToolStripMenuItem});
             this.关闭或注销ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.关闭或注销ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_1008;
             this.关闭或注销ToolStripMenuItem.Name = "关闭或注销ToolStripMenuItem";
             this.关闭或注销ToolStripMenuItem.Size = new System.Drawing.Size(298, 24);
             this.关闭或注销ToolStripMenuItem.Text = "关闭或注销(&U)";
+            // 
+            // toolStripMenuItem13
+            // 
+            this.toolStripMenuItem13.Enabled = false;
+            this.toolStripMenuItem13.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(280, 24);
+            this.toolStripMenuItem13.Text = "模式A";
             // 
             // 自动关机ToolStripMenuItem
             // 
@@ -366,11 +390,6 @@
             this.自动注销ToolStripMenuItem.Text = "注销(&I)";
             this.自动注销ToolStripMenuItem.Click += new System.EventHandler(this.自动注销ToolStripMenuItem_Click);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(277, 6);
-            // 
             // 自动关机并准备快速启动ToolStripMenuItem
             // 
             this.自动关机并准备快速启动ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_5371;
@@ -394,6 +413,67 @@
             this.自动重启并打开高级启动菜单ToolStripMenuItem.Size = new System.Drawing.Size(280, 24);
             this.自动重启并打开高级启动菜单ToolStripMenuItem.Text = "自动重启并打开高级启动菜单(&A)";
             this.自动重启并打开高级启动菜单ToolStripMenuItem.Click += new System.EventHandler(this.自动重启并打开高级启动菜单ToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(277, 6);
+            // 
+            // toolStripMenuItem14
+            // 
+            this.toolStripMenuItem14.Enabled = false;
+            this.toolStripMenuItem14.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(280, 24);
+            this.toolStripMenuItem14.Text = "模式B";
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Image = global::YashiAutoShutOff.Properties.Resources.imageres_1008;
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(280, 24);
+            this.toolStripMenuItem7.Text = "关机(&1)";
+            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Image = global::YashiAutoShutOff.Properties.Resources.imageres_147;
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(280, 24);
+            this.toolStripMenuItem8.Text = "重启(&2)";
+            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
+            // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.Image = global::YashiAutoShutOff.Properties.Resources.imageres_149;
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(280, 24);
+            this.toolStripMenuItem12.Text = "休眠(&3)";
+            this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Image = global::YashiAutoShutOff.Properties.Resources.imageres_149;
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(280, 24);
+            this.toolStripMenuItem9.Text = "待机(&3)";
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Image = global::YashiAutoShutOff.Properties.Resources.imageres_5351;
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(280, 24);
+            this.toolStripMenuItem10.Text = "注销(&4)";
+            this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
+            // 
+            // 直接关闭电源XToolStripMenuItem
+            // 
+            this.直接关闭电源XToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_1008;
+            this.直接关闭电源XToolStripMenuItem.Name = "直接关闭电源XToolStripMenuItem";
+            this.直接关闭电源XToolStripMenuItem.Size = new System.Drawing.Size(280, 24);
+            this.直接关闭电源XToolStripMenuItem.Text = "ACPI关机(&X)";
+            this.直接关闭电源XToolStripMenuItem.Click += new System.EventHandler(this.直接关闭电源XToolStripMenuItem_Click);
             // 
             // 取消系统关机计划CToolStripMenuItem
             // 
@@ -515,7 +595,6 @@
         private System.Windows.Forms.ToolStripMenuItem 自动重启ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 自动休眠ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 自动注销ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem 自动关机并准备快速启动ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 自动重启并打开之前的程序ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 自动重启并打开高级启动菜单ToolStripMenuItem;
@@ -543,6 +622,15 @@
         private System.Windows.Forms.ToolStripMenuItem 关于和退出ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 打开数码测色计MToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem11;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
+        private System.Windows.Forms.ToolStripMenuItem 直接关闭电源XToolStripMenuItem;
     }
 }
 

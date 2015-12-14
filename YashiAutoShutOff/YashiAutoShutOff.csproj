@@ -113,6 +113,7 @@
       <DependentUpon>startscreen.cs</DependentUpon>
     </Compile>
     <Compile Include="SystemInfo.cs" />
+    <Compile Include="WindowsController.cs" />
     <Compile Include="Xmlio.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -239,6 +240,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WN3Y-8V5E-BSKB-XSCB.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

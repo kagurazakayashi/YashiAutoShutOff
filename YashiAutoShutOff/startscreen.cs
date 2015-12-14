@@ -22,9 +22,10 @@ namespace YashiAutoShutOff
         private void startscreen_Load(object sender, EventArgs e)
         {
             Console.WriteLine("startscreen init: " + initID);
-#if DEBUG
-            button1.Visible = true;
-#endif
+            if (SettingLoad.debug)
+            {
+                button1.Visible = true;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)

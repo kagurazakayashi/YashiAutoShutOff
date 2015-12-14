@@ -56,6 +56,13 @@
             this.自动关机并准备快速启动ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动重启并打开之前的程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动重启并打开高级启动菜单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.总开关2 = new System.Windows.Forms.ProgressBar();
             this.总开关1 = new System.Windows.Forms.Button();
@@ -240,17 +247,24 @@
             this.toolStripMenuItem1,
             this.自动关机并准备快速启动ToolStripMenuItem,
             this.自动重启并打开之前的程序ToolStripMenuItem,
-            this.自动重启并打开高级启动菜单ToolStripMenuItem});
+            this.自动重启并打开高级启动菜单ToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5,
+            this.toolStripMenuItem8,
+            this.toolStripMenuItem6,
+            this.toolStripMenuItem9,
+            this.toolStripMenuItem7});
             this.关机方式选择菜单.Name = "关机方式选择菜单";
-            this.关机方式选择菜单.Size = new System.Drawing.Size(271, 202);
+            this.关机方式选择菜单.Size = new System.Drawing.Size(319, 352);
             // 
             // 提醒我ToolStripMenuItem
             // 
             this.提醒我ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.提醒我ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_81;
             this.提醒我ToolStripMenuItem.Name = "提醒我ToolStripMenuItem";
-            this.提醒我ToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
-            this.提醒我ToolStripMenuItem.Text = "&0.自动提醒";
+            this.提醒我ToolStripMenuItem.Size = new System.Drawing.Size(318, 24);
+            this.提醒我ToolStripMenuItem.Text = "&0.自动提醒(模式A)";
             this.提醒我ToolStripMenuItem.Click += new System.EventHandler(this.提醒我ToolStripMenuItem_Click);
             // 
             // 自动关机ToolStripMenuItem
@@ -258,8 +272,8 @@
             this.自动关机ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.自动关机ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_1008;
             this.自动关机ToolStripMenuItem.Name = "自动关机ToolStripMenuItem";
-            this.自动关机ToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
-            this.自动关机ToolStripMenuItem.Text = "&1.自动关机";
+            this.自动关机ToolStripMenuItem.Size = new System.Drawing.Size(318, 24);
+            this.自动关机ToolStripMenuItem.Text = "&1.自动关机(模式A)";
             this.自动关机ToolStripMenuItem.Click += new System.EventHandler(this.自动关机ToolStripMenuItem_Click);
             // 
             // 自动重启ToolStripMenuItem
@@ -267,8 +281,8 @@
             this.自动重启ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.自动重启ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_147;
             this.自动重启ToolStripMenuItem.Name = "自动重启ToolStripMenuItem";
-            this.自动重启ToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
-            this.自动重启ToolStripMenuItem.Text = "&2.自动重启";
+            this.自动重启ToolStripMenuItem.Size = new System.Drawing.Size(318, 24);
+            this.自动重启ToolStripMenuItem.Text = "&2.自动重启(模式A)";
             this.自动重启ToolStripMenuItem.Click += new System.EventHandler(this.自动重启ToolStripMenuItem_Click);
             // 
             // 自动休眠ToolStripMenuItem
@@ -276,8 +290,8 @@
             this.自动休眠ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.自动休眠ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_149;
             this.自动休眠ToolStripMenuItem.Name = "自动休眠ToolStripMenuItem";
-            this.自动休眠ToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
-            this.自动休眠ToolStripMenuItem.Text = "&3.自动休眠";
+            this.自动休眠ToolStripMenuItem.Size = new System.Drawing.Size(318, 24);
+            this.自动休眠ToolStripMenuItem.Text = "&3.自动休眠(模式A)";
             this.自动休眠ToolStripMenuItem.Click += new System.EventHandler(this.自动休眠ToolStripMenuItem_Click);
             // 
             // 自动注销ToolStripMenuItem
@@ -285,22 +299,22 @@
             this.自动注销ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.自动注销ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_5351;
             this.自动注销ToolStripMenuItem.Name = "自动注销ToolStripMenuItem";
-            this.自动注销ToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
-            this.自动注销ToolStripMenuItem.Text = "&4.自动注销";
+            this.自动注销ToolStripMenuItem.Size = new System.Drawing.Size(318, 24);
+            this.自动注销ToolStripMenuItem.Text = "&4.自动注销(模式A)";
             this.自动注销ToolStripMenuItem.Click += new System.EventHandler(this.自动注销ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(267, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(315, 6);
             // 
             // 自动关机并准备快速启动ToolStripMenuItem
             // 
             this.自动关机并准备快速启动ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.自动关机并准备快速启动ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_5371;
             this.自动关机并准备快速启动ToolStripMenuItem.Name = "自动关机并准备快速启动ToolStripMenuItem";
-            this.自动关机并准备快速启动ToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
-            this.自动关机并准备快速启动ToolStripMenuItem.Text = "&5.自动关机并准备快速启动";
+            this.自动关机并准备快速启动ToolStripMenuItem.Size = new System.Drawing.Size(318, 24);
+            this.自动关机并准备快速启动ToolStripMenuItem.Text = "&5.自动关机并准备快速启动(模式A)";
             this.自动关机并准备快速启动ToolStripMenuItem.Click += new System.EventHandler(this.自动关机并准备快速启动ToolStripMenuItem_Click);
             // 
             // 自动重启并打开之前的程序ToolStripMenuItem
@@ -308,8 +322,8 @@
             this.自动重启并打开之前的程序ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.自动重启并打开之前的程序ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_171;
             this.自动重启并打开之前的程序ToolStripMenuItem.Name = "自动重启并打开之前的程序ToolStripMenuItem";
-            this.自动重启并打开之前的程序ToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
-            this.自动重启并打开之前的程序ToolStripMenuItem.Text = "&6.自动重启并打开之前的程序";
+            this.自动重启并打开之前的程序ToolStripMenuItem.Size = new System.Drawing.Size(318, 24);
+            this.自动重启并打开之前的程序ToolStripMenuItem.Text = "&6.自动重启并打开之前的程序(模式A)";
             this.自动重启并打开之前的程序ToolStripMenuItem.Click += new System.EventHandler(this.自动重启并打开之前的程序ToolStripMenuItem_Click);
             // 
             // 自动重启并打开高级启动菜单ToolStripMenuItem
@@ -317,9 +331,68 @@
             this.自动重启并打开高级启动菜单ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.自动重启并打开高级启动菜单ToolStripMenuItem.Image = global::YashiAutoShutOff.Properties.Resources.imageres_5372;
             this.自动重启并打开高级启动菜单ToolStripMenuItem.Name = "自动重启并打开高级启动菜单ToolStripMenuItem";
-            this.自动重启并打开高级启动菜单ToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
-            this.自动重启并打开高级启动菜单ToolStripMenuItem.Text = "&7.自动重启并打开高级启动菜单";
+            this.自动重启并打开高级启动菜单ToolStripMenuItem.Size = new System.Drawing.Size(318, 24);
+            this.自动重启并打开高级启动菜单ToolStripMenuItem.Text = "&7.自动重启并打开高级启动菜单(模式A)";
             this.自动重启并打开高级启动菜单ToolStripMenuItem.Click += new System.EventHandler(this.自动重启并打开高级启动菜单ToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(315, 6);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripMenuItem4.Image = global::YashiAutoShutOff.Properties.Resources.imageres_1008;
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(318, 24);
+            this.toolStripMenuItem4.Text = "&A.自动关机(模式B)";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripMenuItem5.Image = global::YashiAutoShutOff.Properties.Resources.imageres_147;
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(318, 24);
+            this.toolStripMenuItem5.Text = "&B.自动重启(模式B)";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripMenuItem8.Image = global::YashiAutoShutOff.Properties.Resources.imageres_149;
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(318, 24);
+            this.toolStripMenuItem8.Text = "&C.自动休眠(模式B)";
+            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripMenuItem6.Image = global::YashiAutoShutOff.Properties.Resources.imageres_149;
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(318, 24);
+            this.toolStripMenuItem6.Text = "&D.自动待机(模式B)";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripMenuItem9.Image = global::YashiAutoShutOff.Properties.Resources.imageres_5351;
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(318, 24);
+            this.toolStripMenuItem9.Text = "&E.自动注销(模式B)";
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripMenuItem7.Image = global::YashiAutoShutOff.Properties.Resources.imageres_1008;
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(318, 24);
+            this.toolStripMenuItem7.Text = "&F.ACPI关机(模式B)";
+            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
             // 
             // label1
             // 
@@ -812,5 +885,12 @@
         private System.Windows.Forms.Button 打开截图文件夹;
         private System.Windows.Forms.Label 类型介绍框;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
     }
 }

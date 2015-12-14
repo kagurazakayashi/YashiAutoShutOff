@@ -59,9 +59,10 @@ namespace YashiAutoShutOff
             }
             catch (Exception err)
             {
-#if DEBUG
-                MessageBox.Show(截图文件 + err.Message, "DEBUG: 截图失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
-#endif
+                if (SettingLoad.debug)
+                {
+                    MessageBox.Show(截图文件 + err.Message, "DEBUG: 截图失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

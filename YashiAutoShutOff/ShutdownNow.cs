@@ -24,71 +24,129 @@ namespace YashiAutoShutOff
             {
                 MessageBox.Show("条件成立！","通知",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
+            else if (type < 8)
+            {
+                执行关机命令(true, type);
+            }
             else
             {
-                startscreen st = new startscreen();
-                st.info.Text = "正在关机";
-                st.Show();
-                Process cmd = new System.Diagnostics.Process();
-                cmd.StartInfo.FileName = "shutdown";
-                cmd.StartInfo.Arguments = 关机方式参数();
-                cmd.StartInfo.UseShellExecute = false;    //是否使用操作系统shell启动
-                cmd.StartInfo.RedirectStandardInput = true;//接受来自调用程序的输入信息
-                cmd.StartInfo.RedirectStandardOutput = true;//由调用程序获取输出信息
-                cmd.StartInfo.RedirectStandardError = true;//重定向标准错误输出
-                cmd.StartInfo.CreateNoWindow = true;//不显示程序窗口
-                SettingLoad.最终关机命令 = true;
-                string output = "";
-                try
-                {
-#if DEBUG
-                    SettingLoad.最终关机命令 = false;
-                    MessageBox.Show(cmd.StartInfo.FileName + " " + cmd.StartInfo.Arguments, "DEBUG: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-#else
-                    cmd.Start();
-                    output = cmd.StandardOutput.ReadToEnd();
-                    cmd.WaitForExit();
-                    cmd.Close();
-#endif
-                    if (!SettingLoad.arg("nolog"))
-                    {
-                        try
-                        {
-                            String 默认日志文件 = SettingLoad.资料文件夹 + "shutdown.log";
-                            using (StreamWriter sw = File.AppendText(默认日志文件))
-                            {
-                                sw.WriteLine(DateTime.Now);
-                                sw.WriteLine(output);
-                                sw.Close();
-                            }
-                        }
-                        catch
-                        {
-
-                        }
-                    }
-                    if (SettingLoad.arg("shutdowninfo"))
-                    {
-                        MessageBox.Show(output, "关机", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    //Application.Exit();
-                }
-                catch (Exception err)
-                {
-                    SettingLoad.最终关机命令 = false;
-                    MessageBox.Show(err.Message.ToString(), "关机发生错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                执行关机命令(false, type);
             }
         }
 
-        private string 关机方式参数()
+        private void 执行关机命令(bool isModeA, int type)
+        {
+            startscreen st = new startscreen();
+            st.info.Text = "正在关机";
+            st.Show();
+            
+            SettingLoad.最终关机命令 = true;
+            string output = "";
+            try
+            {
+                if (isModeA)
+                {
+                    Process cmd = new System.Diagnostics.Process();
+                    cmd.StartInfo.FileName = "shutdown";
+                    cmd.StartInfo.Arguments = 关机方式参数(type);
+                    cmd.StartInfo.UseShellExecute = false;    //是否使用操作系统shell启动
+                    cmd.StartInfo.RedirectStandardInput = true;//接受来自调用程序的输入信息
+                    cmd.StartInfo.RedirectStandardOutput = true;//由调用程序获取输出信息
+                    cmd.StartInfo.RedirectStandardError = true;//重定向标准错误输出
+                    cmd.StartInfo.CreateNoWindow = true;//不显示程序窗口
+                    if (SettingLoad.arg("showshutdowncmd"))
+                    {
+                        cmd.StartInfo.CreateNoWindow = false;
+                    }
+                    if (SettingLoad.debug)
+                    {
+                        SettingLoad.最终关机命令 = false;
+                        MessageBox.Show(cmd.StartInfo.FileName + " " + cmd.StartInfo.Arguments, "DEBUG: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        cmd.Start();
+                        output = cmd.StandardOutput.ReadToEnd();
+                        cmd.WaitForExit();
+                        cmd.Close();
+                    }
+                }
+                else
+                {
+                    if (SettingLoad.debug)
+                    {
+                        SettingLoad.最终关机命令 = false;
+                        MessageBox.Show("Mode B : " + SettingLoad.关机模式文本数组[type], "DEBUG: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        switch (type)
+                        {
+                            case 8:
+                                WindowsController.ExitWindows(RestartOptions.ShutDown, SettingLoad.强制关机);
+                                break;
+                            case 9:
+                                WindowsController.ExitWindows(RestartOptions.Reboot, SettingLoad.强制关机);
+                                break;
+                            case 10:
+                                WindowsController.ExitWindows(RestartOptions.Hibernate, SettingLoad.强制关机);
+                                break;
+                            case 11:
+                                WindowsController.ExitWindows(RestartOptions.Suspend, SettingLoad.强制关机);
+                                break;
+                            case 12:
+                                WindowsController.ExitWindows(RestartOptions.LogOff, SettingLoad.强制关机);
+                                break;
+                            case 13:
+                                WindowsController.ExitWindows(RestartOptions.PowerOff, SettingLoad.强制关机);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                if (!SettingLoad.arg("nolog"))
+                {
+                    try
+                    {
+                        
+                        String 默认日志文件 = SettingLoad.资料文件夹 + "shutdown.log";
+                        using (StreamWriter sw = File.AppendText(默认日志文件))
+                        {
+                            sw.WriteLine(DateTime.Now);
+                            if (isModeA)
+                            {
+                                sw.WriteLine("Mode A : " + SettingLoad.关机模式文本数组[type] + " : " + output);
+                            }
+                            else
+                            {
+                                sw.WriteLine("Mode B : " + SettingLoad.关机模式文本数组[type]);
+                            }
+                            sw.WriteLine("-");
+                            sw.Close();
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                }
+                if (SettingLoad.arg("shutdowninfo") && isModeA)
+                {
+                    MessageBox.Show(output, "关机", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                //Application.Exit();
+            }
+            catch (Exception err)
+            {
+                SettingLoad.最终关机命令 = false;
+                MessageBox.Show(err.Message.ToString(), "关机发生错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string 关机方式参数(int type)
         {
             string 关机参数 = "";
-            int type = SettingLoad.关机模式;
-            if (立即执行类型 > 0)
-            {
-                type = 立即执行类型;
-            }
             switch (type)
             {
                 case 1:

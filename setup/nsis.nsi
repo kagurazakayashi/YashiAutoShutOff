@@ -21,18 +21,18 @@ RequestExecutionLevel admin
 ; MUI 预定义常量
 !define MUI_ABORTWARNING
 !define MUI_HEADERIMAGE
-!define MUI_HEADERIMAGE_BITMAP "C:\Users\yashi\GitHub\YashiAutoShutOff\setup\Header.bmp"
-!define MUI_HEADERIMAGE_UNBITMAP "C:\Users\yashi\GitHub\YashiAutoShutOff\setup\Header.bmp"
-!define MUI_ICON "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOff\Resources\favicon.ico"
-!define MUI_UNICON "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOff\Resources\favicon.ico"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "C:\Users\yashi\GitHub\YashiAutoShutOff\setup\Wizard.bmp"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "C:\Users\yashi\GitHub\YashiAutoShutOff\setup\Wizard.bmp"
+!define MUI_HEADERIMAGE_BITMAP "D:\SelfSync\YashiAutoShutOff\setup\Header.bmp"
+!define MUI_HEADERIMAGE_UNBITMAP "D:\SelfSync\YashiAutoShutOff\setup\Header.bmp"
+!define MUI_ICON "D:\SelfSync\YashiAutoShutOff\YashiAutoShutOff\Resources\favicon.ico"
+!define MUI_UNICON "D:\SelfSync\YashiAutoShutOff\YashiAutoShutOff\Resources\favicon.ico"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "D:\SelfSync\YashiAutoShutOff\setup\Wizard.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "D:\SelfSync\YashiAutoShutOff\setup\Wizard.bmp"
 
 ; 欢迎页面
 !insertmacro MUI_PAGE_WELCOME
 ; 许可协议页面
 !define MUI_LICENSEPAGE_RADIOBUTTONS
-!insertmacro MUI_PAGE_LICENSE "C:\Users\yashi\GitHub\YashiAutoShutOff\setup\license.txt"
+!insertmacro MUI_PAGE_LICENSE "D:\SelfSync\YashiAutoShutOff\setup\license.txt"
 ; 组件选择页面
 !insertmacro MUI_PAGE_COMPONENTS
 ; 安装目录选择页面
@@ -72,7 +72,7 @@ BrandingText "KagYashi Software Installer"
 
 ;安装包版本号格式必须为x.x.x.x的4组整数,每组整数范围0~65535,如:2.0.1.2
 ;若使用易量统计,版本号将用于区分不同版本的安装情况,此时建议用户务必填写正确的版本号
-!define INSTALL_VERSION "1.2.0.0"
+!define INSTALL_VERSION "1.2.1.0"
 
 VIProductVersion "${INSTALL_VERSION}"
 VIAddVersionKey /LANG=${LANG_SimpChinese} "ProductName"      "雅诗智能关机"
@@ -85,12 +85,9 @@ VIAddVersionKey /LANG=${LANG_SimpChinese} "FileVersion"      "${INSTALL_VERSION}
 
 Section "主程序" SEC01
   SetOutPath "$INSTDIR"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOff\bin\Release\YashiAutoShutOff.exe"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOff\bin\Release\YashiAutoShutOff.exe.config"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOff\bin\Release\YashiAutoShutOff.pdb"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOff\bin\Release\YashiAutoShutOff.vshost.exe"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOff\bin\Release\YashiAutoShutOff.vshost.exe.config"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOff\bin\Release\YashiAutoShutOff.vshost.exe.manifest"
+  File "D:\SelfSync\YashiAutoShutOff\YashiAutoShutOff\bin\Release\YashiAutoShutOff.exe"
+  File "D:\SelfSync\YashiAutoShutOff\YashiAutoShutOff\bin\Release\YashiAutoShutOff.exe.config"
+  File "D:\SelfSync\YashiAutoShutOff\YashiAutoShutOff\bin\Release\YashiAutoShutOff.pdb"
 
 ; 创建开始菜单快捷方式
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
@@ -108,47 +105,38 @@ SectionEnd
 
 Section "信息显示工具" SEC02
   SetOutPath "$INSTDIR"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiMsgViewer\bin\Release\YashiMsgViewer.com"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiMsgViewer\bin\Release\YashiMsgViewer.iobj"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiMsgViewer\bin\Release\YashiMsgViewer.ipdb"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiMsgViewer\bin\Release\YashiMsgViewer.pdb"
+  File "D:\SelfSync\YashiAutoShutOff\YashiMsgViewer\bin\Release\YashiMsgViewer.com"
+  File "D:\SelfSync\YashiAutoShutOff\YashiMsgViewer\bin\Release\YashiMsgViewer.iobj"
+  File "D:\SelfSync\YashiAutoShutOff\YashiMsgViewer\bin\Release\YashiMsgViewer.ipdb"
+  File "D:\SelfSync\YashiAutoShutOff\YashiMsgViewer\bin\Release\YashiMsgViewer.pdb"
 SectionEnd
 
 Section "屏幕取色器" SEC03
   SetOutPath "$INSTDIR"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiColorMeasurement\bin\Release\YashiColorMeasurement.exe"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiColorMeasurement\bin\Release\YashiColorMeasurement.exe.config"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiColorMeasurement\bin\Release\YashiColorMeasurement.pdb"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiColorMeasurement\bin\Release\YashiColorMeasurement.vshost.exe"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiColorMeasurement\bin\Release\YashiColorMeasurement.vshost.exe.config"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiColorMeasurement\bin\Release\YashiColorMeasurement.vshost.exe.manifest"
+  File "D:\SelfSync\YashiAutoShutOff\YashiColorMeasurement\bin\Release\YashiColorMeasurement.exe"
+  File "D:\SelfSync\YashiAutoShutOff\YashiColorMeasurement\bin\Release\YashiColorMeasurement.exe.config"
+  File "D:\SelfSync\YashiAutoShutOff\YashiColorMeasurement\bin\Release\YashiColorMeasurement.pdb"
 SectionEnd
 
 Section "性能计数器修复工具" SEC04
   SetOutPath "$INSTDIR"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOffLodctr\bin\Release\YashiAutoShutOffLodctr.exe"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOffLodctr\bin\Release\YashiAutoShutOffLodctr.exe.config"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOffLodctr\bin\Release\YashiAutoShutOffLodctr.pdb"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOffLodctr\bin\Release\YashiAutoShutOffLodctr.vshost.exe"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOffLodctr\bin\Release\YashiAutoShutOffLodctr.vshost.exe.config"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOffLodctr\bin\Release\YashiAutoShutOffLodctr.vshost.exe.manifest"
+  File "D:\SelfSync\YashiAutoShutOff\YashiAutoShutOffLodctr\bin\Release\YashiAutoShutOffLodctr.exe"
+  File "D:\SelfSync\YashiAutoShutOff\YashiAutoShutOffLodctr\bin\Release\YashiAutoShutOffLodctr.exe.config"
+  File "D:\SelfSync\YashiAutoShutOff\YashiAutoShutOffLodctr\bin\Release\YashiAutoShutOffLodctr.pdb"
 SectionEnd
 
 Section "快捷定时关机工具" SEC05
   SetOutPath "$INSTDIR"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiShutOffMini\bin\Release\YashiShutOffMini.exe"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiShutOffMini\bin\Release\YashiShutOffMini.exe.config"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiShutOffMini\bin\Release\YashiShutOffMini.pdb"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiShutOffMini\bin\Release\YashiShutOffMini.vshost.exe"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiShutOffMini\bin\Release\YashiShutOffMini.vshost.exe.config"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiShutOffMini\bin\Release\YashiShutOffMini.xml"
+  File "D:\SelfSync\YashiAutoShutOff\YashiShutOffMini\bin\Release\YashiShutOffMini.exe"
+  File "D:\SelfSync\YashiAutoShutOff\YashiShutOffMini\bin\Release\YashiShutOffMini.exe.config"
+  File "D:\SelfSync\YashiAutoShutOff\YashiShutOffMini\bin\Release\YashiShutOffMini.pdb"
 SectionEnd
 
 Section /O "源代码(下载器)" SEC06
   SetOutPath "$INSTDIR"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\setup\downloadcode.bat"
+  File "D:\SelfSync\YashiAutoShutOff\setup\downloadcode.bat"
   SetOverwrite ifnewer
-  File "C:\Windows\System32\wget.exe"
+  File "D:\wget.exe"
 SectionEnd
 
 Section -AdditionalIcons
