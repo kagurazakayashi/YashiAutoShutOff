@@ -12,6 +12,9 @@ namespace YashiColorMeasurement
 {
     public partial class Form1 : Form
     {
+        bool isdebug = false;
+        string olddebug = "";
+
         public Form1()
         {
             InitializeComponent();
@@ -19,6 +22,10 @@ namespace YashiColorMeasurement
 
         private void Form1_Load(object sender, EventArgs e)
         {
+#if DEBUG
+            isdebug = true;
+            Text = Text + "(DEBUG)";
+#endif
             Location = new Point(Screen.PrimaryScreen.Bounds.Width - this.Size.Width - 100, Screen.PrimaryScreen.Bounds.Height - this.Size.Height - 100); //设置初始窗口位置  
         }
 
@@ -62,6 +69,11 @@ namespace YashiColorMeasurement
             textBox1.Text = c[0] + " , " + c[1];
             textBox2.Text = c[2] + " , " + c[3] + " , " + c[4];
             textBox3.Text = c[0] + "-" + c[1] + "-" + c[2] + "-" + c[3] + "-" + c[4];
+            if (isdebug && !textBox3.Text.Equals(olddebug))
+            {
+                Console.WriteLine("[" + DateTime.Now.ToString() + ":" + DateTime.Now.Millisecond + "] " + textBox3.Text);
+                olddebug = textBox3.Text;
+            }
             pictureBox5.BackColor = Color.FromArgb(c[2], c[3], c[4]);
             textBox4.Text = ColorTranslator.ToHtml(pictureBox5.BackColor);
         }

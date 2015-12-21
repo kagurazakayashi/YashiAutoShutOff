@@ -13,6 +13,7 @@ using System.Threading;
 using System.Collections;
 using System.Management;
 using System.IO;
+using System.Runtime.InteropServices;
 
 
 
@@ -36,7 +37,12 @@ namespace YashiAutoShutOff
         Calc 数值计算器;
         bool 执行中 = false;
 
-        //performanceCounter
+        //[DllImport("kernel32.dll")]
+        //static extern uint SetThreadExecutionState(uint esFlags);
+        //const uint ES_AWAYMODE_REQUIRED = 0x00000040;
+        //const uint ES_CONTINUOUS = 0x80000000;
+        //const uint ES_DISPLAY_REQUIRED = 0x00000002;
+        //const uint ES_SYSTEM_REQUIRED = 0x00000001;
 
         MainWindow 主窗口 = new MainWindow();
 
