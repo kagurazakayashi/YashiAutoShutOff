@@ -111,5 +111,15 @@ namespace SleepPreventer
         {
 
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //e.Cancel = true;
+            //if (MessageBox.Show("将停止本程序所有功能并完全退出，继续？", "退出", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //{
+            //    e.Cancel = false;
+            //    Application.Exit();
+            //}
+        }
     }
 }

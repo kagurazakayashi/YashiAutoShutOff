@@ -18,6 +18,12 @@ namespace YashiAutoShutOff
         static void Main(string[] args)
         {
             Console.WriteLine("Main init: " + initID);
+            Language.showErr = true;
+            if (!Language.initLanguage(null))
+            {
+                Application.Exit();
+                return;
+            }
             SettingLoad.运行参数 = args;
             SettingLoad.debug = false;
 #if DEBUG
@@ -47,14 +53,6 @@ namespace YashiAutoShutOff
                 关机.开始关机();
                 Application.Exit();
             }
-            else if (SettingLoad.arg("poweroffnow"))
-            {
-                ShutdownNow 关机 = new ShutdownNow();
-                SettingLoad.强制关机 = true;
-                关机.立即执行类型 = 13;
-                关机.开始关机();
-                Application.Exit();
-            }
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -80,7 +78,7 @@ namespace YashiAutoShutOff
                     }
                     else
                     {
-                        if (MessageBox.Show("本软件已经在运行了，要再重复启动一个吗？\n不建议您同时运行多个实例，建议选否并检查任务栏中已经运行的本软件。", "重复运行通知", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show(Language.s(79), Language.s(80), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             startapp();
                         }
@@ -131,5 +129,6 @@ namespace YashiAutoShutOff
                 }
             }
         }
+        
     }
 }

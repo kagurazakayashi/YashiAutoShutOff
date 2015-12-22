@@ -78,6 +78,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Language.cs" />
     <Compile Include="logshow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,7 +243,7 @@
     <None Include="Resources\icon128.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\WN3Y-8V5E-BSKB-XSCB.PNG" />
+    <None Include="Resources\sleep.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

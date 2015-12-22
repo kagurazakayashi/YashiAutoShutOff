@@ -88,7 +88,7 @@ namespace YashiAutoShutOff
             bool startcmd = false;
             if (SettingLoad.debug)
             {
-                仅启动系统监视器VToolStripMenuItem.Text = "处于调试模式";
+                仅启动系统监视器VToolStripMenuItem.Text = Language.s(86);
                 仅启动系统监视器VToolStripMenuItem.Enabled = false;
             }
             else
@@ -197,7 +197,7 @@ namespace YashiAutoShutOff
                 }
                 catch (Exception 运行异常)
                 {
-                    紧急停止("在尝试更新内存信息时遇到了错误，" + 运行异常.Message.ToString());
+                    紧急停止(Language.s(87) + 运行异常.Message.ToString());
                 }
                 try
                 {
@@ -205,7 +205,7 @@ namespace YashiAutoShutOff
                 }
                 catch (Exception 运行异常)
                 {
-                    紧急停止("在尝试更新磁盘信息时遇到了错误，" + 运行异常.Message.ToString());
+                    紧急停止(Language.s(88) + 运行异常.Message.ToString());
                 }
                 try
                 {
@@ -213,16 +213,16 @@ namespace YashiAutoShutOff
                 }
                 catch (Exception 运行异常)
                 {
-                    紧急停止("在尝试更新网络信息时遇到了错误，" + 运行异常.Message.ToString());
+                    紧急停止(Language.s(89) + 运行异常.Message.ToString());
                 }
-                String 系统信息文本 = "遇到了一些错误，信息获取失败。";
+                String 系统信息文本 = Language.s(90);
                 try
                 {
                     系统信息文本 = 系统信息文本合成();
                 }
                 catch (Exception 运行异常)
                 {
-                    紧急停止("系统信息文本合成时遇到了错误，" + 运行异常.Message.ToString());
+                    紧急停止(Language.s(91) + 运行异常.Message.ToString());
                 }
                 //notifyIcon1.Text = 系统信息文本;
                 //if (主窗口.窗口打开)
@@ -265,7 +265,7 @@ namespace YashiAutoShutOff
                 主窗口.开关动作(false);
             }
             SettingLoad.reset();
-            DialogResult 错误对话框回复 = MessageBox.Show(错误信息 + "\n计时器和刷新器已经自动暂停。\n建议点击忽略并前往设置页面请检查设置是否正确。", "啊哦，雅诗变得奇怪了", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+            DialogResult 错误对话框回复 = MessageBox.Show(错误信息 + Language.s(92), Language.s(93), MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
             if (错误对话框回复 == DialogResult.Retry)
             {
                 暂停PToolStripMenuItem.Checked = false;
@@ -281,11 +281,11 @@ namespace YashiAutoShutOff
         {
             StringBuilder 返回文本 = new StringBuilder();
 
-            返回文本.Append(DateTime.Now.ToString()+ "\n主处理器 " + 系统信息管理类.处理器内核数数组[0]+ "\n" + 系统信息管理类.处理器内核数数组[1] + " 个物理处理器核心， " + 系统信息管理类.处理器内核数数组[2] + " 个逻辑处理器");
+            返回文本.Append(DateTime.Now.ToString()+ "\n"+ Language.s(94) + " " + 系统信息管理类.处理器内核数数组[0]+ "\n" + 系统信息管理类.处理器内核数数组[1] + " " + Language.s(95) + " " + 系统信息管理类.处理器内核数数组[2] + " " + Language.s(96));
             SettingLoad.CPU核心数量 = int.Parse(系统信息管理类.处理器内核数数组[2]);
             if (SettingLoad.CPU核心数量 > 1000)
             {
-                MessageBox.Show("抱歉，我真没有预料到你会有这么多逻辑处理器。请联系我以为你的处理器提供支持。\n然而你的处理器目前已经超过了本软件的承受范围，即将退出。","处理器计数器已达最大值",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(Language.s(97), Language.s(98), MessageBoxButtons.OK,MessageBoxIcon.Error);
                 Application.Exit();
             }
             float[] 处理器分核使用量 = new float[1002];
@@ -295,7 +295,7 @@ namespace YashiAutoShutOff
                 float 当前处理器使用百分比 = 当前处理器性能计数器.NextValue();
                 if (处理器内核遍历计数器 == SettingLoad.CPU核心数量)
                 {
-                    返回文本.Append("\n处理器总利用率 " + 当前处理器使用百分比.ToString() + "%");
+                    返回文本.Append("\n" + Language.s(99) + " " + 当前处理器使用百分比.ToString() + "%");
                     SettingLoad.处理器总使用量 = 当前处理器使用百分比;
                     SettingLoad.已用内存百分比 = 系统信息管理类.已用内存百分比;
                     if (主窗口.窗口打开)
@@ -312,7 +312,7 @@ namespace YashiAutoShutOff
                 }
                 else
                 {
-                    返回文本.Append("\n逻辑处理器 [" + 处理器内核遍历计数器.ToString() + "] 已使用 " + 当前处理器使用百分比.ToString() + "%");
+                    返回文本.Append("\n" + Language.s(100) + " [" + 处理器内核遍历计数器.ToString() + "] " + Language.s(101) + " " + 当前处理器使用百分比.ToString() + "%");
                     处理器分核使用量[处理器内核遍历计数器] = 当前处理器使用百分比;
                 }
             }
@@ -326,7 +326,7 @@ namespace YashiAutoShutOff
             SettingLoad.网络IO信息数组 = 系统信息管理类.网络IO信息数组;
 
 
-            返回文本.Append("\n内存使用率 " + 系统信息管理类.内存信息数组[2]/1024 + "MB / " + 系统信息管理类.内存信息数组[0] / 1024 + "MB ( " + 系统信息管理类.已用内存百分比 + "% ) ");
+            返回文本.Append("\n" + Language.s(102) + " " + 系统信息管理类.内存信息数组[2]/1024 + "MB / " + 系统信息管理类.内存信息数组[0] / 1024 + "MB ( " + 系统信息管理类.已用内存百分比 + "% ) ");
             //for (int 硬盘遍历计数器 = 0; 硬盘遍历计数器 < 硬盘性能计数器数组.Count; 硬盘遍历计数器++)
             //{
                 //String 当前硬盘名称 = 硬盘名称数组[硬盘遍历计数器];
@@ -340,12 +340,12 @@ namespace YashiAutoShutOff
                 返回文本.Append("\n" + 磁盘名);
             }
 
-            返回文本.Append("\n硬盘每秒读取 " + 系统信息管理类.硬盘O信息数组[0].ToString() + " 次，峰值 " + 系统信息管理类.硬盘O信息数组[1].ToString() + "次 ( " + 系统信息管理类.硬盘O信息数组[2].ToString() + " % )");
-            返回文本.Append("\n硬盘每秒写入 " + 系统信息管理类.硬盘I信息数组[0].ToString() + " 次，峰值 " + 系统信息管理类.硬盘I信息数组[1].ToString() + "次 ( " + 系统信息管理类.硬盘I信息数组[2].ToString() + " % )");
-            返回文本.Append("\n硬盘每秒读写 " + 系统信息管理类.硬盘IO信息数组[0].ToString() + " 次，峰值 " + 系统信息管理类.硬盘IO信息数组[1].ToString() + "次 ( " + 系统信息管理类.硬盘IO信息数组[2].ToString() + " % )");
-            返回文本.Append("\n网络每秒接收 " + (系统信息管理类.网络I信息数组[0] / 1024).ToString() + " KB，峰值 " + (系统信息管理类.网络I信息数组[1] / 1024).ToString() + "KB ( " + 系统信息管理类.网络I信息数组[2].ToString() + " % )");
-            返回文本.Append("\n网络每秒发送 " + (系统信息管理类.网络O信息数组[0] / 1024).ToString() + " KB，峰值 " + (系统信息管理类.网络O信息数组[1] / 1024).ToString() + "KB ( " + 系统信息管理类.网络O信息数组[2].ToString() + " % )");
-            返回文本.Append("\n网络每秒收发 " + (系统信息管理类.网络IO信息数组[0] / 1024).ToString() + " KB，峰值 " + (系统信息管理类.网络IO信息数组[1] / 1024).ToString() + "KB ( " + 系统信息管理类.网络IO信息数组[2].ToString() + " % )");
+            返回文本.Append("\n"+ Language.s(8) + ": " + 系统信息管理类.硬盘O信息数组[0].ToString() + "，"+ Language.s(103) + " " + 系统信息管理类.硬盘O信息数组[1].ToString() + "( " + 系统信息管理类.硬盘O信息数组[2].ToString() + " % )");
+            返回文本.Append("\n" + Language.s(7) + ": " + 系统信息管理类.硬盘I信息数组[0].ToString() + "，" + Language.s(103) + " " + 系统信息管理类.硬盘I信息数组[1].ToString() + "( " + 系统信息管理类.硬盘I信息数组[2].ToString() + " % )");
+            返回文本.Append("\n" + Language.s(6) + ": " + 系统信息管理类.硬盘IO信息数组[0].ToString() + "，" + Language.s(103) + " " + 系统信息管理类.硬盘IO信息数组[1].ToString() + "( " + 系统信息管理类.硬盘IO信息数组[2].ToString() + " % )");
+            返回文本.Append("\n" + Language.s(10) + ": " + (系统信息管理类.网络I信息数组[0] / 1024).ToString() + "，" + Language.s(103) + " " + (系统信息管理类.网络I信息数组[1] / 1024).ToString() + "( " + 系统信息管理类.网络I信息数组[2].ToString() + " % )");
+            返回文本.Append("\n" + Language.s(11) + ": " + (系统信息管理类.网络O信息数组[0] / 1024).ToString() + "，" + Language.s(103) + " " + (系统信息管理类.网络O信息数组[1] / 1024).ToString() + "( " + 系统信息管理类.网络O信息数组[2].ToString() + " % )");
+            返回文本.Append("\n" + Language.s(9) + ": " + (系统信息管理类.网络IO信息数组[0] / 1024).ToString() + "，" + Language.s(103) + " " + (系统信息管理类.网络IO信息数组[1] / 1024).ToString() + "( " + 系统信息管理类.网络IO信息数组[2].ToString() + " % )");
             if (执行中)
             {
                 返回文本.Append("\n任务启动时间 "+ SettingLoad.任务启动时间);
@@ -898,6 +898,20 @@ namespace YashiAutoShutOff
             ShutdownNow 关机 = new ShutdownNow();
             关机.立即执行类型 = 13;
             关机.开始关机();
+        }
+
+        private void 打开睡眠和关屏阻止工具FToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process cmd2 = new System.Diagnostics.Process();
+                cmd2.StartInfo.FileName = "SleepPreventer.exe";
+                cmd2.Start();
+            }
+            catch
+            {
+                MessageBox.Show("找不到文件 SleepPreventer.exe 或发生了错误，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是屏幕测色功能将不可用。", "缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

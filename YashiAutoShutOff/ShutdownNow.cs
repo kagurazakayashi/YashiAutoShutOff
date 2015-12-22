@@ -22,7 +22,7 @@ namespace YashiAutoShutOff
             }
             if (type == 0)
             {
-                MessageBox.Show("条件成立！","通知",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show(Language.s(81), Language.s(82), MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             else if (type < 8)
             {
@@ -37,7 +37,7 @@ namespace YashiAutoShutOff
         private void 执行关机命令(bool isModeA, int type)
         {
             startscreen st = new startscreen();
-            st.info.Text = "正在关机";
+            st.info.Text = Language.s(83);
             st.Show();
             
             SettingLoad.最终关机命令 = true;
@@ -133,14 +133,14 @@ namespace YashiAutoShutOff
                 }
                 if (SettingLoad.arg("shutdowninfo") && isModeA)
                 {
-                    MessageBox.Show(output, "关机", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(output, Language.s(83), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 //Application.Exit();
             }
             catch (Exception err)
             {
                 SettingLoad.最终关机命令 = false;
-                MessageBox.Show(err.Message.ToString(), "关机发生错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(err.Message.ToString(), Language.s(84), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -165,7 +165,7 @@ namespace YashiAutoShutOff
                     关机参数 = "/r /o /t 0"; break;
                 default:
                     SettingLoad.最终关机命令 = false;
-                    MessageBox.Show("无效指令", "关机发生错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Language.s(85), Language.s(84), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
             if (SettingLoad.强制关机)

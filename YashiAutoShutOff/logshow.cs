@@ -33,6 +33,7 @@ namespace YashiAutoShutOff
                 }
                 progressBar1.Value = progressBar1.Maximum;
                 button2.Enabled = true;
+                sr.Close();
             }
             catch
             {
