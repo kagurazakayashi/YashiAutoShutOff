@@ -34,6 +34,7 @@ namespace YashiAutoShutOff
         private void MainWindow_Load(object sender, EventArgs e)
         {
             Console.WriteLine("MainWindow init: " + initID);
+            载入语言();
             for (short i = 0; i < SettingLoad.类型列表文本数组.Length; i++)
             {
                 类型列表.Items.Add(SettingLoad.类型列表文本数组[i]);
@@ -571,6 +572,46 @@ namespace YashiAutoShutOff
         {
             关机模式 = 13;
             更改模式文字();
+        }
+
+        private void 载入语言()
+        {
+            模式AToolStripMenuItem.Text = Language.s(150);
+            提醒我ToolStripMenuItem.Text = Language.s(173);
+            自动关机ToolStripMenuItem.Text = Language.s(151);
+            自动重启ToolStripMenuItem.Text = Language.s(152);
+            自动休眠ToolStripMenuItem.Text = Language.s(153);
+            自动注销ToolStripMenuItem.Text = Language.s(154);
+            自动关机并准备快速启动ToolStripMenuItem.Text = Language.s(155);
+            自动重启并打开之前的程序ToolStripMenuItem.Text = Language.s(156);
+            自动重启并打开高级启动菜单ToolStripMenuItem.Text = Language.s(157);
+            模式BToolStripMenuItem.Text = Language.s(158);
+            toolStripMenuItem4.Text = Language.s(159);
+            toolStripMenuItem5.Text = Language.s(160);
+            toolStripMenuItem8.Text = Language.s(161);
+            toolStripMenuItem6.Text = Language.s(162);
+            toolStripMenuItem9.Text = Language.s(163);
+            toolStripMenuItem7.Text = Language.s(164);
+            label3.Text = Language.s(174);
+            label4.Text = Language.s(175);
+            label2.Text = Language.s(176);
+            label6.Text = Language.s(177);
+            label7.Text = Language.s(178);
+            label5.Text = Language.s(179);
+            强制关机.Text = Language.s(180);
+            截图保存开关.Text = Language.s(181);
+            截图保存路径.Text = "C:\\"+Language.s(182)+"\\";
+            导入配置按钮.Text = Language.s(183);
+            导出配置按钮.Text = Language.s(184);
+            关闭事件跟踪程序开关.Text = Language.s(185);
+            label8.Text = "| " + Language.s(186);
+            label9.Text = Language.s(187) + " |";
+            label10.Text = Language.s(188);
+            toolStripStatusLabel1.Text = Language.s(189);
+            toolStripStatusLabel2.Text = Language.s(190);
+            toolStripStatusLabel3.Text = Language.s(191);
+            toolStripStatusLabel4.Text = Language.s(192);
+            暂停提示.Text = Language.s(193);
         }
     }
 }

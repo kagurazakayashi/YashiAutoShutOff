@@ -70,6 +70,7 @@ namespace YashiAutoShutOff
             创建用户文件夹();
             数值计算器 = new Calc(系统信息管理类);
             Console.WriteLine("Form1 init: " + initID);
+            载入语言();
             主窗口.Show();
             主窗口.窗口打开 = true;
             this.Visible = false;
@@ -348,10 +349,10 @@ namespace YashiAutoShutOff
             返回文本.Append("\n" + Language.s(9) + ": " + (系统信息管理类.网络IO信息数组[0] / 1024).ToString() + "，" + Language.s(103) + " " + (系统信息管理类.网络IO信息数组[1] / 1024).ToString() + "( " + 系统信息管理类.网络IO信息数组[2].ToString() + " % )");
             if (执行中)
             {
-                返回文本.Append("\n任务启动时间 "+ SettingLoad.任务启动时间);
-                返回文本.Append("\n依据：" + SettingLoad.类型列表文本数组[SettingLoad.类型]);
-                返回文本.Append("\n判断：" + SettingLoad.比较方法文本数组[SettingLoad.比较]);
-                返回文本.Append("\n条件：" + SettingLoad.条件);
+                返回文本.Append("\n" + Language.s(104) + SettingLoad.任务启动时间);
+                返回文本.Append("\n" + Language.s(105) + SettingLoad.类型列表文本数组[SettingLoad.类型]);
+                返回文本.Append("\n" + Language.s(106) + SettingLoad.比较方法文本数组[SettingLoad.比较]);
+                返回文本.Append("\n" + Language.s(107) + SettingLoad.条件);
                 string 满足信息 = "";
                 if (SettingLoad.条件多少秒开始 > 0)
                 {
@@ -362,8 +363,8 @@ namespace YashiAutoShutOff
                 {
                     满足信息 = SettingLoad.当前已满足秒 + " / 0 ( 0%% )";
                 }
-                返回文本.Append("\n满足：" + 满足信息);
-                返回文本.Append("\n执行：" + SettingLoad.关机模式文本数组[SettingLoad.关机模式]);
+                返回文本.Append("\n" + Language.s(108) + 满足信息);
+                返回文本.Append("\n" + Language.s(109) + SettingLoad.关机模式文本数组[SettingLoad.关机模式]);
                 
                 int 计算结果 = 数值计算器.计数器加减判断();
                 
@@ -389,7 +390,7 @@ namespace YashiAutoShutOff
                 }
                 else
                 {
-                    string 条件计算发生错误 = "条件计算发生错误，不支持的条件。请检查条件输入是否正确";
+                    string 条件计算发生错误 = Language.s(110);
                     紧急停止(条件计算发生错误);
                     return 条件计算发生错误;
                 }
@@ -425,7 +426,7 @@ namespace YashiAutoShutOff
             }
             else
             {
-                if (MessageBox.Show("将停止所有计时器并完全退出，继续？", "停止", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(Language.s(111), Language.s(112), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     完全退出();
                 }
@@ -463,7 +464,7 @@ namespace YashiAutoShutOff
                 主窗口.启动任务代理 = null;
                 主窗口.主窗体关闭代理 = null;
                 主窗口.Close();
-                notifyIcon1.ShowBalloonTip(3, "雅诗智能自动关机仍在运行。", "计时器仍然会在后台继续运行，可以在图标上点右键打开主菜单。", ToolTipIcon.Info);
+                notifyIcon1.ShowBalloonTip(3, Language.s(113)+ Language.s(114), Language.s(115), ToolTipIcon.Info);
             }
             else
             {
@@ -488,7 +489,7 @@ namespace YashiAutoShutOff
         {
             for (int i = 0; i < int.Parse(系统信息管理类.处理器内核数数组[2]); i++)
             {
-                主窗口.CPU核心选择.Items.Add("逻辑处理器 " + i.ToString());
+                主窗口.CPU核心选择.Items.Add(Language.s(100) + " " + i.ToString());
             }
             if (主窗口.选中的CPU核心 < 主窗口.CPU核心选择.Items.Count)
             {
@@ -549,13 +550,13 @@ namespace YashiAutoShutOff
                     cmd.Start();//启动程序
                     //仅启动系统监视器VToolStripMenuItem.Checked = true;
                     cmdrun = true;
-                    cmd.StandardInput.WriteLine("@title 雅诗智能关机 - 实时系统信息");
+                    cmd.StandardInput.WriteLine("@title "+ Language.s(113) + " - " + Language.s(116));
                 }
                 catch
                 {
                     cmdrun = false;
                     仅启动系统监视器VToolStripMenuItem.Enabled = false;
-                    MessageBox.Show("找不到文件 "+ viewerexe +" ，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是系统信息查看功能将不可用。","缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Language.s(117) + " " + viewerexe +" "+ Language.s(118), Language.s(119), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
@@ -586,7 +587,7 @@ namespace YashiAutoShutOff
 
         private void 修复Windows性能计数器注册表RToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("将停止所有计时器并完全退出，以便运行修复工具，继续？", "停止", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(Language.s(120),Language.s(112), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
@@ -597,17 +598,8 @@ namespace YashiAutoShutOff
                 {
                     
                 }
-                try
-                {
-                    Process cmd2 = new System.Diagnostics.Process();
-                    cmd2.StartInfo.FileName = "YashiAutoShutOffLodctr.exe";
-                    cmd2.Start();
-                    运行命令后退出();
-                }
-                catch
-                {
-                    MessageBox.Show("找不到文件 YashiAutoShutOffLodctr.exe 或发生了错误，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是系统信息查看功能将不可用。", "缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                启动外部程序("YashiAutoShutOffLodctr.exe");
+                运行命令后退出();
             }
         }
 
@@ -642,7 +634,7 @@ namespace YashiAutoShutOff
                     }
                     catch
                     {
-                        紧急停止("条件时间计算发生错误，请检查条件输入是否正确");
+                        紧急停止(Language.s(121));
                     }
                 }
                 执行中 = true;
@@ -739,7 +731,7 @@ namespace YashiAutoShutOff
 
         private void pu4_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("更低的优先级可能会导致计时器延迟，使时间不准确。确认继续？", "注意", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show(Language.s(122), Language.s(123), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 clearpu();
                 pu5.Checked = true;
@@ -749,7 +741,7 @@ namespace YashiAutoShutOff
 
         private void pu5_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("更低的优先级可能会导致计时器延迟，使时间不准确。确认继续？", "注意", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show(Language.s(122), Language.s(123), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 clearpu();
                 pu5.Checked = true;
@@ -781,13 +773,13 @@ namespace YashiAutoShutOff
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "打开失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(err.Message, Language.s(124), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void 抹掉用户设置EToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("会删除所有设置和日志文件并退出。确认继续？", "注意", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show(Language.s(125), Language.s(123), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 抹掉设置();
             }
@@ -814,7 +806,7 @@ namespace YashiAutoShutOff
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "复位失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(err.Message, Language.s(126), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -825,16 +817,7 @@ namespace YashiAutoShutOff
 
         private void 打开数码测色计MToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Process cmd2 = new System.Diagnostics.Process();
-                cmd2.StartInfo.FileName = "YashiColorMeasurement.exe";
-                cmd2.Start();
-            }
-            catch
-            {
-                MessageBox.Show("找不到文件 YashiColorMeasurement.exe 或发生了错误，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是屏幕测色功能将不可用。", "缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            启动外部程序("YashiColorMeasurement.exe");
         }
 
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
@@ -902,16 +885,71 @@ namespace YashiAutoShutOff
 
         private void 打开睡眠和关屏阻止工具FToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            启动外部程序("SleepPreventer.exe");
+        }
+
+        private void 启动外部程序(string fname)
+        {
             try
             {
                 Process cmd2 = new System.Diagnostics.Process();
-                cmd2.StartInfo.FileName = "SleepPreventer.exe";
+                cmd2.StartInfo.FileName = fname;
                 cmd2.Start();
             }
             catch
             {
-                MessageBox.Show("找不到文件 SleepPreventer.exe 或发生了错误，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是屏幕测色功能将不可用。", "缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Language.s(117) + " " + fname + " " + Language.s(118), Language.s(119), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void 载入语言()
+        {
+            窗口管理ToolStripMenuItem.Text = Language.s(127);
+            显示主窗口SToolStripMenuItem.Text = Language.s(128);
+            仅启动系统监视器VToolStripMenuItem.Text= Language.s(129);
+            打开数码测色计MToolStripMenuItem.Text = Language.s(130);
+            打开睡眠和关屏阻止工具FToolStripMenuItem.Text = Language.s(131);
+            性能ToolStripMenuItem.Text = Language.s(132);
+            暂停PToolStripMenuItem.Text = Language.s(133);
+            toolStripMenuItem6.Text = Language.s(134);
+            优先级NToolStripMenuItem.Text = Language.s(135);
+            pu0.Text = Language.s(136);
+            pu1.Text = Language.s(137);
+            pu2.Text = Language.s(138);
+            pu3.Text = Language.s(139);
+            pu4.Text = Language.s(140);
+            pu5.Text = Language.s(141);
+            pu6.Text = Language.s(142);
+            维护ToolStripMenuItem.Text = Language.s(143);
+            windows任务管理器ToolStripMenuItem.Text = Language.s(144);
+            修复Windows性能计数器注册表RToolStripMenuItem.Text = Language.s(145);
+            抹掉用户设置EToolStripMenuItem.Text = Language.s(146);
+            强制退出ToolStripMenuItem.Text = Language.s(147);
+            立即操作ToolStripMenuItem.Text = Language.s(148);
+            关闭或注销ToolStripMenuItem.Text = Language.s(149);
+            toolStripMenuItem13.Text = Language.s(150);
+            自动关机ToolStripMenuItem.Text = Language.s(151);
+            自动重启ToolStripMenuItem.Text = Language.s(152);
+            自动休眠ToolStripMenuItem.Text = Language.s(153);
+            自动注销ToolStripMenuItem.Text = Language.s(154);
+            自动关机并准备快速启动ToolStripMenuItem.Text = Language.s(155);
+            自动重启并打开之前的程序ToolStripMenuItem.Text = Language.s(156);
+            自动重启并打开高级启动菜单ToolStripMenuItem.Text = Language.s(157);
+            toolStripMenuItem14.Text = Language.s(158);
+            toolStripMenuItem7.Text = Language.s(159);
+            toolStripMenuItem8.Text = Language.s(160);
+            toolStripMenuItem12.Text = Language.s(161);
+            toolStripMenuItem9.Text = Language.s(162);
+            toolStripMenuItem10.Text = Language.s(163);
+            直接关闭电源XToolStripMenuItem.Text = Language.s(164);
+            取消系统关机计划CToolStripMenuItem.Text = Language.s(165);
+            设置ToolStripMenuItem.Text = Language.s(166);
+            打开用户设置文件夹DToolStripMenuItem.Text = Language.s(167);
+            查看关机事件日志LToolStripMenuItem.Text = Language.s(168);
+            关于和退出ToolStripMenuItem.Text = Language.s(169);
+            关于AToolStripMenuItem.Text = Language.s(170);
+            退出XToolStripMenuItem.Text = Language.s(171);
+            关闭此菜单QToolStripMenuItem.Text = Language.s(172);
         }
     }
 }

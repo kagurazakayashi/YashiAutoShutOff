@@ -52,7 +52,6 @@
             this.自动重启ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动休眠ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动注销ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.自动关机并准备快速启动ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动重启并打开之前的程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动重启并打开高级启动菜单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,6 +98,8 @@
             this.打开截图文件夹 = new System.Windows.Forms.Button();
             this.类型介绍框 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.模式AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.模式BToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.关机方式选择菜单.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.条件多少秒开始1)).BeginInit();
@@ -228,8 +229,8 @@
             // 
             this.时间显示.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.时间显示.Name = "时间显示";
-            this.时间显示.Size = new System.Drawing.Size(56, 17);
-            this.时间显示.Text = "时间显示";
+            this.时间显示.Size = new System.Drawing.Size(54, 17);
+            this.时间显示.Text = "<Time>";
             // 
             // 开关动画控制器
             // 
@@ -239,16 +240,17 @@
             // 关机方式选择菜单
             // 
             this.关机方式选择菜单.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.模式AToolStripMenuItem,
             this.提醒我ToolStripMenuItem,
             this.自动关机ToolStripMenuItem,
             this.自动重启ToolStripMenuItem,
             this.自动休眠ToolStripMenuItem,
             this.自动注销ToolStripMenuItem,
-            this.toolStripMenuItem1,
             this.自动关机并准备快速启动ToolStripMenuItem,
             this.自动重启并打开之前的程序ToolStripMenuItem,
             this.自动重启并打开高级启动菜单ToolStripMenuItem,
             this.toolStripMenuItem2,
+            this.模式BToolStripMenuItem,
             this.toolStripMenuItem4,
             this.toolStripMenuItem5,
             this.toolStripMenuItem8,
@@ -256,7 +258,7 @@
             this.toolStripMenuItem9,
             this.toolStripMenuItem7});
             this.关机方式选择菜单.Name = "关机方式选择菜单";
-            this.关机方式选择菜单.Size = new System.Drawing.Size(319, 352);
+            this.关机方式选择菜单.Size = new System.Drawing.Size(319, 394);
             // 
             // 提醒我ToolStripMenuItem
             // 
@@ -302,11 +304,6 @@
             this.自动注销ToolStripMenuItem.Size = new System.Drawing.Size(318, 24);
             this.自动注销ToolStripMenuItem.Text = "&4.自动注销(模式A)";
             this.自动注销ToolStripMenuItem.Click += new System.EventHandler(this.自动注销ToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(315, 6);
             // 
             // 自动关机并准备快速启动ToolStripMenuItem
             // 
@@ -764,6 +761,22 @@
             this.linkLabel1.Visible = false;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // 模式AToolStripMenuItem
+            // 
+            this.模式AToolStripMenuItem.Enabled = false;
+            this.模式AToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.模式AToolStripMenuItem.Name = "模式AToolStripMenuItem";
+            this.模式AToolStripMenuItem.Size = new System.Drawing.Size(318, 24);
+            this.模式AToolStripMenuItem.Text = "模式A";
+            // 
+            // 模式BToolStripMenuItem
+            // 
+            this.模式BToolStripMenuItem.Enabled = false;
+            this.模式BToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.模式BToolStripMenuItem.Name = "模式BToolStripMenuItem";
+            this.模式BToolStripMenuItem.Size = new System.Drawing.Size(318, 24);
+            this.模式BToolStripMenuItem.Text = "模式B";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -845,7 +858,6 @@
         private System.Windows.Forms.ToolStripMenuItem 自动注销ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 提醒我ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 自动休眠ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 自动关机并准备快速启动ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 自动重启并打开之前的程序ToolStripMenuItem;
         private System.Windows.Forms.Label label1;
@@ -892,5 +904,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem 模式AToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 模式BToolStripMenuItem;
     }
 }
