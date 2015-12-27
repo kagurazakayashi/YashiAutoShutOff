@@ -19,9 +19,10 @@ namespace YashiAutoShutOff
 
         private void Shutdown_Load(object sender, EventArgs e)
         {
+            载入语言();
             progressBar1.Value = 0;
             progressBar1.Maximum = SettingLoad.执行后提示关机时长;
-            label1.Text = "注意，系统将在"+ SettingLoad.执行后提示关机时长 + "秒后" + SettingLoad.关机模式文本数组[SettingLoad.关机模式] + "。";
+            label1.Text = Language.s(223) + " " + SettingLoad.执行后提示关机时长 + " " + Language.s(224) + " " + SettingLoad.关机模式文本数组[SettingLoad.关机模式] + ".";
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -31,7 +32,7 @@ namespace YashiAutoShutOff
                 progressBar1.Value++;
             }
             int 剩余秒 = progressBar1.Maximum - progressBar1.Value;
-            label1.Text = "注意，系统将在" + 剩余秒 + "秒后" + SettingLoad.关机模式文本数组[SettingLoad.关机模式] + "。";
+            label1.Text = Language.s(223) + " " + 剩余秒 + " " + Language.s(224) + " " + SettingLoad.关机模式文本数组[SettingLoad.关机模式] + ".";
             if (剩余秒 <= 0)
             {
                 Opacity = 0;
@@ -39,7 +40,7 @@ namespace YashiAutoShutOff
                 {
                     Screenshot.截图到文件();
                 }
-                
+
                 timer1.Enabled = false;
                 SettingLoad.执行后提示关机时长 = 0;
                 ShutdownNow now = new ShutdownNow();
@@ -59,6 +60,16 @@ namespace YashiAutoShutOff
         private void 立即执行按钮_Click(object sender, EventArgs e)
         {
             progressBar1.Value = progressBar1.Maximum;
+        }
+
+        private void 载入语言()
+        {
+            if (!SettingLoad.arg("defaultlanguage"))
+            {
+                Text = Language.s(113) + " - " + Language.s(222);
+                立即执行按钮.Text = Language.s(225);
+                取消按钮.Text = Language.s(226);
+            }
         }
     }
 }

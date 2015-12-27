@@ -51,11 +51,11 @@ namespace YashiAutoShutOff
             读入默认设置();
             if (SettingLoad.以管理员方式运行)
             {
-                Text += " (管理员)";
+                Text += " (" + Language.s(195) + ")";
             }
             if (SettingLoad.debug)
             {
-                Text += " (调试模式)";
+                Text += " (" + Language.s(196) + ")";
             }
             if (SettingLoad.任务启动时间.Length > 0)
             {
@@ -228,9 +228,9 @@ namespace YashiAutoShutOff
         private void 更新拉杆时间()
         {
             TimeSpan t1 = new TimeSpan(0, 0, 条件多少秒开始1.Value);
-            条件多少秒开始2.Text = t1.Minutes + "分" + t1.Seconds + "秒"; //ts.Hours + "时" + 
+            条件多少秒开始2.Text = t1.Minutes + Language.s(197) + t1.Seconds + Language.s(198); //ts.Hours + "时" + 
             TimeSpan t2 = new TimeSpan(0, 0, 执行后提示关机时长1.Value);
-            执行后提示关机时长2.Text = t2.Minutes + "分" + t2.Seconds + "秒";
+            执行后提示关机时长2.Text = t2.Minutes + Language.s(197) + t2.Seconds + Language.s(198);
         }
 
         private void 自动关机并准备快速启动ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -253,7 +253,7 @@ namespace YashiAutoShutOff
 
         private void 截图文件夹选择按钮_Click(object sender, EventArgs e)
         {
-            文件夹选择对话框.Description = "请选择一个文件夹，截图将会以时间作为文件名存储在里面。";
+            文件夹选择对话框.Description = Language.s(199);
             文件夹选择对话框.SelectedPath = 截图保存路径.Text;
             if (文件夹选择对话框.ShowDialog() == DialogResult.OK)
             {
@@ -263,8 +263,8 @@ namespace YashiAutoShutOff
 
         private void 导入配置按钮_Click(object sender, EventArgs e)
         {
-            打开文件对话框.Title = "要从哪里导入设置呢？";
-            打开文件对话框.Filter = "XML设置文件(*.xml)|*.xml|所有文件(*.*)|*.*";
+            打开文件对话框.Title = Language.s(200);
+            打开文件对话框.Filter = Language.s(202) + "|*.xml|" + Language.s(203) + "|*.*";
             打开文件对话框.InitialDirectory = SettingLoad.资料文件夹;
             if (打开文件对话框.ShowDialog() == DialogResult.OK)
             {
@@ -275,8 +275,8 @@ namespace YashiAutoShutOff
 
         private void 导出配置按钮_Click(object sender, EventArgs e)
         {
-            保存文件对话框.Title = "要将设置保存到哪里呢？";
-            保存文件对话框.Filter = "XML设置文件(*.xml)|*.xml|自定义文件(*.*)|*.*";
+            保存文件对话框.Title = Language.s(201);
+            保存文件对话框.Filter = Language.s(202) + "|*.xml|" + Language.s(203) + "|*.*";
             保存文件对话框.InitialDirectory = SettingLoad.资料文件夹;
             if (保存文件对话框.ShowDialog() == DialogResult.OK)
             {
@@ -332,9 +332,10 @@ namespace YashiAutoShutOff
                         选中的CPU核心 = int.Parse(XML操作器.获得XML值("s", "cpu"));
                         条件输入框.Text = XML操作器.获得XML值("s", "condition");
                         条件多少秒开始1.Value = int.Parse(XML操作器.获得XML值("s", "conditionalwaiting"));
-                        条件多少秒开始2.Text = 条件多少秒开始1.Value.ToString();
+                        //条件多少秒开始2.Text = 条件多少秒开始1.Value.ToString();
                         执行后提示关机时长1.Value = int.Parse(XML操作器.获得XML值("s", "shutdownwaiting"));
-                        执行后提示关机时长2.Text = 执行后提示关机时长1.Value.ToString();
+                        //执行后提示关机时长2.Text = 执行后提示关机时长1.Value.ToString();
+                        更新拉杆时间();
                         强制关机.Checked = bool.Parse(XML操作器.获得XML值("s", "forcedshutdown"));
                         截图保存开关.Checked = bool.Parse(XML操作器.获得XML值("s", "screenshotswitch"));
                         截图保存路径.Text = XML操作器.获得XML值("s", "screenshotfolder");
@@ -344,12 +345,12 @@ namespace YashiAutoShutOff
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("导入设置失败，\n" + e.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Language.s(204)+ " " + e.Message, Language.s(206), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("文件不存在","错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(Language.s(205), Language.s(206), MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
@@ -458,7 +459,7 @@ namespace YashiAutoShutOff
             {
                 DateTime 当前的日期 = DateTime.Now;
                 条件输入框.Text = 当前的日期.Year + "-" + 当前的日期.Month + "-" + 当前的日期.Day + "-" + 当前的日期.Hour + "-" + 当前的日期.Minute + "-" + 当前的日期.Second;
-                条件单位.Text = "秒";
+                条件单位.Text = Language.s(198);
             }
             else if (类型列表.SelectedIndex == 1 || 类型列表.SelectedIndex == 2 || 类型列表.SelectedIndex == 3)
             {
@@ -473,17 +474,17 @@ namespace YashiAutoShutOff
             else if (类型列表.SelectedIndex == 6 || 类型列表.SelectedIndex == 7 || 类型列表.SelectedIndex == 8)
             {
                 条件输入框.Text = "100";
-                条件单位.Text = "次/秒";
+                条件单位.Text = Language.s(207) + "/"+ Language.s(198);
             }
             else if (类型列表.SelectedIndex == 9 || 类型列表.SelectedIndex == 10 || 类型列表.SelectedIndex == 11)
             {
                 条件输入框.Text = "512";
-                条件单位.Text = "KB/秒";
+                条件单位.Text = "KB/" + Language.s(198);
             }
             else if (类型列表.SelectedIndex == 12)
             {
                 条件输入框.Text = "explorer.exe";
-                条件单位.Text = "进程名";
+                条件单位.Text = Language.s(208);
             }
             else if (类型列表.SelectedIndex == 13)
             {
@@ -510,7 +511,7 @@ namespace YashiAutoShutOff
                 }
                 else
                 {
-                    if (MessageBox.Show("文件夹不存在，要新建文件夹吗？", "打开失败", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                    if (MessageBox.Show(Language.s(209), Language.s(124), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
                         Directory.CreateDirectory(截图保存路径.Text);
                         System.Diagnostics.Process.Start("explorer.exe", 截图保存路径.Text);
                     };
@@ -518,7 +519,7 @@ namespace YashiAutoShutOff
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "打开失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(err.Message, Language.s(124), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -526,16 +527,20 @@ namespace YashiAutoShutOff
         {
             if (类型列表.SelectedIndex == 13)
             {
-                try
-                {
-                    Process cmd2 = new System.Diagnostics.Process();
-                    cmd2.StartInfo.FileName = "YashiColorMeasurement.exe";
-                    cmd2.Start();
-                }
-                catch
-                {
-                    MessageBox.Show("找不到文件 YashiColorMeasurement.exe 或发生了错误，\n请确保这个文件和主程序放在了一起。\n程序仍可以继续使用，但是屏幕测色功能将不可用。", "缺少文件", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                启动外部程序("YashiColorMeasurement.exe");
+            }
+        }
+        private void 启动外部程序(string fname)
+        {
+            try
+            {
+                Process cmd2 = new System.Diagnostics.Process();
+                cmd2.StartInfo.FileName = fname;
+                cmd2.Start();
+            }
+            catch
+            {
+                MessageBox.Show(Language.s(117) + " " + fname + " " + Language.s(118), Language.s(119), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
@@ -576,42 +581,46 @@ namespace YashiAutoShutOff
 
         private void 载入语言()
         {
-            模式AToolStripMenuItem.Text = Language.s(150);
-            提醒我ToolStripMenuItem.Text = Language.s(173);
-            自动关机ToolStripMenuItem.Text = Language.s(151);
-            自动重启ToolStripMenuItem.Text = Language.s(152);
-            自动休眠ToolStripMenuItem.Text = Language.s(153);
-            自动注销ToolStripMenuItem.Text = Language.s(154);
-            自动关机并准备快速启动ToolStripMenuItem.Text = Language.s(155);
-            自动重启并打开之前的程序ToolStripMenuItem.Text = Language.s(156);
-            自动重启并打开高级启动菜单ToolStripMenuItem.Text = Language.s(157);
-            模式BToolStripMenuItem.Text = Language.s(158);
-            toolStripMenuItem4.Text = Language.s(159);
-            toolStripMenuItem5.Text = Language.s(160);
-            toolStripMenuItem8.Text = Language.s(161);
-            toolStripMenuItem6.Text = Language.s(162);
-            toolStripMenuItem9.Text = Language.s(163);
-            toolStripMenuItem7.Text = Language.s(164);
-            label3.Text = Language.s(174);
-            label4.Text = Language.s(175);
-            label2.Text = Language.s(176);
-            label6.Text = Language.s(177);
-            label7.Text = Language.s(178);
-            label5.Text = Language.s(179);
-            强制关机.Text = Language.s(180);
-            截图保存开关.Text = Language.s(181);
-            截图保存路径.Text = "C:\\"+Language.s(182)+"\\";
-            导入配置按钮.Text = Language.s(183);
-            导出配置按钮.Text = Language.s(184);
-            关闭事件跟踪程序开关.Text = Language.s(185);
-            label8.Text = "| " + Language.s(186);
-            label9.Text = Language.s(187) + " |";
-            label10.Text = Language.s(188);
-            toolStripStatusLabel1.Text = Language.s(189);
-            toolStripStatusLabel2.Text = Language.s(190);
-            toolStripStatusLabel3.Text = Language.s(191);
-            toolStripStatusLabel4.Text = Language.s(192);
-            暂停提示.Text = Language.s(193);
+            if (!SettingLoad.arg("defaultlanguage"))
+            {
+                Text = Language.s(113) + " - " + Language.s(194);
+                模式AToolStripMenuItem.Text = Language.s(150);
+                提醒我ToolStripMenuItem.Text = Language.s(173);
+                自动关机ToolStripMenuItem.Text = Language.s(151);
+                自动重启ToolStripMenuItem.Text = Language.s(152);
+                自动休眠ToolStripMenuItem.Text = Language.s(153);
+                自动注销ToolStripMenuItem.Text = Language.s(154);
+                自动关机并准备快速启动ToolStripMenuItem.Text = Language.s(155);
+                自动重启并打开之前的程序ToolStripMenuItem.Text = Language.s(156);
+                自动重启并打开高级启动菜单ToolStripMenuItem.Text = Language.s(157);
+                模式BToolStripMenuItem.Text = Language.s(158);
+                toolStripMenuItem4.Text = Language.s(159);
+                toolStripMenuItem5.Text = Language.s(160);
+                toolStripMenuItem8.Text = Language.s(161);
+                toolStripMenuItem6.Text = Language.s(162);
+                toolStripMenuItem9.Text = Language.s(163);
+                toolStripMenuItem7.Text = Language.s(164);
+                label3.Text = Language.s(174);
+                label4.Text = Language.s(175);
+                label2.Text = Language.s(176);
+                label6.Text = Language.s(177);
+                label7.Text = Language.s(178);
+                label5.Text = Language.s(179);
+                强制关机.Text = Language.s(180);
+                截图保存开关.Text = Language.s(181);
+                截图保存路径.Text = "C:\\" + Language.s(182) + "\\";
+                导入配置按钮.Text = Language.s(183);
+                导出配置按钮.Text = Language.s(184);
+                关闭事件跟踪程序开关.Text = Language.s(185);
+                label8.Text = "| " + Language.s(186);
+                label9.Text = Language.s(187) + " |";
+                label10.Text = Language.s(188);
+                toolStripStatusLabel1.Text = Language.s(189);
+                toolStripStatusLabel2.Text = Language.s(190);
+                toolStripStatusLabel3.Text = Language.s(191);
+                toolStripStatusLabel4.Text = Language.s(192);
+                暂停提示.Text = Language.s(193);
+            }
         }
     }
 }

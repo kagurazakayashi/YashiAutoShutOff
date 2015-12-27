@@ -21,8 +21,8 @@ namespace YashiAutoShutOff
 
         private void logshow_Load(object sender, EventArgs e)
         {
-            
             listBox1.Items.Clear();
+            载入语言();
             try
             {
                 StreamReader sr = new StreamReader(默认日志文件, Encoding.Default);
@@ -37,7 +37,7 @@ namespace YashiAutoShutOff
             }
             catch
             {
-                listBox1.Items.Add("没有日志。");
+                listBox1.Items.Add(Language.s(210));
             }
         }
 
@@ -45,7 +45,7 @@ namespace YashiAutoShutOff
         {
             button2.Enabled = false;
             listBox1.Items.Clear();
-            listBox1.Items.Add("没有日志。");
+            listBox1.Items.Add(Language.s(210));
             try
             {
                 File.Delete(默认日志文件);
@@ -60,6 +60,16 @@ namespace YashiAutoShutOff
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void 载入语言()
+        {
+            if (!SettingLoad.arg("defaultlanguage"))
+            {
+                Text = Language.s(113) + " - " + Language.s(213);
+                button2.Text = Language.s(211);
+                button1.Text = Language.s(212);
+            }
         }
     }
 }

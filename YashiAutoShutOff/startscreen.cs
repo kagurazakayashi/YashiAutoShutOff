@@ -22,6 +22,7 @@ namespace YashiAutoShutOff
         private void startscreen_Load(object sender, EventArgs e)
         {
             Console.WriteLine("startscreen init: " + initID);
+            载入语言();
             if (SettingLoad.debug)
             {
                 button1.Visible = true;
@@ -55,6 +56,16 @@ namespace YashiAutoShutOff
         {
             timer1.Enabled = false;
             Close();
+        }
+
+        private void 载入语言()
+        {
+            if (!SettingLoad.arg("defaultlanguage"))
+            {
+                Text = Language.s(113) + " - " + Language.s(228);
+                label1.Text = Language.s(113);
+                info.Text = Language.s(227);
+            }
         }
     }
 }

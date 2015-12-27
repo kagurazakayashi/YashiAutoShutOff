@@ -10,14 +10,15 @@ namespace YashiAutoShutOff
     static class Language
     {
         public static List<string> ls = new List<string>();
-        static string defaultlang = "zh-CN.language";
+        static string exe = "YashiAutoShutOff_";
+        static string defaultlang = exe + "zh-CN.language";
         public static bool showErr = true;
         static bool linit = false;
 
         public static bool initLanguage(string lfilename)
         {
             string 系统语言 = System.Globalization.CultureInfo.InstalledUICulture.Name;
-            string lfile = 系统语言 + ".language";
+            string lfile = exe + 系统语言 + ".language";
             if (lfilename != null)
             {
                 lfile = lfilename;

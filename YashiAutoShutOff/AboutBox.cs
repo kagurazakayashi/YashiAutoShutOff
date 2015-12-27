@@ -103,7 +103,7 @@ namespace YashiAutoShutOff
 
         private void AboutBox_Load(object sender, EventArgs e)
         {
-
+            载入语言();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -114,6 +114,22 @@ namespace YashiAutoShutOff
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://plus.google.com/105938465531761409080");
+        }
+
+        private void 载入语言()
+        {
+            if (!SettingLoad.arg("defaultlanguage"))
+            {
+                Text = Language.s(113) + " - " + Language.s(214);
+                label1.Text = Language.s(214) + Language.s(113);
+                info.Text = Language.s(215) + "\n" + Language.s(216) + "\n" + Language.s(217) + "\n" + Language.s(218) + "\n" + Language.s(219);
+                linkLabel1.Text = Language.s(220) + "\n" + Language.s(221);
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/cxchope/YashiAutoShutOff");
         }
     }
 }

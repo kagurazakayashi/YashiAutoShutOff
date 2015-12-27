@@ -904,52 +904,55 @@ namespace YashiAutoShutOff
 
         private void 载入语言()
         {
-            窗口管理ToolStripMenuItem.Text = Language.s(127);
-            显示主窗口SToolStripMenuItem.Text = Language.s(128);
-            仅启动系统监视器VToolStripMenuItem.Text= Language.s(129);
-            打开数码测色计MToolStripMenuItem.Text = Language.s(130);
-            打开睡眠和关屏阻止工具FToolStripMenuItem.Text = Language.s(131);
-            性能ToolStripMenuItem.Text = Language.s(132);
-            暂停PToolStripMenuItem.Text = Language.s(133);
-            toolStripMenuItem6.Text = Language.s(134);
-            优先级NToolStripMenuItem.Text = Language.s(135);
-            pu0.Text = Language.s(136);
-            pu1.Text = Language.s(137);
-            pu2.Text = Language.s(138);
-            pu3.Text = Language.s(139);
-            pu4.Text = Language.s(140);
-            pu5.Text = Language.s(141);
-            pu6.Text = Language.s(142);
-            维护ToolStripMenuItem.Text = Language.s(143);
-            windows任务管理器ToolStripMenuItem.Text = Language.s(144);
-            修复Windows性能计数器注册表RToolStripMenuItem.Text = Language.s(145);
-            抹掉用户设置EToolStripMenuItem.Text = Language.s(146);
-            强制退出ToolStripMenuItem.Text = Language.s(147);
-            立即操作ToolStripMenuItem.Text = Language.s(148);
-            关闭或注销ToolStripMenuItem.Text = Language.s(149);
-            toolStripMenuItem13.Text = Language.s(150);
-            自动关机ToolStripMenuItem.Text = Language.s(151);
-            自动重启ToolStripMenuItem.Text = Language.s(152);
-            自动休眠ToolStripMenuItem.Text = Language.s(153);
-            自动注销ToolStripMenuItem.Text = Language.s(154);
-            自动关机并准备快速启动ToolStripMenuItem.Text = Language.s(155);
-            自动重启并打开之前的程序ToolStripMenuItem.Text = Language.s(156);
-            自动重启并打开高级启动菜单ToolStripMenuItem.Text = Language.s(157);
-            toolStripMenuItem14.Text = Language.s(158);
-            toolStripMenuItem7.Text = Language.s(159);
-            toolStripMenuItem8.Text = Language.s(160);
-            toolStripMenuItem12.Text = Language.s(161);
-            toolStripMenuItem9.Text = Language.s(162);
-            toolStripMenuItem10.Text = Language.s(163);
-            直接关闭电源XToolStripMenuItem.Text = Language.s(164);
-            取消系统关机计划CToolStripMenuItem.Text = Language.s(165);
-            设置ToolStripMenuItem.Text = Language.s(166);
-            打开用户设置文件夹DToolStripMenuItem.Text = Language.s(167);
-            查看关机事件日志LToolStripMenuItem.Text = Language.s(168);
-            关于和退出ToolStripMenuItem.Text = Language.s(169);
-            关于AToolStripMenuItem.Text = Language.s(170);
-            退出XToolStripMenuItem.Text = Language.s(171);
-            关闭此菜单QToolStripMenuItem.Text = Language.s(172);
+            if (!SettingLoad.arg("defaultlanguage"))
+            {
+                窗口管理ToolStripMenuItem.Text = Language.s(127);
+                显示主窗口SToolStripMenuItem.Text = Language.s(128);
+                仅启动系统监视器VToolStripMenuItem.Text = Language.s(129);
+                打开数码测色计MToolStripMenuItem.Text = Language.s(130);
+                打开睡眠和关屏阻止工具FToolStripMenuItem.Text = Language.s(131);
+                性能ToolStripMenuItem.Text = Language.s(132);
+                暂停PToolStripMenuItem.Text = Language.s(133);
+                toolStripMenuItem6.Text = Language.s(134);
+                优先级NToolStripMenuItem.Text = Language.s(135);
+                pu0.Text = Language.s(136);
+                pu1.Text = Language.s(137);
+                pu2.Text = Language.s(138);
+                pu3.Text = Language.s(139);
+                pu4.Text = Language.s(140);
+                pu5.Text = Language.s(141);
+                pu6.Text = Language.s(142);
+                维护ToolStripMenuItem.Text = Language.s(143);
+                windows任务管理器ToolStripMenuItem.Text = Language.s(144);
+                修复Windows性能计数器注册表RToolStripMenuItem.Text = Language.s(145);
+                抹掉用户设置EToolStripMenuItem.Text = Language.s(146);
+                强制退出ToolStripMenuItem.Text = Language.s(147);
+                立即操作ToolStripMenuItem.Text = Language.s(148);
+                关闭或注销ToolStripMenuItem.Text = Language.s(149);
+                toolStripMenuItem13.Text = Language.s(150);
+                自动关机ToolStripMenuItem.Text = Language.s(151);
+                自动重启ToolStripMenuItem.Text = Language.s(152);
+                自动休眠ToolStripMenuItem.Text = Language.s(153);
+                自动注销ToolStripMenuItem.Text = Language.s(154);
+                自动关机并准备快速启动ToolStripMenuItem.Text = Language.s(155);
+                自动重启并打开之前的程序ToolStripMenuItem.Text = Language.s(156);
+                自动重启并打开高级启动菜单ToolStripMenuItem.Text = Language.s(157);
+                toolStripMenuItem14.Text = Language.s(158);
+                toolStripMenuItem7.Text = Language.s(159);
+                toolStripMenuItem8.Text = Language.s(160);
+                toolStripMenuItem12.Text = Language.s(161);
+                toolStripMenuItem9.Text = Language.s(162);
+                toolStripMenuItem10.Text = Language.s(163);
+                直接关闭电源XToolStripMenuItem.Text = Language.s(164);
+                取消系统关机计划CToolStripMenuItem.Text = Language.s(165);
+                设置ToolStripMenuItem.Text = Language.s(166);
+                打开用户设置文件夹DToolStripMenuItem.Text = Language.s(167);
+                查看关机事件日志LToolStripMenuItem.Text = Language.s(168);
+                关于和退出ToolStripMenuItem.Text = Language.s(169);
+                关于AToolStripMenuItem.Text = Language.s(170);
+                退出XToolStripMenuItem.Text = Language.s(171);
+                关闭此菜单QToolStripMenuItem.Text = Language.s(172);
+            }
         }
     }
 }
