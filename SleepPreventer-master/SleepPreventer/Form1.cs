@@ -109,7 +109,13 @@ namespace SleepPreventer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            Text = Language.s(0) + " - " +Language.s(1);
+            label1.Text = Language.s(5);
+            checkBox1.Text = Language.s(6);
+            checkBox3.Text = Language.s(7);
+            checkBox2.Text = Language.s(8);
+            checkBox4.Text = Language.s(9);
+            button1.Text = Language.s(10);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

@@ -101,5 +101,18 @@ namespace SleepPreventer
             string url = "http://www.cnblogs.com/h46incon/p/SleepPreventer.html";
             System.Diagnostics.Process.Start(url);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void AboutBox1_Load(object sender, EventArgs e)
+        {
+            Text = Language.s(0) + " - " + Language.s(1);
+            label1.Text = Language.s(0);
+            label2.Text = Language.s(2) + ": h46incon\n" + Language.s(3) + ": KagurazakaYashi";
+            linkLabel1.Text = Language.s(4);
+        }
     }
 }

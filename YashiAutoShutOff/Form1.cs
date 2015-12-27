@@ -548,6 +548,7 @@ namespace YashiAutoShutOff
                 try
                 {
                     cmd.Start();//启动程序
+                    cmd.PriorityClass = ProcessPriorityClass.High;
                     //仅启动系统监视器VToolStripMenuItem.Checked = true;
                     cmdrun = true;
                     cmd.StandardInput.WriteLine("@title "+ Language.s(113) + " - " + Language.s(116));
@@ -895,6 +896,7 @@ namespace YashiAutoShutOff
                 Process cmd2 = new System.Diagnostics.Process();
                 cmd2.StartInfo.FileName = fname;
                 cmd2.Start();
+                cmd2.PriorityClass = Process.GetCurrentProcess().PriorityClass;
             }
             catch
             {

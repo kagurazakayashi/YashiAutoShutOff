@@ -16,6 +16,7 @@ namespace YashiAutoShutOffLodctr
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Language.initLanguage(null);
             Application.Run(new Form1());
         }
 

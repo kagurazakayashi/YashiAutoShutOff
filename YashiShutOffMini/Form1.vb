@@ -1,6 +1,9 @@
 ﻿Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If Globalization.CultureInfo.InstalledUICulture.Name.Equals("zh-CN") = False Then
+            English()
+        End If
         numy2.Value = Now.Year
         numm2.Value = Now.Month
         numd2.Value = Now.Day
@@ -48,4 +51,29 @@
         Timer1.Enabled = False
         Shell("shutdown -h -t 0", vbHide)
     End Sub
+
+    Private Sub English()
+        Text = "Yashi timed shutdown"
+        Label1.Text = "Year"
+        Label2.Text = "Month"
+        Label3.Text = "Day"
+        Label4.Text = "Hour"
+        Label5.Text = "Minute"
+        Label6.Text = "Second"
+        Label12.Text = Label1.Text
+        Label11.Text = Label2.Text
+        Label10.Text = Label3.Text
+        Label9.Text = Label4.Text
+        Label8.Text = Label5.Text
+        Label7.Text = Label6.Text
+        RadioButton1.Text = "Disable"
+        RadioButton2.Text = "Remind"
+        RadioButton3.Text = "Shutdown"
+        RadioButton4.Text = "Restart"
+        RadioButton5.Text = "Sleep"
+        GroupBox1.Text = "Current time"
+        GroupBox2.Text = "Timing"
+        GroupBox3.Text = "Start now"
+    End Sub
+
 End Class

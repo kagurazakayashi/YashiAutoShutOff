@@ -20,14 +20,14 @@ namespace YashiColorMeasurement
             bool createNew;
             using (System.Threading.Mutex mutex = new System.Threading.Mutex(true, Application.ProductName, out createNew))
             {
-
+                Language.initLanguage(null);
                 if (createNew)
                 {
                     Application.Run(new Form1());
                 }
                 else
                 {
-                    if (MessageBox.Show("本软件已经在运行了，要再重复启动一个吗？\n不建议您同时运行多个实例，建议选否并检查任务栏中已经运行的本软件。", "重复运行通知", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show(Language.s(8), Language.s(9), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         Application.Run(new Form1());
                     }

@@ -139,6 +139,9 @@
     <EmbeddedResource Include="startscreen.resx">
       <DependentUpon>startscreen.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Language\YashiAutoShutOff_zh-TW.language">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -148,7 +151,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="YashiAutoShutOff_zh-CN.language">
+    <None Include="Language\YashiAutoShutOff_zh-CN.language">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

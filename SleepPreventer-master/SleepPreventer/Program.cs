@@ -27,11 +27,12 @@ namespace SleepPreventer
 
                 if (createNew)
                 {
+                    Language.initLanguage(null);
                     Application.Run(new Form1());
                 }
                 else
                 {
-                    MessageBox.Show("程序已在运行");
+                    MessageBox.Show(Language.s(11));
                     Application.Exit();
                 }
             }

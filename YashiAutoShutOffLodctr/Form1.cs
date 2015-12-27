@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace YashiAutoShutOffLodctr
@@ -28,7 +21,7 @@ namespace YashiAutoShutOffLodctr
         private void button1_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            listBox1.Items.Add("正在处理中...");
+            listBox1.Items.Add(Language.s(10));
             button1.Enabled = false;
             if (isAdmin)
             {
@@ -42,18 +35,18 @@ namespace YashiAutoShutOffLodctr
                 cmd.StartInfo.CreateNoWindow = true;//不显示程序窗口
                 try
                 {
-                    MessageBox.Show("将开始操作。\n可能会失去响应，但不会超过3分钟。\n操作未完成之前建议不要操作您的电脑。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Language.s(8), Language.s(9), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cmd.Start();//启动程序
                     string output = cmd.StandardOutput.ReadToEnd();
                     cmd.WaitForExit();
                     cmd.Close();
-                    MessageBox.Show(output, "处理结果", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    MessageBox.Show(output, Language.s(7), MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
                 catch (Exception err)
                 {
                     listBox1.Items.Clear();
                     listBox1.Items.Add(err.Message.ToString());
-                    MessageBox.Show(err.Message.ToString(), "发生错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(err.Message.ToString(), Language.s(6), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 reloadinfo();
             }
@@ -74,7 +67,7 @@ namespace YashiAutoShutOffLodctr
                 {
                     listBox1.Items.Clear();
                     listBox1.Items.Add(err.Message.ToString());
-                    MessageBox.Show(err.Message.ToString(), "发生错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(err.Message.ToString(), Language.s(6), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 //退出
                 Application.Exit();
@@ -85,12 +78,17 @@ namespace YashiAutoShutOffLodctr
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Text = Language.s(0) + " - " + Language.s(1);
+            label1.Text = Language.s(2);
+            button1.Text = Language.s(3);
+            button1.Text = Language.s(4);
+
             reloadinfo();
             System.Security.Principal.WindowsIdentity identity = System.Security.Principal.WindowsIdentity.GetCurrent();
             System.Security.Principal.WindowsPrincipal principal = new System.Security.Principal.WindowsPrincipal(identity);
             if (!principal.IsInRole(System.Security.Principal.WindowsBuiltInRole.Administrator))
             {
-                button1.Text = "获得管理员权限(&U)";
+                button1.Text = Language.s(5);
                 isAdmin = false;
             }
         }
@@ -124,7 +122,7 @@ namespace YashiAutoShutOffLodctr
             {
                 listBox1.Items.Clear();
                 listBox1.Items.Add(err.Message.ToString());
-                MessageBox.Show(err.Message.ToString(),"发生错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(err.Message.ToString(),Language.s(6),MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
     }

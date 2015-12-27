@@ -58,6 +58,8 @@ namespace YashiAutoShutOff
 运行后即退出，仅用于测试是否能正确初始化。
 --showshutdowncmd
 调用命令时显示命令行窗口。
+--defaultlanguage
+不加载语言文件，一些文本会无法显示。
         */
         public static int initID = new Random().Next(0, int.MaxValue);
         public static string 资料文件夹 = "";

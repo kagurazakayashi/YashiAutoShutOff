@@ -65,10 +65,10 @@ namespace SleepPreventer
 		static Public()
         {
 			opt_name_dic_ = new Dictionary<uint, string>();
-			opt_name_dic_[TExcState.AWAY_MODE] = "开启离开模式";
-			opt_name_dic_[TExcState.SYS_REQ] = "防止系统睡眠";
-			opt_name_dic_[TExcState.DISPLAY_REQ] = "防止显示器关闭";
-			opt_name_dic_[TExcState.AWAKE_IN_LID_CLODE] = "合上盖子时保持唤醒";
+			opt_name_dic_[TExcState.AWAY_MODE] = Language.s(6);
+			opt_name_dic_[TExcState.SYS_REQ] = Language.s(8);
+			opt_name_dic_[TExcState.DISPLAY_REQ] = Language.s(7);
+			opt_name_dic_[TExcState.AWAKE_IN_LID_CLODE] = Language.s(9);
         }
     }
 

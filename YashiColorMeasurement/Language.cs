@@ -4,12 +4,12 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 
-namespace YashiAutoShutOff
+namespace YashiColorMeasurement
 {
     static class Language
     {
         public static List<string> ls = new List<string>();
-        static string exe = "YashiAutoShutOff_";
+        static string exe = "YashiColorMeasurement_";
         static string defaultlang = exe + "zh-CN.language";
         public static bool showErr = true;
         static bool linit = false;

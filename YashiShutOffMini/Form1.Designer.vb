@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form 重写 Dispose，以清理组件列表。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     '注意: 以下过程是 Windows 窗体设计器所必需的
     '可以使用 Windows 窗体设计器修改它。  
     '不要使用代码编辑器修改它。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
@@ -56,6 +56,7 @@ Partial Class Form1
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton4 = New System.Windows.Forms.RadioButton()
         Me.RadioButton5 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.nums1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numi1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -70,6 +71,7 @@ Partial Class Form1
         CType(Me.numd2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numm2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numy2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -98,7 +100,7 @@ Partial Class Form1
         '
         Me.Label6.Location = New System.Drawing.Point(271, 17)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(47, 19)
+        Me.Label6.Size = New System.Drawing.Size(55, 19)
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "秒"
         '
@@ -115,7 +117,7 @@ Partial Class Form1
         '
         Me.Label5.Location = New System.Drawing.Point(218, 17)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(47, 19)
+        Me.Label5.Size = New System.Drawing.Size(57, 19)
         Me.Label5.TabIndex = 9
         Me.Label5.Text = "分"
         '
@@ -227,7 +229,7 @@ Partial Class Form1
         '
         Me.Label7.Location = New System.Drawing.Point(271, 17)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(47, 19)
+        Me.Label7.Size = New System.Drawing.Size(55, 19)
         Me.Label7.TabIndex = 11
         Me.Label7.Text = "秒"
         '
@@ -243,7 +245,7 @@ Partial Class Form1
         '
         Me.Label8.Location = New System.Drawing.Point(218, 17)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(47, 19)
+        Me.Label8.Size = New System.Drawing.Size(57, 19)
         Me.Label8.TabIndex = 9
         Me.Label8.Text = "分"
         '
@@ -325,7 +327,7 @@ Partial Class Form1
         Me.RadioButton1.Checked = True
         Me.RadioButton1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RadioButton1.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!)
-        Me.RadioButton1.Location = New System.Drawing.Point(12, 164)
+        Me.RadioButton1.Location = New System.Drawing.Point(7, 20)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(50, 21)
         Me.RadioButton1.TabIndex = 13
@@ -338,7 +340,7 @@ Partial Class Form1
         Me.RadioButton2.AutoSize = True
         Me.RadioButton2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RadioButton2.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!)
-        Me.RadioButton2.Location = New System.Drawing.Point(81, 164)
+        Me.RadioButton2.Location = New System.Drawing.Point(109, 20)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(50, 21)
         Me.RadioButton2.TabIndex = 14
@@ -350,7 +352,7 @@ Partial Class Form1
         Me.RadioButton3.AutoSize = True
         Me.RadioButton3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RadioButton3.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!)
-        Me.RadioButton3.Location = New System.Drawing.Point(150, 164)
+        Me.RadioButton3.Location = New System.Drawing.Point(211, 20)
         Me.RadioButton3.Name = "RadioButton3"
         Me.RadioButton3.Size = New System.Drawing.Size(50, 21)
         Me.RadioButton3.TabIndex = 15
@@ -362,7 +364,7 @@ Partial Class Form1
         Me.RadioButton4.AutoSize = True
         Me.RadioButton4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RadioButton4.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!)
-        Me.RadioButton4.Location = New System.Drawing.Point(219, 164)
+        Me.RadioButton4.Location = New System.Drawing.Point(109, 47)
         Me.RadioButton4.Name = "RadioButton4"
         Me.RadioButton4.Size = New System.Drawing.Size(50, 21)
         Me.RadioButton4.TabIndex = 16
@@ -374,23 +376,33 @@ Partial Class Form1
         Me.RadioButton5.AutoSize = True
         Me.RadioButton5.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RadioButton5.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!)
-        Me.RadioButton5.Location = New System.Drawing.Point(288, 164)
+        Me.RadioButton5.Location = New System.Drawing.Point(211, 47)
         Me.RadioButton5.Name = "RadioButton5"
         Me.RadioButton5.Size = New System.Drawing.Size(50, 21)
         Me.RadioButton5.TabIndex = 17
         Me.RadioButton5.Text = "休眠"
         Me.RadioButton5.UseVisualStyleBackColor = True
         '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.RadioButton5)
+        Me.GroupBox3.Controls.Add(Me.RadioButton1)
+        Me.GroupBox3.Controls.Add(Me.RadioButton4)
+        Me.GroupBox3.Controls.Add(Me.RadioButton2)
+        Me.GroupBox3.Controls.Add(Me.RadioButton3)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 159)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(324, 81)
+        Me.GroupBox3.TabIndex = 18
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "立即开始"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(348, 192)
-        Me.Controls.Add(Me.RadioButton5)
-        Me.Controls.Add(Me.RadioButton4)
-        Me.Controls.Add(Me.RadioButton3)
-        Me.Controls.Add(Me.RadioButton2)
-        Me.Controls.Add(Me.RadioButton1)
+        Me.ClientSize = New System.Drawing.Size(350, 255)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -412,8 +424,9 @@ Partial Class Form1
         CType(Me.numd2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.numm2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.numy2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -449,4 +462,5 @@ Partial Class Form1
     Friend WithEvents RadioButton3 As RadioButton
     Friend WithEvents RadioButton4 As RadioButton
     Friend WithEvents RadioButton5 As RadioButton
+    Friend WithEvents GroupBox3 As GroupBox
 End Class

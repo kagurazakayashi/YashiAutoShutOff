@@ -22,6 +22,12 @@ namespace YashiColorMeasurement
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Text = Language.s(0) + " - " + Language.s(1);
+            label1.Text = Language.s(2) + ":";
+            label2.Text = Language.s(3) + ":";
+            label3.Text = Language.s(4) + ":";
+            label4.Text = Language.s(5);
+            button1.Text = Language.s(6) + " Alt+&Z " + Language.s(7);
 #if DEBUG
             isdebug = true;
             Text = Text + "(DEBUG)";

@@ -40,8 +40,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -49,8 +49,8 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -143,7 +143,7 @@
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Location = new System.Drawing.Point(10, 102);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(388, 31);
+            this.panel1.Size = new System.Drawing.Size(389, 31);
             this.panel1.TabIndex = 12;
             this.panel1.Visible = false;
             // 
@@ -158,6 +158,16 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "焦点移出窗口后快捷键无法使用";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::YashiColorMeasurement.Properties.Resources.imageres_98;
+            this.pictureBox2.Location = new System.Drawing.Point(0, -1);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
+            // 
             // pictureBox6
             // 
             this.pictureBox6.Image = global::YashiColorMeasurement.Properties.Resources.imageres_5301;
@@ -168,16 +178,6 @@
             this.pictureBox6.TabIndex = 13;
             this.pictureBox6.TabStop = false;
             this.pictureBox6.Visible = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::YashiColorMeasurement.Properties.Resources.imageres_98;
-            this.pictureBox2.Location = new System.Drawing.Point(0, -1);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
             // 
             // pictureBox5
             // 
@@ -266,8 +266,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
