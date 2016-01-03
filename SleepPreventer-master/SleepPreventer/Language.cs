@@ -17,7 +17,7 @@ namespace SleepPreventer
         public static bool initLanguage(string lfilename)
         {
             string 系统语言 = System.Globalization.CultureInfo.InstalledUICulture.Name;
-            string lfile = exe + 系统语言 + ".language";
+            string lfile = "Language\\" + exe + 系统语言 + ".language";
             if (lfilename != null)
             {
                 lfile = lfilename;

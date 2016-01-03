@@ -47,6 +47,7 @@
             this.时间显示 = new System.Windows.Forms.ToolStripStatusLabel();
             this.开关动画控制器 = new System.Windows.Forms.Timer(this.components);
             this.关机方式选择菜单 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.模式AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.提醒我ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动关机ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动重启ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +57,7 @@
             this.自动重启并打开之前的程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动重启并打开高级启动菜单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.模式BToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,8 +100,6 @@
             this.打开截图文件夹 = new System.Windows.Forms.Button();
             this.类型介绍框 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.模式AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.模式BToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.关机方式选择菜单.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.条件多少秒开始1)).BeginInit();
@@ -260,6 +260,14 @@
             this.关机方式选择菜单.Name = "关机方式选择菜单";
             this.关机方式选择菜单.Size = new System.Drawing.Size(319, 394);
             // 
+            // 模式AToolStripMenuItem
+            // 
+            this.模式AToolStripMenuItem.Enabled = false;
+            this.模式AToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.模式AToolStripMenuItem.Name = "模式AToolStripMenuItem";
+            this.模式AToolStripMenuItem.Size = new System.Drawing.Size(318, 24);
+            this.模式AToolStripMenuItem.Text = "模式A";
+            // 
             // 提醒我ToolStripMenuItem
             // 
             this.提醒我ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -336,6 +344,14 @@
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(315, 6);
+            // 
+            // 模式BToolStripMenuItem
+            // 
+            this.模式BToolStripMenuItem.Enabled = false;
+            this.模式BToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.模式BToolStripMenuItem.Name = "模式BToolStripMenuItem";
+            this.模式BToolStripMenuItem.Size = new System.Drawing.Size(318, 24);
+            this.模式BToolStripMenuItem.Text = "模式B";
             // 
             // toolStripMenuItem4
             // 
@@ -760,22 +776,6 @@
             this.linkLabel1.TabIndex = 34;
             this.linkLabel1.Visible = false;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // 模式AToolStripMenuItem
-            // 
-            this.模式AToolStripMenuItem.Enabled = false;
-            this.模式AToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.模式AToolStripMenuItem.Name = "模式AToolStripMenuItem";
-            this.模式AToolStripMenuItem.Size = new System.Drawing.Size(318, 24);
-            this.模式AToolStripMenuItem.Text = "模式A";
-            // 
-            // 模式BToolStripMenuItem
-            // 
-            this.模式BToolStripMenuItem.Enabled = false;
-            this.模式BToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.模式BToolStripMenuItem.Name = "模式BToolStripMenuItem";
-            this.模式BToolStripMenuItem.Size = new System.Drawing.Size(318, 24);
-            this.模式BToolStripMenuItem.Text = "模式B";
             // 
             // MainWindow
             // 

@@ -53,6 +53,7 @@ namespace YashiAutoShutOff
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            主窗口.TopMost = true;
             Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.AboveNormal;
             if (!SettingLoad.arg("nologo"))
             {
@@ -161,7 +162,8 @@ namespace YashiAutoShutOff
                 {
                     主窗口.Opacity = 1;
                 }
-                
+                主窗口.TopMost = false;
+
                 notifyIcon1.Visible = true;
                 try
                 {

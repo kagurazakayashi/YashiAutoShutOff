@@ -68,9 +68,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.label2.Location = new System.Drawing.Point(14, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 17);
+            this.label2.Size = new System.Drawing.Size(41, 17);
             this.label2.TabIndex = 2;
-            this.label2.Text = "v1.2.1 beta";
+            this.label2.Text = "v1.2.2";
             this.label2.UseWaitCursor = true;
             // 
             // label3

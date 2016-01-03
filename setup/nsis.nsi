@@ -1,7 +1,7 @@
-ï»¿; å®‰è£…ç¨‹åºåˆå§‹å®šä¹‰å¸¸é‡
-!define PRODUCT_NAME "é›…è¯—æ™ºèƒ½è‡ªåŠ¨å…³æœº"
-!define PRODUCT_VERSION "1.2.0"
-!define PRODUCT_PUBLISHER "ç¥æ¥½å‚é›…è©©ï¼ˆCXCï¼‰"
+; °²×°³ÌĞò³õÊ¼¶¨Òå³£Á¿
+!define PRODUCT_NAME "ÑÅÊ«ÖÇÄÜ×Ô¶¯¹Ø»ú"
+!define PRODUCT_VERSION "1.2.2"
+!define PRODUCT_PUBLISHER "Éñ˜SÛàÑÅÔŠ"
 !define PRODUCT_WEB_SITE "https://yoooooooooo.com/yashi/?p=4293"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\YashiAutoShutOff.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
@@ -9,124 +9,105 @@
 !define PRODUCT_STARTMENU_REGVAL "NSIS:StartMenuDir"
 
 SetCompressor /SOLID lzma
-SetCompressorDictSize 32
 
-; æå‡å®‰è£…ç¨‹åºæƒé™(vista,win7,win8)
+; ÌáÉı°²×°³ÌĞòÈ¨ÏŞ(vista,win7,win8)
 RequestExecutionLevel admin
 
-; å®‰è£…ç•Œé¢åŒ…å«çš„è¯­è¨€è®¾ç½®
-!include "${NSISDIR}\Contrib\Modern UI\System.nsh"
-!insertmacro MUI_LANGUAGE "SimpChinese"
-!insertmacro MUI_LANGUAGE "TradChinese"
-
-; ------ MUI ç°ä»£ç•Œé¢å®šä¹‰ ------
+; ------ MUI ÏÖ´ú½çÃæ¶¨Òå ------
 !include "MUI2.nsh"
 
-; MUI é¢„å®šä¹‰å¸¸é‡
+; MUI Ô¤¶¨Òå³£Á¿
 !define MUI_ABORTWARNING
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_BITMAP "C:\Users\yashi\GitHub\YashiAutoShutOff\setup\Header.bmp"
 !define MUI_HEADERIMAGE_UNBITMAP "C:\Users\yashi\GitHub\YashiAutoShutOff\setup\Header.bmp"
-;!define MUI_ICON "C:\Users\yashi\GitHub\YashiAutoShutOff\favicon.ico"
-;!define MUI_UNICON "C:\Users\yashi\GitHub\YashiAutoShutOff\favicon.ico"
-;!define MUI_WELCOMEFINISHPAGE_BITMAP "C:\Users\yashi\GitHub\YashiAutoShutOff\setup\Wizard.bmp"
-;!define MUI_UNWELCOMEFINISHPAGE_BITMAP "C:\Users\yashi\GitHub\YashiAutoShutOff\setup\Wizard.bmp"
+!define MUI_ICON "C:\Users\yashi\GitHub\YashiAutoShutOff\favicon.ico"
+!define MUI_UNICON "C:\Users\yashi\GitHub\YashiAutoShutOff\favicon.ico"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "C:\Users\yashi\GitHub\YashiAutoShutOff\setup\Wizard.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "C:\Users\yashi\GitHub\YashiAutoShutOff\setup\Wizard.bmp"
 
-; æ¬¢è¿é¡µé¢
+; »¶Ó­Ò³Ãæ
 !insertmacro MUI_PAGE_WELCOME
-; è®¸å¯åè®®é¡µé¢
-!define MUI_LICENSEPAGE_RADIOBUTTONS
+; Ğí¿ÉĞ­ÒéÒ³Ãæ
 !insertmacro MUI_PAGE_LICENSE "C:\Users\yashi\GitHub\YashiAutoShutOff\setup\license.txt"
-; ç»„ä»¶é€‰æ‹©é¡µé¢
+; ×é¼şÑ¡ÔñÒ³Ãæ
 !insertmacro MUI_PAGE_COMPONENTS
-; å®‰è£…ç›®å½•é€‰æ‹©é¡µé¢
+; °²×°Ä¿Â¼Ñ¡ÔñÒ³Ãæ
 !insertmacro MUI_PAGE_DIRECTORY
-; å¼€å§‹èœå•è®¾ç½®é¡µé¢
+; ¿ªÊ¼²Ëµ¥ÉèÖÃÒ³Ãæ
 var ICONS_GROUP
 !define MUI_STARTMENUPAGE_NODISABLE
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER "é›…è¯—æ™ºèƒ½å…³æœº"
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER "ÑÅÊ«ÖÇÄÜ×Ô¶¯¹Ø»ú"
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT "${PRODUCT_UNINST_ROOT_KEY}"
 !define MUI_STARTMENUPAGE_REGISTRY_KEY "${PRODUCT_UNINST_KEY}"
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "${PRODUCT_STARTMENU_REGVAL}"
 !insertmacro MUI_PAGE_STARTMENU Application $ICONS_GROUP
-; å®‰è£…è¿‡ç¨‹é¡µé¢
+; °²×°¹ı³ÌÒ³Ãæ
 !insertmacro MUI_PAGE_INSTFILES
-; å®‰è£…å®Œæˆé¡µé¢
+; °²×°Íê³ÉÒ³Ãæ
 !define MUI_FINISHPAGE_RUN "$INSTDIR\YashiAutoShutOff.exe"
 !insertmacro MUI_PAGE_FINISH
 
-; å®‰è£…å¸è½½è¿‡ç¨‹é¡µé¢
+; °²×°Ğ¶ÔØ¹ı³ÌÒ³Ãæ
 !insertmacro MUI_UNPAGE_WELCOME
 !insertmacro MUI_UNPAGE_INSTFILES
 !insertmacro MUI_UNPAGE_FINISH
 
-; å®‰è£…ç•Œé¢åŒ…å«çš„è¯­è¨€è®¾ç½®
+; °²×°½çÃæ°üº¬µÄÓïÑÔÉèÖÃ
+!insertmacro MUI_LANGUAGE "English"
 !insertmacro MUI_LANGUAGE "SimpChinese"
+!insertmacro MUI_LANGUAGE "TradChinese"
 
-; ------ MUI ç°ä»£ç•Œé¢å®šä¹‰ç»“æŸ ------
+; ------ MUI ÏÖ´ú½çÃæ¶¨Òå½áÊø ------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "setup.exe"
-ELiangID 56ZVL5NJHQ     /*  å®‰è£…ç»Ÿè®¡é¡¹åç§°ï¼šã€é›…è¯—æ™ºèƒ½è‡ªåŠ¨å…³æœºã€‘  */
-InstallDir "$PROGRAMFILES\é›…è¯—æ™ºèƒ½å…³æœº"
+ELiangID 56ZVL5NJHQ     /*  °²×°Í³¼ÆÏîÃû³Æ£º¡¾ÑÅÊ«ÖÇÄÜ×Ô¶¯¹Ø»ú¡¿  */
+InstallDir "$PROGRAMFILES\ÑÅÊ«ÖÇÄÜ×Ô¶¯¹Ø»ú"
 InstallDirRegKey HKLM "${PRODUCT_UNINST_KEY}" "UninstallString"
 ShowInstDetails show
 ShowUninstDetails show
-BrandingText "KagYashi Software Installer"
+BrandingText "Yashi Soft"
 
-;å®‰è£…åŒ…ç‰ˆæœ¬å·æ ¼å¼å¿…é¡»ä¸ºx.x.x.xçš„4ç»„æ•´æ•°,æ¯ç»„æ•´æ•°èŒƒå›´0~65535,å¦‚:2.0.1.2
-;è‹¥ä½¿ç”¨æ˜“é‡ç»Ÿè®¡,ç‰ˆæœ¬å·å°†ç”¨äºåŒºåˆ†ä¸åŒç‰ˆæœ¬çš„å®‰è£…æƒ…å†µ,æ­¤æ—¶å»ºè®®ç”¨æˆ·åŠ¡å¿…å¡«å†™æ­£ç¡®çš„ç‰ˆæœ¬å·
-!define INSTALL_VERSION "1.2.1.0"
+;°²×°°ü°æ±¾ºÅ¸ñÊ½±ØĞëÎªx.x.x.xµÄ4×éÕûÊı,Ã¿×éÕûÊı·¶Î§0~65535,Èç:2.0.1.2
+;ÈôÊ¹ÓÃÒ×Á¿Í³¼Æ,°æ±¾ºÅ½«ÓÃÓÚÇø·Ö²»Í¬°æ±¾µÄ°²×°Çé¿ö,´ËÊ±½¨ÒéÓÃ»§Îñ±ØÌîĞ´ÕıÈ·µÄ°æ±¾ºÅ
+;!define INSTALL_VERSION "2.0.1.2"
 
-VIProductVersion "${INSTALL_VERSION}"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "ProductName"      "é›…è¯—æ™ºèƒ½å…³æœº"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "Comments"         "é›…è¯—æ™ºèƒ½å…³æœº(ç¥æ¥½å‚é›…è©©ï¼ˆCXCï¼‰)"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "CompanyName"      "ç¥æ¥½å‚é›…è©©ï¼ˆCXCï¼‰"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "LegalCopyright"   "ç¥æ¥½å‚é›…è©©ï¼ˆCXCï¼‰(http://uuu.moe?p=4293)"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "FileDescription"  "é›…è¯—æ™ºèƒ½å…³æœº"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "ProductName"      "é›…è¯—æ™ºèƒ½å…³æœº"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "Comments"         "é›…è¯—æ™ºèƒ½å…³æœº(ç¥æ¥½å‚é›…è©©ï¼ˆCXCï¼‰)"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "CompanyName"      "ç¥æ¥½å‚é›…è©©ï¼ˆCXCï¼‰"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "LegalCopyright"   "ç¥æ¥½å‚é›…è©©ï¼ˆCXCï¼‰(http://uuu.moe?p=4293)"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "FileDescription"  "é›…è¯—æ™ºèƒ½å…³æœº"
+;VIProductVersion "${INSTALL_VERSION}"
+;VIAddVersionKey /LANG=${LANG_SimpChinese} "ProductName"      "ÑÅÊ«ÖÇÄÜ×Ô¶¯¹Ø»ú"
+;VIAddVersionKey /LANG=${LANG_SimpChinese} "Comments"         "ÑÅÊ«ÖÇÄÜ×Ô¶¯¹Ø»ú(Éñ˜SÛàÑÅÔŠ)"
+;VIAddVersionKey /LANG=${LANG_SimpChinese} "CompanyName"      "Éñ˜SÛàÑÅÔŠ"
+;VIAddVersionKey /LANG=${LANG_SimpChinese} "LegalCopyright"   "Éñ˜SÛàÑÅÔŠ(https://yoooooooooo.com/yashi/?p=4293)"
+;VIAddVersionKey /LANG=${LANG_SimpChinese} "FileDescription"  "ÑÅÊ«ÖÇÄÜ×Ô¶¯¹Ø»ú"
+;VIAddVersionKey /LANG=${LANG_SimpChinese} "ProductVersion"   "${INSTALL_VERSION}"
+;VIAddVersionKey /LANG=${LANG_SimpChinese} "FileVersion"      "${INSTALL_VERSION}"
 
-VIAddVersionKey /LANG=${LANG_SimpChinese} "ProductName"      "é›…è©©æ™ºèƒ½é—œæ©Ÿ"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "Comments"         "é›…è©©æ™ºèƒ½é—œæ©Ÿ(ç¥æ¥½å‚é›…è©©ï¼ˆCXCï¼‰)"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "CompanyName"      "ç¥æ¥½å‚é›…è©©ï¼ˆCXCï¼‰"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "LegalCopyright"   "ç¥æ¥½å‚é›…è©©ï¼ˆCXCï¼‰(http://uuu.moe?p=4293)"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "FileDescription"  "é›…è©©æ™ºèƒ½é—œæ©Ÿ"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "ProductName"      "é›…è©©æ™ºèƒ½é—œæ©Ÿ"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "Comments"         "é›…è©©æ™ºèƒ½é—œæ©Ÿ(ç¥æ¥½å‚é›…è©©ï¼ˆCXCï¼‰)"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "CompanyName"      "ç¥æ¥½å‚é›…è©©ï¼ˆCXCï¼‰"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "LegalCopyright"   "ç¥æ¥½å‚é›…è©©ï¼ˆCXCï¼‰(http://uuu.moe?p=4293)"
-VIAddVersionKey /LANG=${LANG_SimpChinese} "FileDescription"  "é›…è©©æ™ºèƒ½é—œæ©Ÿ"
-VIAddVersionKey "ProductVersion"   "${INSTALL_VERSION}"
-VIAddVersionKey "FileVersion"      "${INSTALL_VERSION}"
-
-Section "ä¸»ç¨‹åº" SEC01
+Section "Ö÷³ÌĞò" SEC01
   SetOutPath "$INSTDIR"
   File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOff\bin\Release\YashiAutoShutOff.exe"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOff\bin\Release\YashiAutoShutOff_zh-CN.language"
   File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOff\bin\Release\YashiAutoShutOff.exe.config"
   File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOff\bin\Release\YashiAutoShutOff.pdb"
 
-; åˆ›å»ºå¼€å§‹èœå•å¿«æ·æ–¹å¼
+; ´´½¨¿ªÊ¼²Ëµ¥¿ì½İ·½Ê½
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
   CreateDirectory "$SMPROGRAMS\$ICONS_GROUP"
-  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\é›…è¯—æ™ºèƒ½è‡ªåŠ¨å…³æœº.lnk" "$INSTDIR\YashiAutoShutOff.exe"
-  CreateShortCut "$DESKTOP\é›…è¯—æ™ºèƒ½è‡ªåŠ¨å…³æœº.lnk" "$INSTDIR\YashiAutoShutOff.exe"
-  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\é›…è¯—è¿·ä½ å®šæ—¶å…³æœº.lnk" "$INSTDIR\YashiShutOffMini.exe"
-  CreateShortCut "$DESKTOP\é›…è¯—è¿·ä½ å®šæ—¶å…³æœº.lnk" "$INSTDIR\YashiShutOffMini.exe"
-  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\é›…è¯—Windowsæ€§èƒ½è®¡æ•°å™¨ä¿®å¤å·¥å…·.lnk" "$INSTDIR\YashiAutoShutOffLodctr.exe"
-  CreateShortCut "$DESKTOP\é›…è¯—Windowsæ€§èƒ½è®¡æ•°å™¨ä¿®å¤å·¥å…·.lnk" "$INSTDIR\YashiAutoShutOffLodctr.exe"
-  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\é›…è¯—å±å¹•å–è‰²å™¨.lnk" "$INSTDIR\YashiColorMeasurement.exe"
-  CreateShortCut "$DESKTOP\é›…è¯—å±å¹•å–è‰²å™¨.lnk" "$INSTDIR\YashiColorMeasurement.exe"
-  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\ç­å±å’Œä¼‘çœ é˜»æ­¢.lnk" "$INSTDIR\SleepPreventer.exe"
-  CreateShortCut "$DESKTOP\ç­å±å’Œä¼‘çœ é˜»æ­¢.lnk" "$INSTDIR\SleepPreventer.exe"
+  CreateDirectory "$DESKTOP\${PRODUCT_NAME}¸½¼ş"
+  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\ÑÅÊ«ÖÇÄÜ×Ô¶¯¹Ø»ú.lnk" "$INSTDIR\YashiAutoShutOff.exe"
+  CreateShortCut "$DESKTOP\ÑÅÊ«ÖÇÄÜ×Ô¶¯¹Ø»ú.lnk" "$INSTDIR\YashiAutoShutOff.exe"
+  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\ÑÅÊ«ÃÔÄã¶¨Ê±¹Ø»ú.lnk" "$INSTDIR\YashiShutOffMini.exe"
+  CreateShortCut "$DESKTOP\${PRODUCT_NAME}¸½¼ş\ÑÅÊ«ÃÔÄã¶¨Ê±¹Ø»ú.lnk" "$INSTDIR\YashiShutOffMini.exe"
+  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\ÑÅÊ«WindowsĞÔÄÜ¼ÆÊıÆ÷ĞŞ¸´¹¤¾ß.lnk" "$INSTDIR\YashiAutoShutOffLodctr.exe"
+  CreateShortCut "$DESKTOP\${PRODUCT_NAME}¸½¼ş\ÑÅÊ«WindowsĞÔÄÜ¼ÆÊıÆ÷ĞŞ¸´¹¤¾ß.lnk" "$INSTDIR\YashiAutoShutOffLodctr.exe"
+  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\ÑÅÊ«ÆÁÄ»È¡É«Æ÷.lnk" "$INSTDIR\YashiColorMeasurement.exe"
+  CreateShortCut "$DESKTOP\${PRODUCT_NAME}¸½¼ş\ÑÅÊ«ÆÁÄ»È¡É«Æ÷.lnk" "$INSTDIR\YashiColorMeasurement.exe"
+  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\ÃğÆÁºÍĞİÃß×èÖ¹¹¤¾ß.lnk" "$INSTDIR\SleepPreventer.exe"
+  CreateShortCut "$DESKTOP\${PRODUCT_NAME}¸½¼ş\ÃğÆÁºÍĞİÃß×èÖ¹¹¤¾ß.lnk" "$INSTDIR\SleepPreventer.exe"
+  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\ÏÂÔØÔ´´úÂë.lnk" "$INSTDIR\YashiDownload.exe"
+  CreateShortCut "$DESKTOP\${PRODUCT_NAME}¸½¼ş\ÏÂÔØÔ´´úÂë.lnk" "$INSTDIR\YashiDownload.exe"
   !insertmacro MUI_STARTMENU_WRITE_END
 SectionEnd
 
-Section "ä¿¡æ¯æ˜¾ç¤ºå·¥å…·" SEC02
+Section "ĞÅÏ¢ÏÔÊ¾¹¤¾ß" SEC02
   SetOutPath "$INSTDIR"
   File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiMsgViewer\bin\Release\YashiMsgViewer.com"
   File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiMsgViewer\bin\Release\YashiMsgViewer.iobj"
@@ -134,27 +115,27 @@ Section "ä¿¡æ¯æ˜¾ç¤ºå·¥å…·" SEC02
   File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiMsgViewer\bin\Release\YashiMsgViewer.pdb"
 SectionEnd
 
-Section "å±å¹•å–è‰²å™¨" SEC03
+Section "ÆÁÄ»È¡É«Æ÷" SEC03
   SetOutPath "$INSTDIR"
   File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiColorMeasurement\bin\Release\YashiColorMeasurement.exe"
   File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiColorMeasurement\bin\Release\YashiColorMeasurement.exe.config"
   File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiColorMeasurement\bin\Release\YashiColorMeasurement.pdb"
 SectionEnd
 
-Section "æ€§èƒ½è®¡æ•°å™¨ä¿®å¤å·¥å…·" SEC04
+Section "ĞÔÄÜ¼ÆÊıÆ÷ĞŞ¸´¹¤¾ß" SEC04
   SetOutPath "$INSTDIR"
   File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOffLodctr\bin\Release\YashiAutoShutOffLodctr.exe"
   File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOffLodctr\bin\Release\YashiAutoShutOffLodctr.exe.config"
   File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOffLodctr\bin\Release\YashiAutoShutOffLodctr.pdb"
 SectionEnd
 
-Section "ç­å±å’Œä¼‘çœ é˜»æ­¢" SEC05
+Section "ÃğÆÁºÍĞİÃß×èÖ¹¹¤¾ß" SEC05
   SetOutPath "$INSTDIR"
   File "C:\Users\yashi\GitHub\YashiAutoShutOff\SleepPreventer-master\SleepPreventer\bin\Release\SleepPreventer.exe"
   File "C:\Users\yashi\GitHub\YashiAutoShutOff\SleepPreventer-master\SleepPreventer\bin\Release\SleepPreventer.pdb"
 SectionEnd
 
-Section "å¿«æ·å®šæ—¶å…³æœºå·¥å…·" SEC06
+Section "¿ì½İ¶¨Ê±¹Ø»ú¹¤¾ß" SEC06
   SetOutPath "$INSTDIR"
   File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiShutOffMini\bin\Release\YashiShutOffMini.exe"
   File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiShutOffMini\bin\Release\YashiShutOffMini.exe.config"
@@ -162,33 +143,33 @@ Section "å¿«æ·å®šæ—¶å…³æœºå·¥å…·" SEC06
 SectionEnd
 
 Section "LanguagePack:zh-CN" SEC07
-  SetOutPath "$INSTDIR"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOff\bin\Release\YashiAutoShutOff_zh-CN.language"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiColorMeasurement\bin\Release\YashiColorMeasurement_zh-CN.language"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOffLodctr\bin\Release\YashiAutoShutOffLodctr_zh-CN.language"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\SleepPreventer-master\SleepPreventer\bin\Release\SleepPreventer_zh-CN.language"
+  SetOutPath "$INSTDIR\Language"
+  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOff\bin\Release\Language\YashiAutoShutOff_zh-CN.language"
+  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiColorMeasurement\bin\Release\Language\YashiColorMeasurement_zh-CN.language"
+  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOffLodctr\bin\Release\Language\YashiAutoShutOffLodctr_zh-CN.language"
+  File "C:\Users\yashi\GitHub\YashiAutoShutOff\SleepPreventer-master\SleepPreventer\bin\Release\Language\SleepPreventer_zh-CN.language"
 SectionEnd
 
 Section "LanguagePack:zh-TW" SEC08
-  SetOutPath "$INSTDIR"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOff\bin\Release\YashiAutoShutOff_zh-TW.language"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiColorMeasurement\bin\Release\YashiColorMeasurement_zh-TW.language"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOffLodctr\bin\Release\YashiAutoShutOffLodctr_zh-TW.language"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\SleepPreventer-master\SleepPreventer\bin\Release\SleepPreventer_zh-TW.language"
+  SetOutPath "$INSTDIR\Language"
+  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOff\bin\Release\Language\YashiAutoShutOff_zh-TW.language"
+  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiColorMeasurement\bin\Release\Language\YashiColorMeasurement_zh-TW.language"
+  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiAutoShutOffLodctr\bin\Release\Language\YashiAutoShutOffLodctr_zh-TW.language"
+  File "C:\Users\yashi\GitHub\YashiAutoShutOff\SleepPreventer-master\SleepPreventer\bin\Release\Language\SleepPreventer_zh-TW.language"
 SectionEnd
 
-Section /O "æºä»£ç (ä¸‹è½½å™¨)" SEC09
+Section "Ô´´úÂëÏÂÔØÆ÷" SEC09
   SetOutPath "$INSTDIR"
-  File "C:\Users\yashi\GitHub\YashiAutoShutOff\setup\downloadcode.bat"
-  SetOverwrite ifnewer
-  File "D:\wget.exe"
+  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiDownload\bin\Release\YashiDownload.exe"
+  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiDownload\bin\Release\YashiDownload.exe.config"
+  File "C:\Users\yashi\GitHub\YashiAutoShutOff\YashiDownload\bin\Release\YashiDownload.pdb"
 SectionEnd
 
 Section -AdditionalIcons
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
   WriteINIStr "$INSTDIR\${PRODUCT_NAME}.url" "InternetShortcut" "URL" "${PRODUCT_WEB_SITE}"
-  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\è®¿é—®é›…è¯—æ™ºèƒ½å…³æœºä¸»é¡µ.lnk" "$INSTDIR\${PRODUCT_NAME}.url"
-  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\å¸è½½é›…è¯—æ™ºèƒ½å…³æœº.lnk" "$INSTDIR\uninst.exe"
+  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\·ÃÎÊÑÅÊ«ÖÇÄÜ×Ô¶¯¹Ø»úÖ÷Ò³.lnk" "$INSTDIR\${PRODUCT_NAME}.url"
+  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\Ğ¶ÔØÑÅÊ«ÖÇÄÜ×Ô¶¯¹Ø»ú.lnk" "$INSTDIR\uninst.exe"
   !insertmacro MUI_STARTMENU_WRITE_END
 SectionEnd
 
@@ -203,21 +184,21 @@ Section -Post
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "Publisher" "${PRODUCT_PUBLISHER}"
 SectionEnd
 
-; åŒºæ®µç»„ä»¶æè¿°
+; Çø¶Î×é¼şÃèÊö
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-  !insertmacro MUI_DESCRIPTION_TEXT ${SEC01} "Main program|é›…è¯—æ™ºèƒ½è‡ªåŠ¨å…³æœºçš„ä¸»ç¨‹åºã€‚"
-  !insertmacro MUI_DESCRIPTION_TEXT ${SEC02} "Information display tool|åœ¨ä¸»ç¨‹åºè¿è¡Œæ—¶ï¼Œå¯ä»¥åŒæ­¥è¾“å‡ºå½“å‰ç³»ç»Ÿä¿¡æ¯ï¼Œå¯ä»¥ä½œä¸ºæ¡ä»¶è¾“å…¥å‚è€ƒã€‚"
-  !insertmacro MUI_DESCRIPTION_TEXT ${SEC03} "Screen color picker|å¯ä»¥å¸®åŠ©è·å–åæ ‡å’Œé¢œè‰²ä»£ç ï¼Œä»¥ä¾¿ç›‘æ§é¢œè‰²æ¨¡å¼ä¸‹è¾“å…¥æ¡ä»¶ã€‚"
-  !insertmacro MUI_DESCRIPTION_TEXT ${SEC04} "Performance counter repair|Windowsæ€§èƒ½è®¡æ•°å™¨æœ‰æ—¶ä¼šåŒ…å«é”™è¯¯ï¼Œå¯¼è‡´æœ¬è½¯ä»¶ä¸èƒ½æ­£å¸¸å¯åŠ¨ï¼Œå¯ä»¥å°è¯•ç”¨æ­¤å·¥å…·ä¸€é”®ä¿®å¤ã€‚"
-  !insertmacro MUI_DESCRIPTION_TEXT ${SEC05} "Stop screen off and sleep|h46inconç¼–å†™ï¼Œåœ¨é¢œè‰²æµ‹å®šæ¨¡å¼ä¸‹åº”é˜»æ­¢å±å¹•å…³é—­å’Œä¼‘çœ ï¼Œé˜²æ­¢å¤±è´¥ã€‚"
-  !insertmacro MUI_DESCRIPTION_TEXT ${SEC06} "Mini program|éå¸¸å°å·§çš„å®šæ—¶å…³æœºç¨‹åºï¼Œæä½å ç”¨ç³»ç»Ÿèµ„æºã€‚"
-  !insertmacro MUI_DESCRIPTION_TEXT ${SEC07} "ç®€ä½“ä¸­æ–‡è¯­è¨€åŒ…|Simplified Chinese language pack"
-  !insertmacro MUI_DESCRIPTION_TEXT ${SEC08} "ç¹é«”ä¸­æ–‡ï¼ˆè‡ºç£ï¼‰èªè¨€åŒ…|Traditional Chinese (Taiwan) language pack"
-  !insertmacro MUI_DESCRIPTION_TEXT ${SEC09} "source+wget|å®‰è£…wgetå’Œæºä»£ç ä¸‹è½½æ‰¹å¤„ç†æ–‡ä»¶ã€‚"
+  !insertmacro MUI_DESCRIPTION_TEXT ${SEC01} "Main program|ÑÅÊ«ÖÇÄÜ×Ô¶¯¹Ø»úµÄÖ÷³ÌĞò¡£"
+  !insertmacro MUI_DESCRIPTION_TEXT ${SEC02} "Information display tool|ÔÚÖ÷³ÌĞòÔËĞĞÊ±£¬¿ÉÒÔÍ¬²½Êä³öµ±Ç°ÏµÍ³ĞÅÏ¢£¬¿ÉÒÔ×÷ÎªÌõ¼şÊäÈë²Î¿¼¡£"
+  !insertmacro MUI_DESCRIPTION_TEXT ${SEC03} "Screen color picker|¿ÉÒÔ°ïÖú»ñÈ¡×ø±êºÍÑÕÉ«´úÂë£¬ÒÔ±ã¼à¿ØÑÕÉ«Ä£Ê½ÏÂÊäÈëÌõ¼ş¡£"
+  !insertmacro MUI_DESCRIPTION_TEXT ${SEC04} "Performance counter repair|WindowsĞÔÄÜ¼ÆÊıÆ÷ÓĞÊ±»á°üº¬´íÎó£¬µ¼ÖÂ±¾Èí¼ş²»ÄÜÕı³£Æô¶¯£¬¿ÉÒÔ³¢ÊÔÓÃ´Ë¹¤¾ßÒ»¼üĞŞ¸´¡£"
+  !insertmacro MUI_DESCRIPTION_TEXT ${SEC05} "Stop screen off and sleep|h46incon±àĞ´£¬ÔÚÑÕÉ«²â¶¨Ä£Ê½ÏÂÓ¦×èÖ¹ÆÁÄ»¹Ø±ÕºÍĞİÃß£¬·ÀÖ¹Ê§°Ü¡£"
+  !insertmacro MUI_DESCRIPTION_TEXT ${SEC06} "Mini program|·Ç³£Ğ¡ÇÉµÄ¶¨Ê±¹Ø»ú³ÌĞò£¬¼«µÍÕ¼ÓÃÏµÍ³×ÊÔ´¡£"
+  !insertmacro MUI_DESCRIPTION_TEXT ${SEC07} "¼òÌåÖĞÎÄÓïÑÔ°ü|Simplified Chinese language pack"
+  !insertmacro MUI_DESCRIPTION_TEXT ${SEC08} "·±ówÖĞÎÄ£¨Å_³£©ÕZÑÔ°ü|Traditional Chinese (Taiwan) language pack"
+  !insertmacro MUI_DESCRIPTION_TEXT ${SEC09} "source downloader|°²×°Ô´´úÂëÏÂÔØÆ÷¡£"
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 /******************************
-*  ä»¥ä¸‹æ˜¯å®‰è£…ç¨‹åºçš„å¸è½½éƒ¨åˆ†  *
+*  ÒÔÏÂÊÇ°²×°³ÌĞòµÄĞ¶ÔØ²¿·Ö  *
 ******************************/
 
 Section Uninstall
@@ -227,9 +208,6 @@ Section Uninstall
   Delete "$INSTDIR\YashiAutoShutOff.exe"
   Delete "$INSTDIR\YashiAutoShutOff.exe.config"
   Delete "$INSTDIR\YashiAutoShutOff.pdb"
-  Delete "$INSTDIR\YashiAutoShutOff.vshost.exe"
-  Delete "$INSTDIR\YashiAutoShutOff.vshost.exe.config"
-  Delete "$INSTDIR\YashiAutoShutOff.vshost.exe.manifest"
   Delete "$INSTDIR\YashiMsgViewer.com"
   Delete "$INSTDIR\YashiMsgViewer.iobj"
   Delete "$INSTDIR\YashiMsgViewer.ipdb"
@@ -237,31 +215,45 @@ Section Uninstall
   Delete "$INSTDIR\YashiColorMeasurement.exe"
   Delete "$INSTDIR\YashiColorMeasurement.exe.config"
   Delete "$INSTDIR\YashiColorMeasurement.pdb"
-  Delete "$INSTDIR\YashiColorMeasurement.vshost.exe"
-  Delete "$INSTDIR\YashiColorMeasurement.vshost.exe.config"
-  Delete "$INSTDIR\YashiColorMeasurement.vshost.exe.manifest"
   Delete "$INSTDIR\YashiAutoShutOffLodctr.exe"
   Delete "$INSTDIR\YashiAutoShutOffLodctr.exe.config"
   Delete "$INSTDIR\YashiAutoShutOffLodctr.pdb"
-  Delete "$INSTDIR\YashiAutoShutOffLodctr.vshost.exe"
-  Delete "$INSTDIR\YashiAutoShutOffLodctr.vshost.exe.config"
-  Delete "$INSTDIR\YashiAutoShutOffLodctr.vshost.exe.manifest"
+  Delete "$INSTDIR\SleepPreventer.exe"
+  Delete "$INSTDIR\SleepPreventer.pdb"
   Delete "$INSTDIR\YashiShutOffMini.exe"
   Delete "$INSTDIR\YashiShutOffMini.exe.config"
   Delete "$INSTDIR\YashiShutOffMini.pdb"
-  Delete "$INSTDIR\YashiShutOffMini.vshost.exe"
-  Delete "$INSTDIR\YashiShutOffMini.vshost.exe.config"
-  Delete "$INSTDIR\YashiShutOffMini.xml"
-  Delete "$INSTDIR\downloadcode.bat"
-  Delete "$INSTDIR\wget.exe"
+  Delete "$INSTDIR\YashiAutoShutOff_zh-CN.language"
+  Delete "$INSTDIR\YashiColorMeasurement_zh-CN.language"
+  Delete "$INSTDIR\YashiAutoShutOffLodctr_zh-CN.language"
+  Delete "$INSTDIR\SleepPreventer_zh-CN.language"
+  Delete "$INSTDIR\YashiAutoShutOff_zh-TW.language"
+  Delete "$INSTDIR\YashiColorMeasurement_zh-TW.language"
+  Delete "$INSTDIR\YashiAutoShutOffLodctr_zh-TW.language"
+  Delete "$INSTDIR\SleepPreventer_zh-TW.language"
+  Delete "$INSTDIR\YashiDownload.exe"
+  Delete "$INSTDIR\YashiDownload.exe.config"
+  Delete "$INSTDIR\YashiDownload.exe.pdb"
 
-  Delete "$SMPROGRAMS\$ICONS_GROUP\è®¿é—®é›…è¯—æ™ºèƒ½å…³æœºä¸»é¡µ.lnk"
-  Delete "$SMPROGRAMS\$ICONS_GROUP\å¸è½½é›…è¯—æ™ºèƒ½å…³æœº.lnk"
-  Delete "$SMPROGRAMS\$ICONS_GROUP\é›…è¯—æ™ºèƒ½å…³æœº.lnk"
-  Delete "$DESKTOP\é›…è¯—æ™ºèƒ½å…³æœº.lnk"
+  Delete "$SMPROGRAMS\$ICONS_GROUP\·ÃÎÊÑÅÊ«ÖÇÄÜ×Ô¶¯¹Ø»úÖ÷Ò³.lnk"
+  Delete "$SMPROGRAMS\$ICONS_GROUP\Ğ¶ÔØÑÅÊ«ÖÇÄÜ×Ô¶¯¹Ø»ú.lnk"
+
+  Delete "$SMPROGRAMS\$ICONS_GROUP\ÑÅÊ«ÖÇÄÜ×Ô¶¯¹Ø»ú.lnk"
+  Delete "$DESKTOP\ÑÅÊ«ÖÇÄÜ×Ô¶¯¹Ø»ú.lnk"
+  Delete "$SMPROGRAMS\$ICONS_GROUP\ÑÅÊ«ÃÔÄã¶¨Ê±¹Ø»ú.lnk"
+  Delete "$DESKTOP\${PRODUCT_NAME}¸½¼ş\ÑÅÊ«ÃÔÄã¶¨Ê±¹Ø»ú.lnk"
+  Delete "$SMPROGRAMS\$ICONS_GROUP\ÑÅÊ«WindowsĞÔÄÜ¼ÆÊıÆ÷ĞŞ¸´¹¤¾ß.lnk"
+  Delete "$DESKTOP\${PRODUCT_NAME}¸½¼ş\ÑÅÊ«WindowsĞÔÄÜ¼ÆÊıÆ÷ĞŞ¸´¹¤¾ß.lnk"
+  Delete "$SMPROGRAMS\$ICONS_GROUP\ÑÅÊ«ÆÁÄ»È¡É«Æ÷.lnk"
+  Delete "$DESKTOP\${PRODUCT_NAME}¸½¼ş\ÑÅÊ«ÆÁÄ»È¡É«Æ÷.lnk"
+  Delete "$SMPROGRAMS\$ICONS_GROUP\ÃğÆÁºÍĞİÃß×èÖ¹¹¤¾ß.lnk"
+  Delete "$DESKTOP\${PRODUCT_NAME}¸½¼ş\ÃğÆÁºÍĞİÃß×èÖ¹¹¤¾ß.lnk"
+  Delete "$SMPROGRAMS\$ICONS_GROUP\ÏÂÔØÔ´´úÂë.lnk"
+  Delete "$DESKTOP\${PRODUCT_NAME}¸½¼ş\ÏÂÔØÔ´´úÂë.lnk"
+
 
   RMDir "$SMPROGRAMS\$ICONS_GROUP"
-
+  RMDir "$DESKTOP\${PRODUCT_NAME}"
 
   RMDir "$INSTDIR"
 
@@ -269,7 +261,7 @@ Section Uninstall
   DeleteRegKey HKLM "${PRODUCT_DIR_REGKEY}"
 SectionEnd
 
-/* æ ¹æ® NSIS è„šæœ¬ç¼–è¾‘è§„åˆ™,æ‰€æœ‰ Function åŒºæ®µå¿…é¡»æ”¾ç½®åœ¨ Section åŒºæ®µä¹‹åç¼–å†™,ä»¥é¿å…å®‰è£…ç¨‹åºå‡ºç°æœªå¯é¢„çŸ¥çš„é—®é¢˜. */
+/* ¸ù¾İ NSIS ½Å±¾±à¼­¹æÔò,ËùÓĞ Function Çø¶Î±ØĞë·ÅÖÃÔÚ Section Çø¶ÎÖ®ºó±àĞ´,ÒÔ±ÜÃâ°²×°³ÌĞò³öÏÖÎ´¿ÉÔ¤ÖªµÄÎÊÌâ. */
 
 Function un.onInit
 FunctionEnd
